@@ -11,6 +11,11 @@ const M = 8
 const min_scored_line = 3
 # matrix of items
 var play_matrix = []
+var player_health = 100
+var enemy_health = 100
+
+var is_player_turn
+var is_enemy_turn
 
 func print_matrix_data(comm = ""):
 	var line_m = ""
@@ -105,6 +110,9 @@ func remove_cell(mouse_x, mouse_y):
 	if mx < 0 or mx >= N or my < 0 or my >= N:
 		return
 	
+	remove_cell_m(mx, my)
+
+func remove_cell_m(mx, my):
 	play_matrix[mx][my].remove_with_animation()
 	play_matrix[mx][my] = null
 
@@ -161,6 +169,8 @@ func update_matrix_play():
 
 func _ready():
 	randomize()
+	is_player_turn = false
+	is_enemy_turn = false
 
 func _on_StartTimer_timeout():
 	generate_matrix()
@@ -170,8 +180,109 @@ func _on_GameTimer_timeout():
 	var scored_lines = update_matrix_play()
 	if scored_lines.size() == 0:
 		$GameTimer.stop()
+		
+		if is_player_turn:
+			is_player_turn = false
+			is_enemy_turn = true
+		elif is_enemy_turn:
+			is_player_turn = true
+			is_enemy_turn = false
+		else:
+			is_player_turn = randf() > 0.5
+			is_enemy_turn = not is_player_turn
+		
+		if is_enemy_turn:
+			$MessageGroup/MessageLabel.text = "Enemy's turn"
+			$EnemyTimer.start()
+			
+		if is_player_turn:
+			$MessageGroup/MessageLabel.text = "Your turn"
+	
+	var damage = 0
+	for score_line in scored_lines:
+		damage += score_line.score
+	
+	if is_player_turn:
+		$EnemyHealthBar.set_damage(damage)
+	elif is_enemy_turn:
+		$PlayerHealthBar.set_damage(damage)
 
 func _input(event):
-	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
+	if is_player_turn and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		remove_cell(event.position.x, event.position.y)
+		$EnemyHealthBar.set_damage(1)
 		$GameTimer.start()
+
+func enemyTurn():
+	var posible_point = {}
+	posible_point.mx = randi() % N
+	posible_point.my = randi() % N
+	posible_point.score = 1
+	print_debug("initial enemy point:", posible_point)
+	for mxi in range(N):
+		for myi in range(N):
+			var current_score = check_point(mxi, myi)
+			
+			if current_score > posible_point.score:
+				posible_point.score = current_score
+				posible_point.mx = mxi
+				posible_point.my = myi
+	
+	print_debug("generated enemy point:", posible_point)
+	remove_cell_m(posible_point.mx, posible_point.my)
+	$PlayerHealthBar.set_damage(1)
+	$EnemyTimer.stop()
+	$GameTimer.start()
+
+func check_point(mx0, my0):
+	var play_matrix_v = []
+	
+	for mx in range(N):
+		play_matrix_v.append([])
+		for my in range(N):
+			if mx == mx0 and my > 0 and my <= my0:
+				play_matrix_v[mx].append(play_matrix[mx][my-1].get_type())
+			elif mx == mx0 and my == 0:
+				play_matrix_v[mx].append(0)
+			else:
+				play_matrix_v[mx].append(play_matrix[mx][my].get_type())
+	
+	var scores = 0
+	
+	for mx in range(N-min_scored_line+1):
+		for my in range(N):
+			var current_type = play_matrix_v[mx][my]
+			var current_score = 0 
+			
+			for mxs in range(mx, N):
+				var i_type = play_matrix_v[mxs][my]
+				
+				if current_type > 0 and current_type == i_type:
+					current_score += 1
+				else:
+					current_type = 0
+			
+			if current_score >= min_scored_line:
+				scores += current_score
+	
+	for mx in range(N):
+		for my in range(N-min_scored_line+1):
+			var current_type = play_matrix_v[mx][my]
+			var current_score = 0 
+			
+			for mys in range(my, N):
+				var i_type = play_matrix_v[mx][mys]
+				
+				if current_type > 0 and current_type == i_type:
+					current_score += 1
+				else:
+					current_type = 0
+			
+			if current_score >= min_scored_line:
+				scores += current_score
+	
+	return scores
+
+
+func _on_EnemyTimer_timeout():
+	enemyTurn()

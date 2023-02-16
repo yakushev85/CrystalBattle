@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/objects/ui/HealthBar.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0, 0, 0.776471 )
+border_color = Color( 0, 0, 0, 0.705882 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0.462745 )
+border_color = Color( 0, 0, 0, 0.705882 )
+border_blend = true
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_right = 300.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+step = 1.0
+value = 50.0
