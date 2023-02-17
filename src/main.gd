@@ -1,7 +1,15 @@
 extends Node2D
 
+signal enemy_won
+signal player_won
+
 export (PackedScene) var item_scene
 export var item_size = 64
+export var player_health = 100
+export var player_dps = 1.0
+export var enemy_health = 100
+export var enemy_dps = 1.0
+export var background_type = 1
 
 # matrix size
 const N = 10
@@ -9,27 +17,16 @@ const N = 10
 const M = 8
 # minimum length for scored line
 const min_scored_line = 3
+# player time limit in sec
+const PLAYER_TIME_LIMIT = 31 
 # matrix of items
 var play_matrix = []
-var player_health = 100
-var enemy_health = 100
-
+# game flags
 var is_player_turn
 var is_enemy_turn
-
-func print_matrix_data(comm = ""):
-	var line_m = ""
-	
-	for mxi in range(N):
-		for myi in range(N):
-			if play_matrix[mxi][myi] == null:
-				line_m += "n"
-			else:
-				line_m += str(play_matrix[mxi][myi].get_type())
-				
-		line_m += "\n"
-	
-	print_debug(comm, "\n", line_m)
+var is_finished
+# player's time
+var player_time
 
 func generate_matrix():
 	for mx in range(N):
@@ -171,15 +168,32 @@ func _ready():
 	randomize()
 	is_player_turn = false
 	is_enemy_turn = false
+	is_finished = false
+	$BackgroundGroup/TextureRect.texture = load("res://assets/background/game_background_" + str(background_type) + ".png")
 
 func _on_StartTimer_timeout():
 	generate_matrix()
 	$GameTimer.start()
 
 func _on_GameTimer_timeout():
+	if is_finished:
+		return
+	
 	var scored_lines = update_matrix_play()
 	if scored_lines.size() == 0:
 		$GameTimer.stop()
+		
+		if $PlayerHealthBar/ProgressBar.value <= 0:
+			is_finished = true
+			$MessageGroup/MessageLabel.text = "You loose"
+			emit_signal("enemy_won")
+			return
+		
+		if $EnemyHealthBar/ProgressBar.value <= 0:
+			is_finished = true
+			$MessageGroup/MessageLabel.text = "You win!!"
+			emit_signal("player_won")
+			return
 		
 		if is_player_turn:
 			is_player_turn = false
@@ -196,21 +210,23 @@ func _on_GameTimer_timeout():
 			$EnemyTimer.start()
 			
 		if is_player_turn:
-			$MessageGroup/MessageLabel.text = "Your turn"
+			player_time = PLAYER_TIME_LIMIT
+			$PlayerTimer.start()
 	
 	var damage = 0
 	for score_line in scored_lines:
 		damage += score_line.score
 	
 	if is_player_turn:
-		$EnemyHealthBar.set_damage(damage)
+		$EnemyHealthBar.set_damage(damage*player_dps)
 	elif is_enemy_turn:
-		$PlayerHealthBar.set_damage(damage)
+		$PlayerHealthBar.set_damage(damage*enemy_dps)
 
 func _input(event):
-	if is_player_turn and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
+	if is_player_turn and not is_finished and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		remove_cell(event.position.x, event.position.y)
-		$EnemyHealthBar.set_damage(1)
+		$EnemyHealthBar.set_damage(player_dps)
+		$PlayerTimer.stop()
 		$GameTimer.start()
 
 func enemyTurn():
@@ -218,7 +234,7 @@ func enemyTurn():
 	posible_point.mx = randi() % N
 	posible_point.my = randi() % N
 	posible_point.score = 1
-	print_debug("initial enemy point:", posible_point)
+	#print_debug("initial enemy point:", posible_point)
 	for mxi in range(N):
 		for myi in range(N):
 			var current_score = check_point(mxi, myi)
@@ -228,9 +244,9 @@ func enemyTurn():
 				posible_point.mx = mxi
 				posible_point.my = myi
 	
-	print_debug("generated enemy point:", posible_point)
+	#print_debug("generated enemy point:", posible_point)
 	remove_cell_m(posible_point.mx, posible_point.my)
-	$PlayerHealthBar.set_damage(1)
+	$PlayerHealthBar.set_damage(enemy_dps)
 	$EnemyTimer.stop()
 	$GameTimer.start()
 
@@ -286,3 +302,17 @@ func check_point(mx0, my0):
 
 func _on_EnemyTimer_timeout():
 	enemyTurn()
+
+
+func _on_PlayerTimer_timeout():
+	if player_time > 0:
+		player_time -= 1
+		
+		var formatted_time = str(player_time)
+		if player_time < 10:
+			formatted_time = "0" + formatted_time
+			
+		$MessageGroup/MessageLabel.text = "Your turn 0:" + formatted_time
+	else:
+		$PlayerTimer.stop()
+		$GameTimer.start()
