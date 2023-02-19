@@ -44,9 +44,6 @@ position = Vector2( 1200, 50 )
 z_index = 101
 is_enemy = true
 
-[node name="GameArea" type="Node2D" parent="."]
-position = Vector2( 320, 64 )
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true

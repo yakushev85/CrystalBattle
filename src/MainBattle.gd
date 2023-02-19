@@ -12,6 +12,8 @@ export var enemy_dps = 1.0
 export var background_type = 1
 export var player_type = 4
 export var enemy_type = 3
+export var game_area_x = 320
+export var game_area_y = 64
 
 # matrix size
 const N = 10
@@ -138,8 +140,8 @@ func generate_matrix():
 			
 			item.set_type((randi() % M) + 1)
 			
-			item.position.x = $GameArea.position.x + item_size*mx + item_size/2
-			item.position.y = $GameArea.position.y + item_size*my + item_size/2
+			item.position.x = game_area_x + item_size*mx + item_size/2
+			item.position.y = game_area_y + item_size*my + item_size/2
 			
 			play_matrix[mx].append(item)
 			add_child(play_matrix[mx][my])
@@ -205,8 +207,8 @@ func remove_lines(scored_lines):
 
 
 func remove_cell(mouse_x, mouse_y):
-	var mx = (mouse_x - $GameArea.position.x) / item_size
-	var my = (mouse_y - $GameArea.position.y) / item_size
+	var mx = (mouse_x - game_area_x) / item_size
+	var my = (mouse_y - game_area_y) / item_size
 	
 	if mx < 0 or mx >= N or my < 0 or my >= N:
 		return
@@ -231,7 +233,7 @@ func move_upper_lines():
 					play_matrix[mxi][myi] = null
 					priz = true
 					# apply animation
-					play_matrix[mxi][myi+1].go_down($GameArea.position.y + item_size*(myi+1) + item_size/2)
+					play_matrix[mxi][myi+1].go_down(game_area_y + item_size*(myi+1) + item_size/2)
 
 	priz = true
 	var empty_mx = -1
@@ -252,13 +254,13 @@ func move_upper_lines():
 			# create new item
 			var item = item_scene.instance()
 			item.set_type((randi() % M) + 1)
-			item.position.x = $GameArea.position.x + item_size*empty_mx + item_size/2
-			item.position.y = $GameArea.position.y - item_size*(N-empty_my+3) + item_size/2
+			item.position.x = game_area_x + item_size*empty_mx + item_size/2
+			item.position.y = game_area_y - item_size*(N-empty_my+3) + item_size/2
 			# update matrix data
 			play_matrix[empty_mx][empty_my] = item
 			add_child(item)
 			# apply animation
-			item.go_down($GameArea.position.y + item_size*empty_my + item_size/2)	
+			item.go_down(game_area_y + item_size*empty_my + item_size/2)	
 
 
 func update_matrix_play():
