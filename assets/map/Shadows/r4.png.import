@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/r4.png-63d9793a31ad2b9e43aeddbeb5deee68.stex"
+path="res://.import/r4.png-f1c90dfa3cb427dc7ba21861bad3bdee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Shadows/r4.png"
-dest_files=[ "res://.import/r4.png-63d9793a31ad2b9e43aeddbeb5deee68.stex" ]
+source_file="res://assets/map/shadows/r4.png"
+dest_files=[ "res://.import/r4.png-f1c90dfa3cb427dc7ba21861bad3bdee.stex" ]
 
 [params]
 

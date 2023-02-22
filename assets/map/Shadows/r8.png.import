@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/r8.png-dfe092ff701843fa24d62b06c3956f8a.stex"
+path="res://.import/r8.png-88062b6387a89cf7d3c7a41441145e5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Shadows/r8.png"
-dest_files=[ "res://.import/r8.png-dfe092ff701843fa24d62b06c3956f8a.stex" ]
+source_file="res://assets/map/shadows/r8.png"
+dest_files=[ "res://.import/r8.png-88062b6387a89cf7d3c7a41441145e5e.stex" ]
 
 [params]
 

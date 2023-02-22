@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6.png-8606a59c148e288737884a97f10d5b47.stex"
+path="res://.import/6.png-40889e17f0e55205e35f8d6a71e7702d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Objects/Crystals/6.png"
-dest_files=[ "res://.import/6.png-8606a59c148e288737884a97f10d5b47.stex" ]
+source_file="res://assets/map/objects/Crystals/6.png"
+dest_files=[ "res://.import/6.png-40889e17f0e55205e35f8d6a71e7702d.stex" ]
 
 [params]
 

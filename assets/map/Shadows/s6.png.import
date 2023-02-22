@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/s6.png-e5f8068bd58da1c6eb791f4ea7f0e26e.stex"
+path="res://.import/s6.png-166b1ee75b2f86ef460a94969db9a7eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Shadows/s6.png"
-dest_files=[ "res://.import/s6.png-e5f8068bd58da1c6eb791f4ea7f0e26e.stex" ]
+source_file="res://assets/map/shadows/s6.png"
+dest_files=[ "res://.import/s6.png-166b1ee75b2f86ef460a94969db9a7eb.stex" ]
 
 [params]
 

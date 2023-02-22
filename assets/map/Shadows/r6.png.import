@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/r6.png-0960c06a4d6acd82cf3998262a27eba0.stex"
+path="res://.import/r6.png-dfad68cfab97de6a24defbe5a346864e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Shadows/r6.png"
-dest_files=[ "res://.import/r6.png-0960c06a4d6acd82cf3998262a27eba0.stex" ]
+source_file="res://assets/map/shadows/r6.png"
+dest_files=[ "res://.import/r6.png-dfad68cfab97de6a24defbe5a346864e.stex" ]
 
 [params]
 

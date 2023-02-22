@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fog_tiles.png-b733a70448962700b2e8a13107fced31.stex"
+path="res://.import/Fog_tiles.png-2ccac7d7944cab85533c1ac50e44c142.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Fog/Fog_tiles.png"
-dest_files=[ "res://.import/Fog_tiles.png-b733a70448962700b2e8a13107fced31.stex" ]
+source_file="res://assets/map/fog/Fog_tiles.png"
+dest_files=[ "res://.import/Fog_tiles.png-2ccac7d7944cab85533c1ac50e44c142.stex" ]
 
 [params]
 
