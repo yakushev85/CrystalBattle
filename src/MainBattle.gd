@@ -35,6 +35,13 @@ var player_time
 func _ready():
 	randomize()
 	
+	enemy_type = Global.battle_info.enemy_type
+	enemy_health = Global.battle_info.enemy_health
+	enemy_dps = Global.battle_info.enemy_damage
+	
+	player_health = Global.player_info.health
+	player_dps = Global.player_info.damage
+	
 	is_player_turn = false
 	is_enemy_turn = false
 	is_finished = false
@@ -50,6 +57,8 @@ func _ready():
 	$EnemyHealthBar.init_with_max()
 	$EnemyAvatar.avatar_type = enemy_type
 	$EnemyAvatar.refresh_avatar()
+	
+	$MessageGroup/BigLabel.hide()
 
 
 func _on_StartTimer_timeout():
@@ -66,14 +75,10 @@ func _on_GameTimer_timeout():
 		$GameTimer.stop()
 		
 		if $PlayerHealthBar/ProgressBar.value <= 0:
-			is_finished = true
-			$MessageGroup/MessageLabel.text = "You loose"
 			emit_signal("enemy_won")
 			return
 		
 		if $EnemyHealthBar/ProgressBar.value <= 0:
-			is_finished = true
-			$MessageGroup/MessageLabel.text = "You win!!"
 			emit_signal("player_won")
 			return
 		
@@ -345,3 +350,26 @@ func check_point(mx0, my0):
 	
 	return scores
 
+
+func _on_MainBattle_enemy_won():
+	is_finished = true
+	$MessageGroup/MessageLabel.hide()
+	$MessageGroup/BigLabel.show()
+	$MessageGroup/BigLabel.text = "You loose"
+	Global.player_info.position = Vector2.ZERO
+	Global.battle_info.status = "L"
+	$FinishTimer.start()
+
+
+func _on_MainBattle_player_won():
+	is_finished = true
+	$MessageGroup/MessageLabel.hide()
+	$MessageGroup/BigLabel.show()
+	$MessageGroup/BigLabel.text = "You win!!"
+	Global.map_info.hiden_battle_entry.append(Global.battle_info.entity_name)
+	Global.battle_info.status = "W"
+	$FinishTimer.start()
+
+
+func _on_FinishTimer_timeout():
+	get_tree().change_scene("res://src/WorldMap.tscn")
