@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/objects/item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/MainBattle.gd" type="Script" id=2]
 [ext_resource path="res://src/objects/ui/Avatar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/objects/ui/HealthBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://src/objects/ui/SpellBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/objects/ui/ManaBar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -44,12 +46,16 @@ position = Vector2( 960, 20 )
 z_index = 100
 
 [node name="PlayerAvatar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 17, 50 )
+position = Vector2( 17, 80 )
 z_index = 101
 
 [node name="PlayerHealthBar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 20, 20 )
 z_index = 100
+
+[node name="PlayerManaBar" parent="." instance=ExtResource( 7 )]
+position = Vector2( 20, 50 )
+z_index = 101
 
 [node name="EnemyAvatar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1200, 50 )
@@ -79,6 +85,9 @@ margin_top = -300.0
 margin_right = 3840.0
 margin_bottom = 1860.0
 rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="PlayerSpellBox" parent="." instance=ExtResource( 6 )]
+position = Vector2( 17, 180 )
 
 [connection signal="enemy_won" from="." to="." method="_on_MainBattle_enemy_won"]
 [connection signal="player_won" from="." to="." method="_on_MainBattle_player_won"]

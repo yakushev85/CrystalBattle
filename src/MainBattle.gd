@@ -6,6 +6,7 @@ signal player_won
 export (PackedScene) var item_scene
 export var item_size = 64
 export var player_health = 100
+export var player_mana = 100
 export var player_dps = 1.0
 export var enemy_health = 100
 export var enemy_dps = 1.0
@@ -40,6 +41,7 @@ func _ready():
 	enemy_dps = Global.battle_info.enemy_damage
 	
 	player_health = Global.player_info.health
+	player_mana = Global.player_info.mana
 	player_dps = Global.player_info.damage
 	
 	is_player_turn = false
@@ -59,6 +61,9 @@ func _ready():
 	$EnemyAvatar.refresh_avatar()
 	
 	$MessageGroup/BigLabel.hide()
+	
+	$PlayerSpellBox.is_selection_allowed = false
+	$PlayerSpellBox.set_visible_spells(["HealSpell"])
 
 
 func _on_StartTimer_timeout():
@@ -93,10 +98,13 @@ func _on_GameTimer_timeout():
 			is_enemy_turn = not is_player_turn
 		
 		if is_enemy_turn:
+			$PlayerSpellBox.clear_selection()
+			$PlayerSpellBox.is_selection_allowed = false
 			$MessageGroup/MessageLabel.text = "Enemy's turn"
 			$EnemyTimer.start()
 			
 		if is_player_turn:
+			$PlayerSpellBox.is_selection_allowed = true
 			player_time = PLAYER_TIME_LIMIT
 			$PlayerTimer.start()
 	
@@ -130,7 +138,8 @@ func _on_PlayerTimer_timeout():
 
 func _input(event):
 	if is_player_turn and not is_finished and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
-		remove_cell(event.position.x, event.position.y)
+		if not remove_cell(event.position.x, event.position.y):
+			return
 		$EnemyHealthBar.set_damage(player_dps)
 		$PlayerTimer.stop()
 		$GameTimer.start()
@@ -216,9 +225,11 @@ func remove_cell(mouse_x, mouse_y):
 	var my = (mouse_y - game_area_y) / item_size
 	
 	if mx < 0 or mx >= N or my < 0 or my >= N:
-		return
+		return false
 	
 	remove_cell_m(mx, my)
+	
+	return true
 
 
 func remove_cell_m(mx, my):
@@ -373,3 +384,4 @@ func _on_MainBattle_player_won():
 
 func _on_FinishTimer_timeout():
 	get_tree().change_scene("res://src/WorldMap.tscn")
+

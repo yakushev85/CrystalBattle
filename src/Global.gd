@@ -6,6 +6,7 @@ var map_info = {
 
 var player_info = {
 	"health": 200,
+	"mana": 100,
 	"damage": 1.0,
 	"position": Vector2.ZERO
 }
