@@ -8,7 +8,8 @@ var player_info = {
 	"health": 200,
 	"mana": 100,
 	"damage": 1.0,
-	"position": Vector2.ZERO
+	"position": Vector2.ZERO,
+	"spells": ["HealSpell", "IncreaseDamageSpell", "EnemySkipSpell"]
 }
 
 var battle_info = {

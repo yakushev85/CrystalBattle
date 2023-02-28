@@ -9,12 +9,16 @@ func _ready():
 func set_damage(damage_value):
 	set_health_value(current_health_value-damage_value)
 
+func set_heal(heal_value):
+	if current_health_value+heal_value > max_health_value:
+		set_health_value(max_health_value)
+	else:
+		set_health_value(current_health_value+heal_value)
+
 func set_health_value(hv):
 	current_health_value = hv
-	$ProgressBar.value = int(100*(current_health_value/max_health_value))
-	
-func get_health_value():
-	return current_health_value
+	$Label.text = str(current_health_value)
+	$ProgressBar.value = int(100*(current_health_value*1.0/max_health_value))
 
 func init_with_max():
 	set_health_value(max_health_value)

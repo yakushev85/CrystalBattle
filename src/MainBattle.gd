@@ -63,7 +63,7 @@ func _ready():
 	$MessageGroup/BigLabel.hide()
 	
 	$PlayerSpellBox.is_selection_allowed = false
-	$PlayerSpellBox.set_visible_spells(["HealSpell"])
+	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
 
 
 func _on_StartTimer_timeout():
@@ -88,8 +88,11 @@ func _on_GameTimer_timeout():
 			return
 		
 		if is_player_turn:
-			is_player_turn = false
-			is_enemy_turn = true
+			if $PlayerSpellBox.selected_spell == "EnemySkipSpell":
+				$PlayerSpellBox.clear_selection()
+			else:
+				is_player_turn = false
+				is_enemy_turn = true
 		elif is_enemy_turn:
 			is_player_turn = true
 			is_enemy_turn = false
@@ -98,13 +101,15 @@ func _on_GameTimer_timeout():
 			is_enemy_turn = not is_player_turn
 		
 		if is_enemy_turn:
+			print_debug("Enemy turn")
 			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = false
 			$MessageGroup/MessageLabel.text = "Enemy's turn"
 			$EnemyTimer.start()
-			
-		if is_player_turn:
+		elif is_player_turn:
+			print_debug("Player turn")
 			$PlayerSpellBox.is_selection_allowed = true
+			check_spells()
 			player_time = PLAYER_TIME_LIMIT
 			$PlayerTimer.start()
 	
@@ -113,9 +118,9 @@ func _on_GameTimer_timeout():
 		damage += score_line.score
 	
 	if is_player_turn:
-		$EnemyHealthBar.set_damage(damage*player_dps)
+		do_enemy_damage(damage*player_dps)
 	elif is_enemy_turn:
-		$PlayerHealthBar.set_damage(damage*enemy_dps)
+		do_player_damage(damage*enemy_dps)
 
 
 func _on_EnemyTimer_timeout():
@@ -140,7 +145,8 @@ func _input(event):
 	if is_player_turn and not is_finished and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		if not remove_cell(event.position.x, event.position.y):
 			return
-		$EnemyHealthBar.set_damage(player_dps)
+		$PlayerManaBar.is_mana_damaged = false
+		do_enemy_damage(player_dps)
 		$PlayerTimer.stop()
 		$GameTimer.start()
 
@@ -307,7 +313,7 @@ func enemy_turn():
 	
 	#print_debug("generated enemy point:", posible_point)
 	remove_cell_m(posible_point.mx, posible_point.my)
-	$PlayerHealthBar.set_damage(enemy_dps)
+	do_player_damage(enemy_dps)
 	$EnemyTimer.stop()
 	$GameTimer.start()
 
@@ -385,3 +391,40 @@ func _on_MainBattle_player_won():
 func _on_FinishTimer_timeout():
 	get_tree().change_scene("res://src/WorldMap.tscn")
 
+func check_spells():
+	var mana_value = $PlayerManaBar.current_mana_value
+	var new_visible_spells = []
+	
+	for spell_name in $PlayerSpellBox.visible_spells:
+		if $PlayerSpellBox.get_cost_by_spell(spell_name) <= $PlayerManaBar.current_mana_value:
+			new_visible_spells.append(spell_name)
+	
+	$PlayerSpellBox.set_visible_spells(new_visible_spells) 
+
+func do_enemy_damage(dv):
+	if dv == 0:
+		return
+	
+	if $PlayerSpellBox.selected_spell == "HealSpell":
+		print_debug("HealSpell ", dv)
+		$PlayerHealthBar.set_heal(dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("HealSpell"))
+	elif $PlayerSpellBox.selected_spell == "IncreaseDamageSpell":
+		print_debug("IncreaseDamageSpell 2 * ", dv)
+		$EnemyHealthBar.set_damage(2*dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("IncreaseDamageSpell"))
+	elif $PlayerSpellBox.selected_spell == "EnemySkipSpell":
+		print_debug("EnemySkipSpell ", dv)
+		$EnemyHealthBar.set_damage(dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("EnemySkipSpell"))
+	else:
+		print_debug("Damage ", dv)
+		$EnemyHealthBar.set_damage(dv)
+
+
+func do_player_damage(dv):
+	if dv == 0:
+		return
+	
+	print_debug("Damage ", dv)
+	$PlayerHealthBar.set_damage(dv)
