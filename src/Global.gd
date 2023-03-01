@@ -7,9 +7,9 @@ var map_info = {
 var player_info = {
 	"health": 200,
 	"mana": 100,
-	"damage": 1.0,
+	"damage": 5.0,
 	"position": Vector2.ZERO,
-	"spells": ["HealSpell", "IncreaseDamageSpell", "EnemySkipSpell"]
+	"spells": []
 }
 
 var battle_info = {
@@ -17,5 +17,11 @@ var battle_info = {
 	"enemy_type": 7,
 	"enemy_health": 100,
 	"enemy_damage": 1.0,
+	"award": {
+		"health": 0,
+		"mana": 0,
+		"damage": 0,
+		"spell": ""
+	},
 	"status": ""
 }

@@ -64,6 +64,8 @@ func _ready():
 	
 	$PlayerSpellBox.is_selection_allowed = false
 	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
+	
+	#$AwardBox.hide()
 
 
 func _on_StartTimer_timeout():
@@ -102,12 +104,12 @@ func _on_GameTimer_timeout():
 		
 		if is_enemy_turn:
 			print_debug("Enemy turn")
-			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = false
 			$MessageGroup/MessageLabel.text = "Enemy's turn"
 			$EnemyTimer.start()
 		elif is_player_turn:
 			print_debug("Player turn")
+			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = true
 			check_spells()
 			player_time = PLAYER_TIME_LIMIT
@@ -232,8 +234,14 @@ func remove_cell(mouse_x, mouse_y):
 	
 	if mx < 0 or mx >= N or my < 0 or my >= N:
 		return false
+		
+	if $PlayerSpellBox.selected_spell == "RegenSpaceSpell":
+		regen_space()
 	
-	remove_cell_m(mx, my)
+	if $PlayerSpellBox.selected_spell == "RandomLineSpell":
+		random_lines(mx, my)
+	else:
+		remove_cell_m(mx, my)
 	
 	return true
 
@@ -385,7 +393,8 @@ func _on_MainBattle_player_won():
 	$MessageGroup/BigLabel.text = "You win!!"
 	Global.map_info.hiden_battle_entry.append(Global.battle_info.entity_name)
 	Global.battle_info.status = "W"
-	$FinishTimer.start()
+	collect_awards()
+	$AwardBox.show()
 
 
 func _on_FinishTimer_timeout():
@@ -417,6 +426,18 @@ func do_enemy_damage(dv):
 		print_debug("EnemySkipSpell ", dv)
 		$EnemyHealthBar.set_damage(dv)
 		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("EnemySkipSpell"))
+	elif $PlayerSpellBox.selected_spell == "RandomLineSpell":
+		print_debug("RandomLineSpell ", dv)
+		$EnemyHealthBar.set_damage(dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("RandomLineSpell"))
+	elif $PlayerSpellBox.selected_spell == "ReflectDamageSpell":
+		print_debug("ReflectDamageSpell ", dv)
+		$EnemyHealthBar.set_damage(dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("ReflectDamageSpell"))
+	elif $PlayerSpellBox.selected_spell == "RegenSpaceSpell":
+		print_debug("RegenSpaceSpell ", dv)
+		$EnemyHealthBar.set_damage(dv)
+		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("RegenSpaceSpell"))
 	else:
 		print_debug("Damage ", dv)
 		$EnemyHealthBar.set_damage(dv)
@@ -426,5 +447,29 @@ func do_player_damage(dv):
 	if dv == 0:
 		return
 	
-	print_debug("Damage ", dv)
-	$PlayerHealthBar.set_damage(dv)
+	if $PlayerSpellBox.selected_spell == "ReflectDamageSpell":
+		print_debug("ReflectDamageSpell ", dv)
+		$EnemyHealthBar.set_damage(dv)
+	else:
+		print_debug("Damage ", dv)
+		$PlayerHealthBar.set_damage(dv)
+
+
+func random_lines(mx, my):
+	for i in range(N):
+		play_matrix[mx][i].set_type((randi() % M) + 1)
+		play_matrix[i][my].set_type((randi() % M) + 1)
+
+
+func regen_space():
+	for mx in range(N):
+		for my in range(N):
+			play_matrix[mx][my].set_type((randi() % M) + 1)
+
+func collect_awards():
+	Global.player_info.health += Global.battle_info.award.health
+	Global.player_info.mana += Global.battle_info.award.mana
+	Global.player_info.damage += Global.battle_info.award.damage
+	var new_spell = Global.battle_info.award.spell
+	if new_spell != null and new_spell != "":
+		Global.player_info.spells.append(new_spell)

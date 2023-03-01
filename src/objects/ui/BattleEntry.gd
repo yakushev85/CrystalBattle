@@ -4,6 +4,11 @@ export var enemy_health = 100
 export var enemy_damage = 1.0
 export var enemy_type = 1
 
+export var award_health = 0
+export var award_mana = 0
+export var award_damage = 0
+export var award_spell = ""
+
 func _ready():
 	if is_hidden():
 		$TextureRect.hide()

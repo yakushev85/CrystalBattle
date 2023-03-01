@@ -18,6 +18,13 @@ z_index = 102
 [node name="BattleEntry1" parent="BattleGroup" instance=ExtResource( 3 )]
 position = Vector2( 192, 640 )
 enemy_type = 7
+award_health = 50
+award_mana = 10
+award_spell = "HealSpell"
+
+[node name="BattleEntry" parent="BattleGroup" instance=ExtResource( 3 )]
+position = Vector2( 64, 544 )
+enemy_type = 6
 
 [node name="EnvironmentTileMap" type="TileMap" parent="."]
 z_index = 101
