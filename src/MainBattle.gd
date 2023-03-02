@@ -40,6 +40,8 @@ func _ready():
 	enemy_health = Global.battle_info.enemy_health
 	enemy_dps = Global.battle_info.enemy_damage
 	
+	background_type = Global.battle_info.enemy_background
+	
 	player_health = Global.player_info.health
 	player_mana = Global.player_info.mana
 	player_dps = Global.player_info.damage
@@ -52,6 +54,8 @@ func _ready():
 	
 	$PlayerHealthBar.max_health_value = player_health
 	$PlayerHealthBar.init_with_max()
+	$PlayerManaBar.max_mana_value = player_mana
+	$PlayerManaBar.init_with_max()
 	$PlayerAvatar.avatar_type = player_type
 	$PlayerAvatar.refresh_avatar()
 	
@@ -65,7 +69,7 @@ func _ready():
 	$PlayerSpellBox.is_selection_allowed = false
 	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
 	
-	#$AwardBox.hide()
+	$AwardBox.hide()
 
 
 func _on_StartTimer_timeout():
@@ -383,6 +387,7 @@ func _on_MainBattle_enemy_won():
 	$MessageGroup/BigLabel.text = "You loose"
 	Global.player_info.position = Vector2.ZERO
 	Global.battle_info.status = "L"
+	$FinishTimer.wait_time = 2
 	$FinishTimer.start()
 
 
@@ -393,8 +398,10 @@ func _on_MainBattle_player_won():
 	$MessageGroup/BigLabel.text = "You win!!"
 	Global.map_info.hiden_battle_entry.append(Global.battle_info.entity_name)
 	Global.battle_info.status = "W"
-	collect_awards()
+	Global.collect_awards()
 	$AwardBox.show()
+	$FinishTimer.wait_time = 4
+	$FinishTimer.start()
 
 
 func _on_FinishTimer_timeout():
@@ -466,10 +473,3 @@ func regen_space():
 		for my in range(N):
 			play_matrix[mx][my].set_type((randi() % M) + 1)
 
-func collect_awards():
-	Global.player_info.health += Global.battle_info.award.health
-	Global.player_info.mana += Global.battle_info.award.mana
-	Global.player_info.damage += Global.battle_info.award.damage
-	var new_spell = Global.battle_info.award.spell
-	if new_spell != null and new_spell != "":
-		Global.player_info.spells.append(new_spell)

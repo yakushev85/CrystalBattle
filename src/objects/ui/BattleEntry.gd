@@ -3,6 +3,7 @@ extends Node2D
 export var enemy_health = 100
 export var enemy_damage = 1.0
 export var enemy_type = 1
+export var enemy_background = 1
 
 export var award_health = 0
 export var award_mana = 0
@@ -20,6 +21,11 @@ func go_fight():
 	Global.battle_info.enemy_type = enemy_type
 	Global.battle_info.enemy_health = enemy_health
 	Global.battle_info.enemy_damage = enemy_damage
+	Global.battle_info.enemy_background = enemy_background
+	Global.battle_info.award.health = award_health
+	Global.battle_info.award.mana = award_mana
+	Global.battle_info.award.damage = award_damage
+	Global.battle_info.award.spell = award_spell
 	
 	get_tree().change_scene("res://src/MainBattle.tscn")
 

@@ -5,15 +5,10 @@ func _ready():
 	$ManaLabel.text = "+ " + str(Global.battle_info.award.mana) + " mana"
 	$DamageLabel.text = "+ " + str(100*Global.battle_info.award.damage) + " damage"
 	
-	if Global.battle_info.award.spell != null and Global.battle_info.award.spell != "":
-		#$SpellRect.texture = load()
-		#$SpellLabel.text = ""
-		pass
+	var spell = Global.get_spell_by_name(Global.battle_info.award.spell)
+	if spell != null:
+		$SpellRect.texture = load(spell.icon)
+		$SpellLabel.text = "New spell!\n" + spell.description + "\nThe spell costs " + str(spell.cost) + " mana."
 	else:
 		$SpellLabel.text = "No spell."
-	
 
-
-func _on_ButtonLabel_gui_input(event):
-	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
-		get_tree().change_scene("res://src/WorldMap.tscn")
