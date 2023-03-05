@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal moving_done
+
 var bridge_rects = [
 	{
 		"x0": 112, "y0": 128, "x1": 128, "y1": 160, 
@@ -70,6 +72,7 @@ func _process(delta):
 		
 		if dest_distance < 1:
 			is_bridge_animation = false
+			emit_signal("moving_done")
 		
 		Global.player_info.position = position
 			
@@ -85,6 +88,7 @@ func _process(delta):
 		if collision_obj != null or dest_distance < 1:
 			generated_velocity = Vector2.ZERO
 			check_bridge()
+			emit_signal("moving_done")
 		
 		Global.player_info.position = position
 	else:
