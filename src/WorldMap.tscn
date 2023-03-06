@@ -45,8 +45,131 @@ z_index = 102
 [node name="BattleEntry" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 192, 640 )
 enemy_type = 8
+enemy_background = 4
 award_health = 50
 award_damage = 0.05
+
+[node name="BattleEntry2" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 176, 496 )
+enemy_type = 7
+enemy_background = 4
+award_spell = "HealSpell"
+
+[node name="BattleEntry3" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 64, 640 )
+enemy_damage = 4.0
+enemy_type = 27
+
+[node name="BattleEntry4" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 72, 376 )
+enemy_damage = 4.0
+enemy_type = 25
+
+[node name="BattleEntry5" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 72, 128 )
+enemy_damage = 4.0
+enemy_type = 18
+
+[node name="BattleEntry6" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 256, 256 )
+enemy_type = 26
+enemy_background = 2
+award_spell = "EnemySkipSpell"
+
+[node name="BattleEntry7" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 240, 72 )
+enemy_type = 14
+enemy_background = 2
+
+[node name="BattleEntry8" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 376, 120 )
+enemy_type = 12
+
+[node name="BattleEntry9" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 592, 16 )
+enemy_type = 6
+award_spell = "ReflectDamageSpell"
+
+[node name="BattleEntry10" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 576, 176 )
+enemy_type = 5
+
+[node name="BattleEntry11" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 336, 456 )
+enemy_type = 28
+enemy_background = 3
+
+[node name="BattleEntry12" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 456, 232 )
+enemy_type = 9
+
+[node name="BattleEntry13" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 336, 376 )
+enemy_type = 17
+enemy_background = 3
+
+[node name="BattleEntry14" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 648, 400 )
+enemy_type = 13
+
+[node name="BattleEntry15" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 440, 576 )
+enemy_type = 24
+award_spell = "IncreaseDamageSpell"
+
+[node name="BattleEntry16" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 880, 552 )
+enemy_type = 21
+
+[node name="BattleEntry17" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 816, 576 )
+enemy_type = 22
+
+[node name="BattleEntry18" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1024, 496 )
+enemy_type = 3
+
+[node name="BattleEntry19" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1136, 496 )
+enemy_type = 15
+award_spell = "RandomLineSpell"
+
+[node name="BattleEntry20" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1136, 568 )
+enemy_type = 32
+
+[node name="BattleEntry21" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1048, 336 )
+enemy_type = 29
+
+[node name="BattleEntry22" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 728, 176 )
+enemy_type = 10
+enemy_background = 2
+award_spell = "RegenSpaceSpell"
+
+[node name="BattleEntry23" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 952, 104 )
+enemy_type = 11
+enemy_background = 2
+
+[node name="BattleEntry24" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 888, 16 )
+enemy_type = 33
+enemy_background = 2
+
+[node name="BattleEntry25" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1176, 72 )
+enemy_type = 20
+enemy_background = 3
+
+[node name="BattleEntry26" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 1096, 112 )
+enemy_background = 3
+
+[node name="BattleEntry27" parent="BattleGroup" instance=ExtResource( 31 )]
+position = Vector2( 504, 432 )
+enemy_type = 4
 
 [node name="EnvironmentTileMap" type="TileMap" parent="."]
 z_index = 101
@@ -273,6 +396,9 @@ position = Vector2( 1240, 448 )
 forest_width = 80
 forest_height = 140
 randomizer_value = "324543243253"
+
+[node name="House7" parent="EnvironmentGroup" instance=ExtResource( 28 )]
+position = Vector2( 432, 528 )
 
 [node name="GroundTileMap" type="TileMap" parent="."]
 z_index = 100

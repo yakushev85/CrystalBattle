@@ -4,7 +4,7 @@ signal enemy_won
 signal player_won
 
 export (PackedScene) var item_scene
-export var item_size = 64
+export var item_size = 80
 export var player_health = 100
 export var player_mana = 100
 export var player_dps = 1.0
@@ -17,7 +17,7 @@ export var game_area_x = 320
 export var game_area_y = 64
 
 # matrix size
-const N = 10
+const N = 8
 # matrix items
 const M = 8
 # minimum length for scored line
@@ -422,8 +422,8 @@ func do_enemy_damage(dv):
 		return
 	
 	if $PlayerSpellBox.selected_spell == "HealSpell":
-		print_debug("HealSpell ", dv)
-		$PlayerHealthBar.set_heal(dv)
+		print_debug("HealSpell 2 * ", dv)
+		$PlayerHealthBar.set_heal(2*dv)
 		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("HealSpell"))
 	elif $PlayerSpellBox.selected_spell == "IncreaseDamageSpell":
 		print_debug("IncreaseDamageSpell 2 * ", dv)

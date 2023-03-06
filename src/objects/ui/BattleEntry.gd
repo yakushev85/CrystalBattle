@@ -5,9 +5,9 @@ export var enemy_damage = 1.0
 export var enemy_type = 1
 export var enemy_background = 1
 
-export var award_health = 10
+export var award_health = 30
 export var award_mana = 10
-export var award_damage = 0.01
+export var award_damage = 0.1
 export var award_spell = ""
 
 func _ready():

@@ -17,7 +17,7 @@ func set_heal(heal_value):
 
 func set_health_value(hv):
 	current_health_value = hv
-	$Label.text = str(current_health_value)
+	$Label.text = str(int(current_health_value))
 	$ProgressBar.value = int(100*(current_health_value*1.0/max_health_value))
 
 func init_with_max():

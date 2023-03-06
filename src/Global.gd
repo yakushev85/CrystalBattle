@@ -41,6 +41,7 @@ var spells_info = [
 
 var map_info = {
 	"hiden_battle_entry": [],
+	"cfog_points": []
 }
 
 var player_info = {
