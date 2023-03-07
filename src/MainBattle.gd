@@ -5,14 +5,18 @@ signal player_won
 
 export (PackedScene) var item_scene
 export var item_size = 80
+
 export var player_health = 100
 export var player_mana = 100
 export var player_dps = 1.0
+
 export var enemy_health = 100
 export var enemy_dps = 1.0
 export var background_type = 1
+
 export var player_type = 1
 export var enemy_type = 3
+
 export var game_area_x = 320
 export var game_area_y = 64
 
@@ -32,6 +36,7 @@ var is_enemy_turn
 var is_finished
 # player's time
 var player_time
+var current_enemy_spell = ""
 
 func _ready():
 	randomize()
@@ -113,6 +118,7 @@ func _on_GameTimer_timeout():
 			$EnemyTimer.start()
 		elif is_player_turn:
 			print_debug("Player turn")
+			current_enemy_spell = ""
 			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = true
 			check_spells()
@@ -241,8 +247,7 @@ func remove_cell(mouse_x, mouse_y):
 		
 	if $PlayerSpellBox.selected_spell == "RegenSpaceSpell":
 		regen_space()
-	
-	if $PlayerSpellBox.selected_spell == "RandomLineSpell":
+	elif $PlayerSpellBox.selected_spell == "RandomLineSpell":
 		random_lines(mx, my)
 	else:
 		remove_cell_m(mx, my)
@@ -309,23 +314,40 @@ func update_matrix_play():
 
 
 func enemy_turn():
+	generate_current_enemy_spell()
+	
+	var last_posible_point = {}
+	last_posible_point.mx = randi() % N
+	last_posible_point.my = randi() % N
+	last_posible_point.score = 1
+	
 	var posible_point = {}
 	posible_point.mx = randi() % N
 	posible_point.my = randi() % N
 	posible_point.score = 1
-	#print_debug("initial enemy point:", posible_point)
+	
 	for mxi in range(N):
 		for myi in range(N):
 			var current_score = check_point(mxi, myi)
 			
 			if current_score > posible_point.score:
+				last_posible_point = posible_point
 				posible_point.score = current_score
 				posible_point.mx = mxi
 				posible_point.my = myi
 	
-	#print_debug("generated enemy point:", posible_point)
-	remove_cell_m(posible_point.mx, posible_point.my)
-	do_player_damage(enemy_dps)
+	if current_enemy_spell == "RandomLine":
+		random_lines(posible_point.mx, posible_point.my)
+	elif current_enemy_spell == "RegenSpace":
+		regen_space()
+	else	:
+		remove_cell_m(posible_point.mx, posible_point.my)
+		do_player_damage(enemy_dps)
+		
+		if current_enemy_spell == "DoubleShot":
+			remove_cell_m(last_posible_point.mx, last_posible_point.my)
+			do_player_damage(enemy_dps)
+	
 	$EnemyTimer.stop()
 	$GameTimer.start()
 
@@ -457,6 +479,13 @@ func do_player_damage(dv):
 	if $PlayerSpellBox.selected_spell == "ReflectDamageSpell":
 		print_debug("ReflectDamageSpell ", dv)
 		$EnemyHealthBar.set_damage(dv)
+	elif current_enemy_spell == "StealBlood":
+		print_debug("StealBlood ", dv)
+		$EnemyHealthBar.set_heal(dv)
+		$PlayerHealthBar.set_damage(dv)
+	elif current_enemy_spell == "IncreaseDamage":
+		print_debug("IncreaseDamage 2 * ", dv)
+		$PlayerHealthBar.set_damage(2*dv)
 	else:
 		print_debug("Damage ", dv)
 		$PlayerHealthBar.set_damage(dv)
@@ -472,4 +501,11 @@ func regen_space():
 	for mx in range(N):
 		for my in range(N):
 			play_matrix[mx][my].set_type((randi() % M) + 1)
+
+
+func generate_current_enemy_spell():
+	if Global.battle_info.enemy_s_usage == 0:
+		current_enemy_spell = ""
+	elif (randi() % 100) < Global.battle_info.enemy_s_usage:
+		current_enemy_spell = Global.battle_info.enemy_spells[randi() % Global.battle_info.enemy_spells.length()]
 

@@ -2,7 +2,9 @@ extends Node2D
 
 const FOG_C_DIST = 4
 
-func _ready():		
+func _ready():
+	$FogTileMap.z_index = 120
+			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
 		prepeare_fog()

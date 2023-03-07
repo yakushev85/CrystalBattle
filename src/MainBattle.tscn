@@ -91,7 +91,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 position = Vector2( 17, 180 )
 
 [node name="AwardBox" parent="." instance=ExtResource( 8 )]
-position = Vector2( 500, 420 )
+position = Vector2( 504, 88 )
 z_index = 102
 
 [connection signal="enemy_won" from="." to="." method="_on_MainBattle_enemy_won"]

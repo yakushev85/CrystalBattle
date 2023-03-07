@@ -1,9 +1,11 @@
 extends Node2D
 
 export var enemy_health = 100
-export var enemy_damage = 1.0
+export var enemy_damage = 1.5
 export var enemy_type = 1
 export var enemy_background = 1
+export var enemy_spells = []
+export var enemy_s_usage = 0
 
 export var award_health = 30
 export var award_mana = 10
@@ -22,6 +24,8 @@ func go_fight():
 	Global.battle_info.enemy_health = enemy_health
 	Global.battle_info.enemy_damage = enemy_damage
 	Global.battle_info.enemy_background = enemy_background
+	Global.battle_info.enemy_spells = enemy_spells
+	Global.battle_info.enemy_s_usage = enemy_s_usage
 	Global.battle_info.award.health = award_health
 	Global.battle_info.award.mana = award_mana
 	Global.battle_info.award.damage = award_damage

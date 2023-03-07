@@ -8,7 +8,9 @@ func _ready():
 	var spell = Global.get_spell_by_name(Global.battle_info.award.spell)
 	if spell != null:
 		$SpellRect.texture = load(spell.icon)
+		$SpellRect.show()
 		$SpellLabel.text = "New spell!\n" + spell.description + "\nThe spell costs " + str(spell.cost) + " mana."
 	else:
+		$SpellRect.hide()
 		$SpellLabel.text = "No spell."
 

@@ -1,5 +1,33 @@
 extends Node
 
+var enemy_spells = [
+	{
+		"name": "StealBlood", 
+		"description": "Heal enemy from players damage",
+		"icon": "res://assets/icons/spells/enemy/8.png"
+	}, 
+	{
+		"name": "IncreaseDamage", 
+		"description": "Double enemy damage.",
+		"icon": "res://assets/icons/spells/enemy/43.png"
+	}, 
+	{
+		"name": "DoubleShot", 
+		"description": "Two shots.",
+		"icon": "res://assets/icons/spells/enemy/29.png"
+	}, 
+	{
+		"name": "RandomLine", 
+		"description": "Regenerate vertical and horizantal lines after enemy move.",
+		"icon": "res://assets/icons/spells/enemy/27.png"
+	}, 
+	{
+		"name": "RegenSpace", 
+		"description": "Regenerate the game space.",
+		"icon": "res://assets/icons/spells/enemy/50.png"
+	}
+]
+
 var spells_info = [
 	{
 		"name": "HealSpell", 
@@ -45,9 +73,9 @@ var map_info = {
 }
 
 var player_info = {
-	"health": 200,
+	"health": 150,
 	"mana": 100,
-	"damage": 5.0,
+	"damage": 1.5,
 	"position": Vector2.ZERO,
 	"spells": []
 }
@@ -58,6 +86,8 @@ var battle_info = {
 	"enemy_health": 100,
 	"enemy_damage": 1.0,
 	"enemy_background": 1,
+	"enemy_spells":[],
+	"enemy_s_usage":0,
 	"award": {
 		"health": 0,
 		"mana": 0,
