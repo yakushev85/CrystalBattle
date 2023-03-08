@@ -130,9 +130,9 @@ func _on_GameTimer_timeout():
 		damage += score_line.score
 	
 	if is_player_turn:
-		do_enemy_damage(damage*player_dps)
+		do_enemy_damage(int(damage*player_dps))
 	elif is_enemy_turn:
-		do_player_damage(damage*enemy_dps)
+		do_player_damage(int(damage*enemy_dps))
 
 
 func _on_EnemyTimer_timeout():
@@ -158,7 +158,7 @@ func _input(event):
 		if not remove_cell(event.position.x, event.position.y):
 			return
 		$PlayerManaBar.is_mana_damaged = false
-		do_enemy_damage(player_dps)
+		do_enemy_damage(int(player_dps))
 		$PlayerTimer.stop()
 		$GameTimer.start()
 
@@ -342,11 +342,11 @@ func enemy_turn():
 		regen_space()
 	else	:
 		remove_cell_m(posible_point.mx, posible_point.my)
-		do_player_damage(enemy_dps)
+		do_player_damage(int(enemy_dps))
 		
 		if current_enemy_spell == "DoubleShot":
 			remove_cell_m(last_posible_point.mx, last_posible_point.my)
-			do_player_damage(enemy_dps)
+			do_player_damage(int(enemy_dps))
 	
 	$EnemyTimer.stop()
 	$GameTimer.start()
