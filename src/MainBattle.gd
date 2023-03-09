@@ -75,6 +75,7 @@ func _ready():
 	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
 	
 	$AwardBox.hide()
+	hide_enemy_spell()
 
 
 func _on_StartTimer_timeout():
@@ -118,7 +119,7 @@ func _on_GameTimer_timeout():
 			$EnemyTimer.start()
 		elif is_player_turn:
 			print_debug("Player turn")
-			current_enemy_spell = ""
+			hide_enemy_spell()
 			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = true
 			check_spells()
@@ -315,6 +316,7 @@ func update_matrix_play():
 
 func enemy_turn():
 	generate_current_enemy_spell()
+	show_enemy_spell()
 	
 	var last_posible_point = {}
 	last_posible_point.mx = randi() % N
@@ -429,6 +431,7 @@ func _on_MainBattle_player_won():
 func _on_FinishTimer_timeout():
 	get_tree().change_scene("res://src/WorldMap.tscn")
 
+
 func check_spells():
 	var mana_value = $PlayerManaBar.current_mana_value
 	var new_visible_spells = []
@@ -438,6 +441,7 @@ func check_spells():
 			new_visible_spells.append(spell_name)
 	
 	$PlayerSpellBox.set_visible_spells(new_visible_spells) 
+
 
 func do_enemy_damage(dv):
 	if dv == 0:
@@ -507,5 +511,25 @@ func generate_current_enemy_spell():
 	if Global.battle_info.enemy_s_usage == 0:
 		current_enemy_spell = ""
 	elif (randi() % 100) < Global.battle_info.enemy_s_usage:
-		current_enemy_spell = Global.battle_info.enemy_spells[randi() % Global.battle_info.enemy_spells.length()]
+		current_enemy_spell = Global.battle_info.enemy_spells[randi() % Global.battle_info.enemy_spells.size()]
 
+
+func show_enemy_spell():
+	if current_enemy_spell == "":
+		return
+	
+	var spell_res = ""
+	
+	for item_spell in Global.enemy_spells:
+		if item_spell.name == current_enemy_spell:
+			spell_res = item_spell.icon
+	
+	$EnemySpell/EnemySpellRect.texture = load(spell_res)
+	$EnemySpell/EnemySpellRect.show()
+	
+	
+func hide_enemy_spell():
+	current_enemy_spell = ""
+	$EnemySpell/EnemySpellRect.hide()
+	
+	

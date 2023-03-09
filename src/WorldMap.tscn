@@ -57,9 +57,10 @@ award_spell = "HealSpell"
 
 [node name="BattleEntry3" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 64, 640 )
-enemy_damage = 4.0
 enemy_type = 27
+enemy_background = 4
 enemy_spells = [ "StealBlood" ]
+enemy_s_usage = 25
 
 [node name="BattleEntry4" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 72, 376 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/objects/item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/MainBattle.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/objects/ui/SpellBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/ui/ManaBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/ui/AwardBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/icons/spells/enemy/4.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -93,6 +94,16 @@ position = Vector2( 17, 180 )
 [node name="AwardBox" parent="." instance=ExtResource( 8 )]
 position = Vector2( 504, 88 )
 z_index = 102
+
+[node name="EnemySpell" type="Node2D" parent="."]
+
+[node name="EnemySpellRect" type="TextureRect" parent="EnemySpell"]
+margin_left = 1128.0
+margin_top = 64.0
+margin_right = 1640.0
+margin_bottom = 576.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 9 )
 
 [connection signal="enemy_won" from="." to="." method="_on_MainBattle_enemy_won"]
 [connection signal="player_won" from="." to="." method="_on_MainBattle_player_won"]
