@@ -22,6 +22,7 @@ font_data = ExtResource( 5 )
 script = ExtResource( 2 )
 item_scene = ExtResource( 1 )
 background_type = 4
+player_type = 5
 
 [node name="MessageGroup" type="Node2D" parent="."]
 position = Vector2( 500, 20 )

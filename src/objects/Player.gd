@@ -53,16 +53,12 @@ var bridge_data
 var bridge_velocity
 
 func _ready():
-	$AnimatedSprite.animation = "idle"
-	$AnimatedSprite.playing = true
-	
 	is_bridge_animation = false
 	bridge_data = null
 	bridge_velocity = Vector2.ZERO
 
 func _process(delta):
 	if is_bridge_animation:
-		$AnimatedSprite.animation = "run"
 		bridge_velocity = bridge_velocity.normalized() * speed * delta
 		
 		position = position + bridge_velocity
@@ -77,7 +73,6 @@ func _process(delta):
 		Global.player_info.position = position
 			
 	elif generated_velocity.length() > 0:
-		$AnimatedSprite.animation = "run"
 		generated_velocity = generated_velocity.normalized() * speed * delta
 	
 		var collision_obj = move_and_collide(generated_velocity)
@@ -91,8 +86,6 @@ func _process(delta):
 			emit_signal("moving_done")
 		
 		Global.player_info.position = position
-	else:
-		$AnimatedSprite.animation = "idle"
 	
 
 func _input(event):

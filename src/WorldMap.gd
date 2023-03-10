@@ -4,12 +4,18 @@ const FOG_C_DIST = 4
 
 func _ready():
 	$FogTileMap.z_index = 120
+	$UIGroup.z_index = 125
+	$UIGroup/FinishedLabel.hide()
 			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
 		prepeare_fog()
 	else:
 		clear_fog()
+	
+	if Global.is_game_finished():
+		Global.reset_data()
+		$UIGroup/FinishedLabel.show()
 	
 
 func clear_fog():
@@ -34,3 +40,8 @@ func prepeare_fog():
 
 func _on_Player_moving_done():
 	clear_fog()
+
+
+func _on_FinishedTimer_timeout():
+	queue_free()
+

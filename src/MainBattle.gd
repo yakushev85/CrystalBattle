@@ -411,6 +411,7 @@ func _on_MainBattle_enemy_won():
 	$MessageGroup/BigLabel.text = "You loose"
 	Global.player_info.position = Vector2.ZERO
 	Global.battle_info.status = "L"
+	Global.save_data()
 	$FinishTimer.wait_time = 2
 	$FinishTimer.start()
 
@@ -424,6 +425,7 @@ func _on_MainBattle_player_won():
 	Global.battle_info.status = "W"
 	Global.collect_awards()
 	$AwardBox.show()
+	Global.save_data()
 	$FinishTimer.wait_time = 4
 	$FinishTimer.start()
 

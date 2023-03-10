@@ -67,18 +67,22 @@ var spells_info = [
 	}
 ]
 
-var map_info = {
+var default_map_info = {
 	"hiden_battle_entry": [],
 	"cfog_points": []
 }
 
-var player_info = {
+var map_info = default_map_info
+
+var default_player_info = {
 	"health": 150,
 	"mana": 100,
 	"damage": 1.5,
 	"position": Vector2.ZERO,
 	"spells": []
 }
+
+var player_info = default_player_info
 
 var battle_info = {
 	"entity_name": "",
@@ -115,3 +119,48 @@ func collect_awards():
 	var new_spell = battle_info.award.spell
 	if new_spell != null and new_spell != "":
 		player_info.spells.append(new_spell)
+		
+		
+func is_game_finished():
+	return (map_info.hiden_battle_entry as Array).find("BattleEntry26") >= 0
+
+
+const DATA_SAVE = "user://data.save"
+
+func is_new_game():
+	var data_file = File.new()
+	var is_new = !data_file.file_exists(DATA_SAVE)
+	data_file.close()
+	
+	return is_new
+
+func load_data():
+	var data_file = File.new()
+	
+	if data_file.open(DATA_SAVE, File.READ) == 0:
+		map_info = data_file.get_var()
+		player_info = data_file.get_var()
+	else:
+		print("Can't load ", DATA_SAVE)
+	
+	data_file.close()
+	
+	
+func save_data():
+	var data_file = File.new()
+	
+	if data_file.open(DATA_SAVE, File.WRITE) == 0:
+		data_file.store_var(map_info)
+		data_file.store_var(player_info)
+	else:
+		print("Can't save ", DATA_SAVE)
+	
+	data_file.close()
+	
+
+func reset_data():
+	map_info = default_map_info
+	player_info = default_player_info
+	Directory.new().remove(DATA_SAVE)
+	
+	

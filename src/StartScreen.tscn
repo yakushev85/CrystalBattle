@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/StartScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -15,6 +19,17 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 120
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 7 )
+/fonts/GameFont = SubResource( 5 )
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 2 )
@@ -29,13 +44,21 @@ text = "Loading..."
 align = 1
 valign = 1
 
+[node name="NewGameButton" type="Button" parent="."]
+margin_left = 512.0
+margin_top = 384.0
+margin_right = 768.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 4 )
+text = "New Game"
+
 [node name="PlayButton" type="Button" parent="."]
 margin_left = 512.0
-margin_top = 368.0
+margin_top = 480.0
 margin_right = 768.0
-margin_bottom = 428.0
+margin_bottom = 540.0
 custom_fonts/font = SubResource( 1 )
-text = "Play"
+text = "Continue"
 icon_align = 1
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -50,5 +73,17 @@ text = "Crystal Battle"
 align = 1
 valign = 1
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_left = 320.0
+margin_top = 380.0
+margin_right = 959.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 400, 140 )
+theme = SubResource( 6 )
+window_title = ""
+dialog_text = "Your saved data will be removed. Are you sure?"
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
