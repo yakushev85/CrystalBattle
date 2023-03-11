@@ -4,21 +4,22 @@ signal enemy_won
 signal player_won
 
 export (PackedScene) var item_scene
+export (PackedScene) var message_hint
 export var item_size = 80
-
-export var player_health = 100
-export var player_mana = 100
-export var player_dps = 1.0
-
-export var enemy_health = 100
-export var enemy_dps = 1.0
-export var background_type = 1
-
-export var player_type = 1
-export var enemy_type = 3
 
 export var game_area_x = 320
 export var game_area_y = 64
+
+var player_health = 100
+var player_mana = 100
+var player_dps = 1.0
+
+var enemy_health = 100
+var enemy_dps = 1.0
+var background_type = 1
+
+var player_type = 1
+var enemy_type = 3
 
 # matrix size
 const N = 8
@@ -37,6 +38,8 @@ var is_finished
 # player's time
 var player_time
 var current_enemy_spell = ""
+var rewards_messages = []
+var rewards_index = 0
 
 func _ready():
 	randomize()
@@ -74,7 +77,6 @@ func _ready():
 	$PlayerSpellBox.is_selection_allowed = false
 	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
 	
-	$AwardBox.hide()
 	hide_enemy_spell()
 
 
@@ -409,10 +411,12 @@ func _on_MainBattle_enemy_won():
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
 	$MessageGroup/BigLabel.text = "You loose"
+	
 	Global.player_info.position = Vector2.ZERO
 	Global.battle_info.status = "L"
 	Global.save_data()
-	$FinishTimer.wait_time = 2
+	
+	$FinishTimer.wait_time = 1
 	$FinishTimer.start()
 
 
@@ -421,13 +425,13 @@ func _on_MainBattle_player_won():
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
 	$MessageGroup/BigLabel.text = "You win!!"
+	
 	Global.map_info.hiden_battle_entry.append(Global.battle_info.entity_name)
 	Global.battle_info.status = "W"
 	Global.collect_awards()
-	$AwardBox.show()
 	Global.save_data()
-	$FinishTimer.wait_time = 4
-	$FinishTimer.start()
+	
+	show_win_rewards()
 
 
 func _on_FinishTimer_timeout():
@@ -535,3 +539,36 @@ func hide_enemy_spell():
 	$EnemySpell/EnemySpellRect.hide()
 	
 	
+func show_win_rewards():
+	if Global.battle_info.award.health > 0:
+		rewards_messages.append("+ " + str(Global.battle_info.award.health) + " hp")
+	
+	if Global.battle_info.award.mana > 0:
+		rewards_messages.append("+ " + str(Global.battle_info.award.mana) + " mana")
+		
+	if Global.battle_info.award.damage > 0:
+		rewards_messages.append("+ " + str(int(100*Global.battle_info.award.damage)) + " % damage")
+
+	var spell = Global.get_spell_by_name(Global.battle_info.award.spell)
+	if spell != null:
+		rewards_messages.append("New spell!")
+		$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
+	
+	print_debug(rewards_messages)
+	$RewardTimer.start()
+	
+	
+func _on_RewardTimer_timeout():
+	if rewards_messages.size() > rewards_index:
+		var new_message = rewards_messages[rewards_index]
+		var reward_message_hint = message_hint.instance()
+		reward_message_hint.z_index = 130
+		reward_message_hint.position.x = 576
+		reward_message_hint.position.y = 10
+		add_child(reward_message_hint)
+		reward_message_hint.set_reward_message(new_message)
+		rewards_index += 1
+	else:
+		$RewardTimer.stop()
+		$FinishTimer.wait_time = 3
+		$FinishTimer.start()

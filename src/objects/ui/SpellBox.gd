@@ -12,6 +12,7 @@ func _ready():
 func clear_visible_spells():
 	for spell in Global.spells_info:
 		get_node(spell.name).hide()
+		get_node(spell.name+"Label").hide()
 
 
 func set_visible_spells(vs):
@@ -19,7 +20,12 @@ func set_visible_spells(vs):
 	visible_spells = vs
 	
 	for spell in visible_spells:
+		var spell_obj = Global.get_spell_by_name(spell)
+		
+		get_node(spell+"Label").text = str(spell_obj.cost)
+		
 		get_node(spell).show()
+		get_node(spell+"Label").show()
 
 
 func clear_selection():
