@@ -75,11 +75,11 @@ var default_map_info = {
 var map_info = default_map_info
 
 var default_player_info = {
-	"health": 150,
+	"health": 120,
 	"mana": 100,
 	"damage": 1.5,
 	"position": Vector2.ZERO,
-	"spells": []
+	"spells": ["HealSpell"]
 }
 
 var player_info = default_player_info
