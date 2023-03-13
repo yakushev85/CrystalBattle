@@ -127,12 +127,14 @@ func is_game_finished():
 
 const DATA_SAVE = "user://data.save"
 
+
 func is_new_game():
 	var data_file = File.new()
 	var is_new = !data_file.file_exists(DATA_SAVE)
 	data_file.close()
 	
 	return is_new
+
 
 func load_data():
 	var data_file = File.new()

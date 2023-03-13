@@ -41,3 +41,4 @@ func start_game(is_new = false):
 
 func _on_ConfirmationDialog_confirmed():
 	start_game(true)
+

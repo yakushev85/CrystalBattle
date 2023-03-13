@@ -9,9 +9,11 @@ func _ready():
 			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
+		$UIGroup/SayBox.hide()
 		prepeare_fog()
 	else:
 		clear_fog()
+		show_intro_say()
 	
 	if Global.is_game_finished():
 		Global.reset_data()
@@ -44,4 +46,13 @@ func _on_Player_moving_done():
 
 func _on_FinishedTimer_timeout():
 	queue_free()
+
+
+func show_intro_say():
+	$UIGroup/SayBox.show()
+	$IntroTimer.start()
+
+
+func _on_IntroTimer_timeout():
+	$UIGroup/SayBox.hide()
 

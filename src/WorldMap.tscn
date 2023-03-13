@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/WorldMapRes.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/Player.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://src/objects/houses/House3.tscn" type="PackedScene" id=30]
 [ext_resource path="res://src/objects/ui/BattleEntry.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -49,6 +50,9 @@ custom_fonts/font = SubResource( 1 )
 text = "You finished the game!"
 align = 1
 valign = 1
+
+[node name="SayBox" parent="UIGroup" instance=ExtResource( 33 )]
+position = Vector2( 256, 440 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 288, 650 )
@@ -525,5 +529,10 @@ tile_data = PoolIntArray( -65538, 12, 0, -65537, 12, 1, -131072, 12, 1, -131071,
 
 [node name="FinishedTimer" type="Timer" parent="."]
 
+[node name="IntroTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="moving_done" from="Player" to="." method="_on_Player_moving_done"]
 [connection signal="timeout" from="FinishedTimer" to="." method="_on_FinishedTimer_timeout"]
+[connection signal="timeout" from="IntroTimer" to="." method="_on_IntroTimer_timeout"]
