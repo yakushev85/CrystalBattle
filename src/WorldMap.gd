@@ -49,10 +49,10 @@ func _on_FinishedTimer_timeout():
 
 
 func show_intro_say():
+	$UIGroup/SayBox.position = $Player.position
 	$UIGroup/SayBox.show()
-	$IntroTimer.start()
 
 
-func _on_IntroTimer_timeout():
-	$UIGroup/SayBox.hide()
-
+func _on_Player_moving_start():
+	if $UIGroup/SayBox.is_visible_in_tree():
+		$UIGroup/SayBox.hide()

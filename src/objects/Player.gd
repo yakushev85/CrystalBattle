@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal moving_done
+signal moving_start
 
 var bridge_rects = [
 	{
@@ -95,6 +96,8 @@ func _input(event):
 		var norm_size = max(abs(generated_velocity.x), abs(generated_velocity.y))
 		
 		generated_velocity = generated_velocity / norm_size
+		
+		emit_signal("moving_start")
 
 func check_bridge():
 	for bridge_item in bridge_rects:

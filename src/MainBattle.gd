@@ -89,7 +89,13 @@ func _on_GameTimer_timeout():
 	if is_finished:
 		return
 	
-	var scored_lines = update_matrix_play()
+	move_upper_lines()
+	
+	if is_items_moving():
+		return
+	
+	var scored_lines = score_matrix_play()
+	
 	if scored_lines.size() == 0:
 		$GameTimer.stop()
 		
@@ -305,9 +311,7 @@ func move_upper_lines():
 			item.go_down(game_area_y + item_size*empty_my + item_size/2)	
 
 
-func update_matrix_play():
-	move_upper_lines()
-	
+func score_matrix_play():
 	var scored_lines = check_lines()
 	
 	if scored_lines.size() > 0:
@@ -572,3 +576,12 @@ func _on_RewardTimer_timeout():
 		$RewardTimer.stop()
 		$FinishTimer.wait_time = 3
 		$FinishTimer.start()
+
+
+func is_items_moving():
+	for mx in range(N):
+		for my in range(N):
+			if (play_matrix[mx][my] == null) or (not play_matrix[mx][my].is_not_moving()):
+				return true
+	
+	return false

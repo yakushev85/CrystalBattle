@@ -28,6 +28,9 @@ func _process(delta):
 		position.y = go_down_y
 		go_down_y = -1
 
+func is_not_moving():
+	return go_down_y <= 0 or position.y == go_down_y
+
 func go_down(gdy):
 	go_down_y = gdy
 
