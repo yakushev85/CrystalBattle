@@ -11,6 +11,6 @@ func refresh_avatar():
 	if is_enemy:
 		texture_path = "res://assets/icons/enemy/con" + str(avatar_type+9) + ".png"
 	else:
-		texture_path = "res://assets/icons/player/con" + str(avatar_type) + ".png"
+		texture_path = "res://assets/icons/player/base.png"
 	
 	$TextureRect.texture = load(texture_path)
