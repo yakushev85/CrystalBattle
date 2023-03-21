@@ -585,3 +585,4 @@ func is_items_moving():
 				return true
 	
 	return false
+	

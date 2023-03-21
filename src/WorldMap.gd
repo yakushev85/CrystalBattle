@@ -16,7 +16,7 @@ func _ready():
 		show_intro_say()
 	
 	if Global.is_game_finished():
-		Global.reset_data()
+		Global.reset_newgame_data()
 		$UIGroup/FinishedLabel.show()
 	
 

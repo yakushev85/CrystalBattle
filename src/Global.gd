@@ -79,7 +79,9 @@ var default_player_info = {
 	"mana": 100,
 	"damage": 1.5,
 	"position": Vector2.ZERO,
-	"spells": ["HealSpell"]
+	"spells": ["HealSpell"],
+	"new_game_health": 0,
+	"new_game_damage": 0
 }
 
 var player_info = default_player_info
@@ -90,8 +92,8 @@ var battle_info = {
 	"enemy_health": 100,
 	"enemy_damage": 1.0,
 	"enemy_background": 1,
-	"enemy_spells":[],
-	"enemy_s_usage":0,
+	"enemy_spells": [],
+	"enemy_s_usage": 0,
 	"award": {
 		"health": 0,
 		"mana": 0,
@@ -160,9 +162,11 @@ func save_data():
 	data_file.close()
 	
 
-func reset_data():
+func reset_newgame_data():
 	map_info = default_map_info
-	player_info = default_player_info
-	Directory.new().remove(DATA_SAVE)
+	player_info.position = Vector2.ZERO
+	player_info.new_game_health = player_info.health
+	player_info.new_game_damage = player_info.damage
+	save_data()
 	
 	

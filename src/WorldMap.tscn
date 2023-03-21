@@ -35,7 +35,7 @@
 [ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
 
 [sub_resource type="DynamicFont" id=1]
-size = 120
+size = 60
 font_data = ExtResource( 32 )
 
 [node name="WorldMap" type="Node2D"]
@@ -47,7 +47,9 @@ script = ExtResource( 4 )
 margin_right = 1384.0
 margin_bottom = 776.0
 custom_fonts/font = SubResource( 1 )
-text = "You finished the game!"
+text = "You have rescued friends!
+To start new game+ press continue 
+in main menu."
 align = 1
 valign = 1
 
@@ -251,7 +253,7 @@ enemy_spells = [ "DoubleShot", "RandomLine" ]
 enemy_s_usage = 25
 
 [node name="BattleEntry24" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 888, 16 )
+position = Vector2( 728, 16 )
 enemy_health = 700
 enemy_damage = 3.5
 enemy_type = 33
@@ -260,7 +262,7 @@ enemy_spells = [ "DoubleShot", "RandomLine" ]
 enemy_s_usage = 30
 
 [node name="BattleEntry25" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1176, 72 )
+position = Vector2( 896, 16 )
 enemy_health = 800
 enemy_damage = 4.0
 enemy_type = 20
@@ -269,7 +271,7 @@ enemy_spells = [ "StealBlood", "DoubleShot", "RandomLine" ]
 enemy_s_usage = 30
 
 [node name="BattleEntry26" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1096, 112 )
+position = Vector2( 1184, 72 )
 enemy_health = 900
 enemy_damage = 5.0
 enemy_background = 3
@@ -512,6 +514,9 @@ randomizer_value = "324543243253"
 
 [node name="House7" parent="EnvironmentGroup" instance=ExtResource( 28 )]
 position = Vector2( 432, 528 )
+
+[node name="Rock7" parent="EnvironmentGroup" instance=ExtResource( 12 )]
+position = Vector2( 1096, 96 )
 
 [node name="GroundTileMap" type="TileMap" parent="."]
 z_index = 100

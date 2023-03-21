@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/StartScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/objects/crystals/Crystal1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objects/crystals/Crystal2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/objects/crystals/Crystal3.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -82,6 +85,53 @@ rect_min_size = Vector2( 400, 140 )
 theme = SubResource( 6 )
 window_title = ""
 dialog_text = "Your saved data will be removed. Are you sure?"
+
+[node name="Crystals" type="Node" parent="."]
+
+[node name="Crystal1" parent="Crystals" instance=ExtResource( 4 )]
+position = Vector2( 336, 280 )
+
+[node name="Crystal2" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( 280, 272 )
+
+[node name="Crystal3" parent="Crystals" instance=ExtResource( 6 )]
+position = Vector2( 200, 272 )
+
+[node name="Crystal4" parent="Crystals" instance=ExtResource( 4 )]
+position = Vector2( 448, 280 )
+
+[node name="Crystal5" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( 392, 272 )
+
+[node name="Crystal6" parent="Crystals" instance=ExtResource( 4 )]
+position = Vector2( 632, 280 )
+
+[node name="Crystal7" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( 576, 272 )
+
+[node name="Crystal8" parent="Crystals" instance=ExtResource( 6 )]
+position = Vector2( 504, 272 )
+
+[node name="Crystal9" parent="Crystals" instance=ExtResource( 4 )]
+position = Vector2( 760, 288 )
+
+[node name="Crystal10" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( 816, 280 )
+
+[node name="Crystal11" parent="Crystals" instance=ExtResource( 6 )]
+position = Vector2( 688, 272 )
+
+[node name="Crystal12" parent="Crystals" instance=ExtResource( 4 )]
+position = Vector2( 904, 288 )
+
+[node name="Crystal13" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( 960, 280 )
+
+[node name="Crystal14" parent="Crystals" instance=ExtResource( 6 )]
+position = Vector2( 1008, 272 )
+
+[node name="Crystal15" parent="Crystals" instance=ExtResource( 6 )]
+position = Vector2( 848, 280 )
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

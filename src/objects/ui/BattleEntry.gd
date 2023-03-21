@@ -21,15 +21,19 @@ func _ready():
 func go_fight():
 	Global.battle_info.entity_name = self.name
 	Global.battle_info.enemy_type = enemy_type
-	Global.battle_info.enemy_health = enemy_health
-	Global.battle_info.enemy_damage = enemy_damage
+	Global.battle_info.enemy_health = enemy_health + Global.player_info.new_game_health
+	Global.battle_info.enemy_damage = enemy_damage + Global.player_info.new_game_damage
 	Global.battle_info.enemy_background = enemy_background
 	Global.battle_info.enemy_spells = enemy_spells
 	Global.battle_info.enemy_s_usage = enemy_s_usage
 	Global.battle_info.award.health = award_health
 	Global.battle_info.award.mana = award_mana
 	Global.battle_info.award.damage = award_damage
-	Global.battle_info.award.spell = award_spell
+	
+	if award_spell in Global.player_info.spells:
+		Global.battle_info.award.spell = ""
+	else:
+		Global.battle_info.award.spell = award_spell
 	
 	get_tree().change_scene("res://src/MainBattle.tscn")
 
