@@ -458,8 +458,9 @@ func do_enemy_damage(dv):
 		return
 	
 	if $PlayerSpellBox.selected_spell == "HealSpell":
-		print_debug("HealSpell 2 * ", dv)
-		$PlayerHealthBar.set_heal(2*dv)
+		print_debug("HealSpell ", dv)
+		$PlayerHealthBar.set_heal(dv)
+		$EnemyHealthBar.set_damage(dv)
 		$PlayerManaBar.set_damage($PlayerSpellBox.get_cost_by_spell("HealSpell"))
 	elif $PlayerSpellBox.selected_spell == "IncreaseDamageSpell":
 		print_debug("IncreaseDamageSpell 2 * ", dv)
@@ -586,3 +587,20 @@ func is_items_moving():
 	
 	return false
 	
+
+
+func _on_PlayerSpellBox_spell_selected():
+	if $PlayerSpellBox.selected_spell == null:
+		return
+	
+	var selected_spell = Global.get_spell_by_name($PlayerSpellBox.selected_spell)
+	
+	if selected_spell.description == null:
+		return
+	
+	var spell_hint = message_hint.instance()
+	spell_hint.z_index = 130
+	spell_hint.position.x = 330
+	spell_hint.position.y = 10
+	add_child(spell_hint)
+	spell_hint.set_reward_message(selected_spell.description)

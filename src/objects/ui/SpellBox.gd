@@ -1,5 +1,7 @@
 extends Node2D
 
+signal spell_selected
+
 var visible_spells = []
 var selected_spell
 var is_selection_allowed
@@ -43,6 +45,8 @@ func select_spell(v):
 	
 	$SelectLabel.rect_position = selectedSpellNode.rect_position
 	$SelectLabel.show()
+	
+	emit_signal("spell_selected")
 
 
 func get_cost_by_spell(sname):

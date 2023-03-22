@@ -32,7 +32,7 @@ var spells_info = [
 	{
 		"name": "HealSpell", 
 		"cost": 23,
-		"description": "Heal player instead of deal a damage to enemy.",
+		"description": "Heal player while deal damage to enemy.",
 		"icon": "res://assets/icons/spells/player/16.png"
 	}, 
 	{
