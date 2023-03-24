@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/WorldMapRes.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/Player.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://src/objects/ui/BattleEntry.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="DynamicFontData" id=32]
 [ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
+[ext_resource path="res://src/objects/MapPlayerArrow.tscn" type="PackedScene" id=34]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -40,6 +41,7 @@ font_data = ExtResource( 32 )
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource( 4 )
+arrow_scene = ExtResource( 34 )
 
 [node name="UIGroup" type="Node2D" parent="."]
 

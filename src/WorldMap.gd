@@ -2,6 +2,10 @@ extends Node2D
 
 const FOG_C_DIST = 4
 
+export (PackedScene) var arrow_scene
+
+var current_arrow
+
 func _ready():
 	$FogTileMap.z_index = 120
 	$UIGroup.z_index = 125
@@ -41,6 +45,7 @@ func prepeare_fog():
 
 
 func _on_Player_moving_done():
+	hide_arrow()
 	clear_fog()
 
 
@@ -54,5 +59,25 @@ func show_intro_say():
 
 
 func _on_Player_moving_start():
+	create_arrow()
+	
 	if $UIGroup/SayBox.is_visible_in_tree():
 		$UIGroup/SayBox.hide()
+
+
+func create_arrow():
+	if current_arrow == null:
+		current_arrow = arrow_scene.instance()
+		add_child(current_arrow)
+		
+	current_arrow.set_arrow_position($Player.event_position)
+	current_arrow.z_index = 109
+	current_arrow.scale.x = 0.5
+	current_arrow.scale.y = 0.5
+	current_arrow.show()
+	
+	
+	
+	
+func hide_arrow():
+	current_arrow.hide()
