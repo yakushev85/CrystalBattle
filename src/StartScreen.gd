@@ -35,6 +35,7 @@ func start_game(is_new = false):
 		Global.save_data()
 	else:
 		Global.load_data()
+		#Global.load_debug_data()
 	
 	$StartTimer.start()
 

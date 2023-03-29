@@ -265,8 +265,9 @@ func remove_cell(mouse_x, mouse_y):
 
 
 func remove_cell_m(mx, my):
-	play_matrix[mx][my].remove_with_animation()
-	play_matrix[mx][my] = null
+	if play_matrix[mx][my] != null:
+		play_matrix[mx][my].remove_with_animation()
+		play_matrix[mx][my] = null
 
 
 func move_upper_lines():

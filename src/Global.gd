@@ -170,3 +170,23 @@ func reset_newgame_data():
 	save_data()
 	
 	
+func load_debug_data():
+	map_info = {
+			"hiden_battle_entry": [
+				"BattleEntry",
+				"BattleEntry2",
+				"BattleEntry3",
+				"BattleEntry4",
+				"BattleEntry5",
+				],
+			"cfog_points": []
+		}
+	player_info = {
+			"health": 270,
+			"mana": 160,
+			"damage": 2.0,
+			"position": Vector2.ZERO,
+			"spells": ["HealSpell"],
+			"new_game_health": 0,
+			"new_game_damage": 0
+		}
