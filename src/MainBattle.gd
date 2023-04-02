@@ -253,7 +253,10 @@ func remove_cell(mouse_x, mouse_y):
 	
 	if mx < 0 or mx >= N or my < 0 or my >= N:
 		return false
-		
+	
+	if $PlayerSpellBox.selected_spell == null:
+		$PlayerManaBar.set_restored(int(player_dps))
+	
 	if $PlayerSpellBox.selected_spell == "RegenSpaceSpell":
 		regen_space()
 	elif $PlayerSpellBox.selected_spell == "RandomLineSpell":
