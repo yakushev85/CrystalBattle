@@ -12,6 +12,8 @@ config_version=4
 
 config/name="CrystalBattle"
 run/main_scene="res://src/StartScreen.tscn"
+boot_splash/image="res://a_icons/mipmap-xxxhdpi/ic_launcher_round.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
