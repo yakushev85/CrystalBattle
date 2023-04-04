@@ -54,7 +54,8 @@ func _ready():
 	player_mana = Global.player_info.mana
 	player_dps = Global.player_info.damage
 	
-	is_player_turn = false
+	is_player_turn = Global.battle_info.status == "IN"
+		
 	is_enemy_turn = false
 	is_finished = false
 	
@@ -72,17 +73,28 @@ func _ready():
 	$EnemyAvatar.avatar_type = enemy_type
 	$EnemyAvatar.refresh_avatar()
 	
-	$MessageGroup/BigLabel.hide()
+	if Global.battle_info.status == "IN":
+		$PlayerHealthBar.set_health_value(Global.battle_info.c_player_health)
+		$PlayerManaBar.set_mana_value(Global.battle_info.c_player_mana)
+		$EnemyHealthBar.set_health_value(Global.battle_info.c_enemy_health)
 	
 	$PlayerSpellBox.is_selection_allowed = false
 	$PlayerSpellBox.set_visible_spells(Global.player_info.spells)
 	
+	$MessageGroup/BigLabel.hide()
 	hide_enemy_spell()
 
 
 func _on_StartTimer_timeout():
 	generate_matrix()
-	$GameTimer.start()
+	
+	if Global.battle_info.status == "IN":
+		$PlayerSpellBox.is_selection_allowed = true
+		check_spells()
+		player_time = PLAYER_TIME_LIMIT
+		$PlayerTimer.start()
+	else:
+		$GameTimer.start()
 
 
 func _on_GameTimer_timeout():
@@ -99,11 +111,11 @@ func _on_GameTimer_timeout():
 	if scored_lines.size() == 0:
 		$GameTimer.stop()
 		
-		if $PlayerHealthBar/ProgressBar.value <= 0:
+		if $PlayerHealthBar.current_health_value <= 0:
 			emit_signal("enemy_won")
 			return
 		
-		if $EnemyHealthBar/ProgressBar.value <= 0:
+		if $EnemyHealthBar.current_health_value <= 0:
 			emit_signal("player_won")
 			return
 		
@@ -127,6 +139,7 @@ func _on_GameTimer_timeout():
 			$EnemyTimer.start()
 		elif is_player_turn:
 			print_debug("Player turn")
+			save_data()
 			hide_enemy_spell()
 			$PlayerSpellBox.clear_selection()
 			$PlayerSpellBox.is_selection_allowed = true
@@ -179,7 +192,10 @@ func generate_matrix():
 		for my in range(N):
 			var item = item_scene.instance()
 			
-			item.set_type((randi() % M) + 1)
+			if Global.battle_info.status == "IN":
+				item.set_type(Global.battle_info.c_play_matrix[mx][my])
+			else: 
+				item.set_type((randi() % M) + 1)
 			
 			item.position.x = game_area_x + item_size*mx + item_size/2
 			item.position.y = game_area_y + item_size*my + item_size/2
@@ -590,7 +606,6 @@ func is_items_moving():
 				return true
 	
 	return false
-	
 
 
 func _on_PlayerSpellBox_spell_selected():
@@ -608,3 +623,29 @@ func _on_PlayerSpellBox_spell_selected():
 	spell_hint.position.y = 10
 	add_child(spell_hint)
 	spell_hint.set_reward_message(selected_spell.description)
+
+
+func get_type_matrix():
+	var res_map = []
+	
+	for mx in range(N):
+		var line = []
+		
+		for my in range(N):
+			line.append(play_matrix[mx][my].get_type())
+			
+		res_map.append(line)
+	
+	return res_map
+
+
+func save_data():
+	if Global.battle_info.status != "IN":
+		Global.battle_info.status = "IN"
+	
+	Global.battle_info.c_enemy_health = $EnemyHealthBar.current_health_value
+	Global.battle_info.c_player_health = $PlayerHealthBar.current_health_value
+	Global.battle_info.c_player_mana = $PlayerManaBar.current_mana_value
+	Global.battle_info.c_play_matrix = get_type_matrix()
+	Global.save_data()
+

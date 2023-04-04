@@ -15,7 +15,10 @@ func _on_PlayButton_pressed():
 
 
 func _on_StartTimer_timeout():
-	get_tree().change_scene("res://src/WorldMap.tscn")
+	if Global.battle_info.status == "IN":
+		get_tree().change_scene("res://src/MainBattle.tscn")
+	else:	
+		get_tree().change_scene("res://src/WorldMap.tscn")
 
 
 func _on_NewGameButton_pressed():

@@ -100,6 +100,10 @@ var battle_info = {
 		"damage": 0,
 		"spell": ""
 	},
+	"c_enemy_health": 100,
+	"c_player_health": 120,
+	"c_player_mana": 100,
+	"c_play_matrix": [],
 	"status": ""
 }
 
@@ -144,6 +148,7 @@ func load_data():
 	if data_file.open(DATA_SAVE, File.READ) == 0:
 		map_info = data_file.get_var()
 		player_info = data_file.get_var()
+		battle_info = data_file.get_var()
 	else:
 		print("Can't load ", DATA_SAVE)
 	
@@ -156,6 +161,7 @@ func save_data():
 	if data_file.open(DATA_SAVE, File.WRITE) == 0:
 		data_file.store_var(map_info)
 		data_file.store_var(player_info)
+		data_file.store_var(battle_info)
 	else:
 		print("Can't save ", DATA_SAVE)
 	
