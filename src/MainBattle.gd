@@ -466,8 +466,8 @@ func check_spells():
 	var mana_value = $PlayerManaBar.current_mana_value
 	var new_visible_spells = []
 	
-	for spell_name in $PlayerSpellBox.visible_spells:
-		if $PlayerSpellBox.get_cost_by_spell(spell_name) <= $PlayerManaBar.current_mana_value:
+	for spell_name in Global.player_info.spells:
+		if $PlayerSpellBox.get_cost_by_spell(spell_name) <= mana_value:
 			new_visible_spells.append(spell_name)
 	
 	$PlayerSpellBox.set_visible_spells(new_visible_spells) 
