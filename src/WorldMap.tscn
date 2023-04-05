@@ -50,8 +50,8 @@ margin_right = 1384.0
 margin_bottom = 776.0
 custom_fonts/font = SubResource( 1 )
 text = "You have rescued friends!
-To start new game+ press continue 
-in main menu."
+To start a new game+ press continue 
+in the main menu."
 align = 1
 valign = 1
 

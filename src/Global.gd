@@ -3,27 +3,27 @@ extends Node
 var enemy_spells = [
 	{
 		"name": "StealBlood", 
-		"description": "Heal enemy from players damage",
+		"description": "Heal enemy from a damage",
 		"icon": "res://assets/icons/spells/enemy/8.png"
 	}, 
 	{
 		"name": "IncreaseDamage", 
-		"description": "Double enemy damage.",
+		"description": "Double given damage.",
 		"icon": "res://assets/icons/spells/enemy/43.png"
 	}, 
 	{
 		"name": "DoubleShot", 
-		"description": "Two shots.",
+		"description": "Two picks instead of one.",
 		"icon": "res://assets/icons/spells/enemy/29.png"
 	}, 
 	{
 		"name": "RandomLine", 
-		"description": "Regenerate vertical and horizantal lines after enemy move.",
+		"description": "Regenerate vertical and horizontal lines after a pick.",
 		"icon": "res://assets/icons/spells/enemy/27.png"
 	}, 
 	{
 		"name": "RegenSpace", 
-		"description": "Regenerate the game space.",
+		"description": "Regenerate all crystals.",
 		"icon": "res://assets/icons/spells/enemy/50.png"
 	}
 ]
@@ -32,37 +32,37 @@ var spells_info = [
 	{
 		"name": "HealSpell", 
 		"cost": 23,
-		"description": "Heal player while deal damage to enemy.",
+		"description": "Heal while deal damage to an enemy.",
 		"icon": "res://assets/icons/spells/player/16.png"
 	}, 
 	{
 		"name": "IncreaseDamageSpell", 
 		"cost": 42,
-		"description": "Double player damage.",
+		"description": "Double given damage.",
 		"icon": "res://assets/icons/spells/player/40.png"
 	}, 
 	{
 		"name": "EnemySkipSpell", 
 		"cost": 51,
-		"description": "Skip enemy move.",
+		"description": "Skip enemy's pick.",
 		"icon": "res://assets/icons/spells/player/32.png"
 	}, 
 	{
 		"name": "RandomLineSpell", 
 		"cost": 63,
-		"description": "Regenerate vertical and horizantal lines after player move.",
+		"description": "Regenerate vertical and horizantal lines after a pick.",
 		"icon": "res://assets/icons/spells/player/19.png"
 	}, 
 	{
 		"name": "ReflectDamageSpell", 
 		"cost": 74,
-		"description": "Player reflects next enemy damage.",
+		"description": "Player reflects taken damage.",
 		"icon": "res://assets/icons/spells/player/7.png"
 	}, 
 	{
 		"name": "RegenSpaceSpell", 
 		"cost": 85,
-		"description": "Regenerate the game space.",
+		"description": "Regenerate all crystals.",
 		"icon": "res://assets/icons/spells/player/48.png"
 	}
 ]

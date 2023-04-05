@@ -135,7 +135,7 @@ func _on_GameTimer_timeout():
 		if is_enemy_turn:
 			print_debug("Enemy turn")
 			$PlayerSpellBox.is_selection_allowed = false
-			$MessageGroup/MessageLabel.text = "Enemy's turn"
+			$MessageGroup/MessageLabel.text = "Enemy's pick"
 			$EnemyTimer.start()
 		elif is_player_turn:
 			print_debug("Player turn")
@@ -169,7 +169,7 @@ func _on_PlayerTimer_timeout():
 		if player_time < 10:
 			formatted_time = "0" + formatted_time
 			
-		$MessageGroup/MessageLabel.text = "Your turn 0:" + formatted_time
+		$MessageGroup/MessageLabel.text = "Your pick 0:" + formatted_time
 	else:
 		$PlayerTimer.stop()
 		$GameTimer.start()
@@ -434,7 +434,7 @@ func _on_MainBattle_enemy_won():
 	is_finished = true
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
-	$MessageGroup/BigLabel.text = "You loose"
+	$MessageGroup/BigLabel.text = "You lose!"
 	
 	Global.player_info.position = Vector2.ZERO
 	Global.battle_info.status = "L"

@@ -84,7 +84,7 @@ margin_bottom = 540.0
 rect_min_size = Vector2( 400, 140 )
 theme = SubResource( 6 )
 window_title = ""
-dialog_text = "Your saved data will be removed. Are you sure?"
+dialog_text = "All saved data will be removed. Are you sure?"
 
 [node name="Crystals" type="Node" parent="."]
 
