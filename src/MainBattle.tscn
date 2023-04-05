@@ -8,7 +8,7 @@
 [ext_resource path="res://src/objects/ui/SpellBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/ui/ManaBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/ui/MessageHint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/icons/spells/enemy/4.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/spells/enemy/8.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
