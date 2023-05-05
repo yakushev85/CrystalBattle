@@ -170,12 +170,21 @@ func save_data():
 	data_file.close()
 	
 
-func reset_newgame_data():
-	map_info = default_map_info
-	battle_info = default_battle_info
-	player_info.position = Vector2.ZERO
-	player_info.new_game_health = player_info.health
-	player_info.new_game_damage = player_info.damage
+func reset_newgame_data(is_new_plus=true):
+	map_info.hiden_battle_entry = []
+	map_info.cfog_points = []
+	
+	battle_info.status = ""
+	
+	if is_new_plus:
+		player_info.position = Vector2.ZERO
+		player_info.new_game_health = player_info.health
+		player_info.new_game_damage = player_info.damage
+	else:
+		player_info.position = Vector2.ZERO
+		player_info.new_game_health = 0
+		player_info.new_game_damage = 0
+		
 	save_data()
 	
 	

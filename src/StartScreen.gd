@@ -35,7 +35,7 @@ func start_game(is_new = false):
 	$LoadingLabel.show()
 	
 	if is_new:
-		Global.reset_newgame_data()
+		Global.reset_newgame_data(false)
 	else:
 		Global.load_data()
 		#Global.load_debug_data()
