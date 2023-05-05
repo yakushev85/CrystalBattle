@@ -86,7 +86,7 @@ var default_player_info = {
 
 var player_info = default_player_info
 
-var battle_info = {
+var default_battle_info = {
 	"entity_name": "",
 	"enemy_type": 7,
 	"enemy_health": 100,
@@ -106,6 +106,8 @@ var battle_info = {
 	"c_play_matrix": [],
 	"status": ""
 }
+
+var battle_info = default_battle_info
 
 func get_spell_by_name(sname):
 	if sname == null or sname == "":
@@ -170,6 +172,7 @@ func save_data():
 
 func reset_newgame_data():
 	map_info = default_map_info
+	battle_info = default_battle_info
 	player_info.position = Vector2.ZERO
 	player_info.new_game_health = player_info.health
 	player_info.new_game_damage = player_info.damage
