@@ -152,9 +152,9 @@ func _on_GameTimer_timeout():
 		damage += score_line.score
 	
 	if is_player_turn:
-		do_enemy_damage(int(damage*player_dps))
+		do_enemy_damage(int(damage*MIN_SCORED_LINE*player_dps))
 	elif is_enemy_turn:
-		do_player_damage(int(damage*enemy_dps))
+		do_player_damage(int(damage*MIN_SCORED_LINE*enemy_dps))
 
 
 func _on_EnemyTimer_timeout():
@@ -176,6 +176,9 @@ func _on_PlayerTimer_timeout():
 
 
 func _input(event):
+	if $PlayerTimer.is_stopped():
+		return
+	
 	if is_player_turn and not is_finished and event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		if not remove_cell(event.position.x, event.position.y):
 			return
