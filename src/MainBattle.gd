@@ -151,6 +151,7 @@ func _on_GameTimer_timeout():
 	for score_line in scored_lines:
 		damage += score_line.score
 	
+	# scored line damage calculation
 	if is_player_turn:
 		do_enemy_damage(int(damage*MIN_SCORED_LINE*player_dps))
 	elif is_enemy_turn:
