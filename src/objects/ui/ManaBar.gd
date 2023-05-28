@@ -34,7 +34,11 @@ func set_restored(restored_value):
 
 
 func set_mana_value(hv):
-	current_mana_value = hv
+	if hv > 0:
+		current_mana_value = hv
+	else:
+		hv = 0
+		
 	$Label.text = str(current_mana_value)
 	$ProgressBar.value = int(100*(current_mana_value*1.0/max_mana_value))
 

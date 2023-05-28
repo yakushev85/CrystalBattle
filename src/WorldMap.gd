@@ -47,6 +47,7 @@ func prepeare_fog():
 func _on_Player_moving_done():
 	hide_arrow()
 	clear_fog()
+	Global.save_data()
 
 
 func _on_FinishedTimer_timeout():
