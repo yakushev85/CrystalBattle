@@ -72,7 +72,7 @@ var default_map_info = {
 	"cfog_points": []
 }
 
-var map_info = default_map_info
+var map_info = default_map_info.duplicate(true)
 
 var default_player_info = {
 	"health": 120,
@@ -84,7 +84,7 @@ var default_player_info = {
 	"new_game_damage": 0
 }
 
-var player_info = default_player_info
+var player_info = default_player_info.duplicate(true)
 
 var default_battle_info = {
 	"entity_name": "",
@@ -107,7 +107,7 @@ var default_battle_info = {
 	"status": ""
 }
 
-var battle_info = default_battle_info
+var battle_info = default_battle_info.duplicate(true)
 
 func get_spell_by_name(sname):
 	if sname == null or sname == "":
@@ -181,9 +181,7 @@ func reset_newgame_data(is_new_plus=true):
 		player_info.new_game_health = player_info.health
 		player_info.new_game_damage = player_info.damage
 	else:
-		player_info.position = Vector2.ZERO
-		player_info.new_game_health = 0
-		player_info.new_game_damage = 0
+		player_info = default_player_info.duplicate(true)
 		
 	save_data()
 	
