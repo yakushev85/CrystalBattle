@@ -6,6 +6,10 @@ export (PackedScene) var arrow_scene
 
 var current_arrow
 
+var path = []
+var map
+var is_player_moving = false
+
 func _ready():
 	$FogTileMap.z_index = 120
 	$UIGroup.z_index = 125
@@ -23,6 +27,19 @@ func _ready():
 		Global.reset_newgame_data()
 		$UIGroup/FinishedLabel.show()
 	
+	setup_navserver()
+	
+
+func _input(event):
+	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
+		$Player.event_position = event.position
+		_update_navigation_path($Player.position, event.position)
+		
+
+func _process(delta):
+	if is_player_moving:
+		var walk_distance = $Player.speed * delta
+		move_along_path(walk_distance)
 
 func clear_fog():
 	var cell_position = $FogTileMap.world_to_map($Player.position)
@@ -44,10 +61,11 @@ func prepeare_fog():
 		clear_fog_p(fog_item)
 
 
-func _on_Player_moving_done():
+func player_moving_done():
 	hide_arrow()
 	clear_fog()
 	Global.save_data()
+	Global.player_info.position = $Player.position
 
 
 func _on_FinishedTimer_timeout():
@@ -59,7 +77,7 @@ func show_intro_say():
 	$UIGroup/SayBox.show()
 
 
-func _on_Player_moving_start():
+func player_moving_start():
 	create_arrow()
 	
 	if $UIGroup/SayBox.is_visible_in_tree():
@@ -78,7 +96,46 @@ func create_arrow():
 	current_arrow.show()
 	
 	
-	
-	
 func hide_arrow():
 	current_arrow.hide()
+
+
+func setup_navserver():
+	map = Navigation2DServer.map_create()
+	Navigation2DServer.map_set_active(map, true)
+
+	var region = Navigation2DServer.region_create()
+	Navigation2DServer.region_set_transform(region, Transform())
+	Navigation2DServer.region_set_map(region, map)
+
+	var navigation_poly = NavigationMesh.new()
+	navigation_poly = $NavGroup/NavigationPolygonInstance.navpoly
+	Navigation2DServer.region_set_navpoly(region, navigation_poly)
+
+	yield(get_tree(), "physics_frame")
+
+
+func move_along_path(distance):
+	var last_point = $Player.position
+	while path.size():
+		var distance_between_points = last_point.distance_to(path[0])
+		
+		if distance <= distance_between_points:
+			$Player.position = last_point.linear_interpolate(path[0], distance / distance_between_points)
+			return
+		
+		distance -= distance_between_points
+		last_point = path[0]
+		path.remove(0)
+	
+	$Player.position = last_point
+	is_player_moving = false
+	player_moving_done()
+
+
+func _update_navigation_path(start_position, end_position):
+	path = Navigation2DServer.map_get_path(map,start_position, end_position, true)
+	path.remove(0)
+	is_player_moving = true
+	player_moving_start()
+
