@@ -1,3 +1,4 @@
 /android/
 *.aab
 *.apk
+/html_export/
