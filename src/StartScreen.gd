@@ -11,6 +11,7 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
+	$AudioSelectPlayer.play()
 	start_game()
 
 
@@ -22,6 +23,8 @@ func _on_StartTimer_timeout():
 
 
 func _on_NewGameButton_pressed():
+	$AudioSelectPlayer.play()
+	
 	if Global.is_new_game():
 		start_game(true)
 	else:

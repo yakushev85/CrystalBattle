@@ -82,6 +82,8 @@ func player_moving_start():
 	
 	if $UIGroup/SayBox.is_visible_in_tree():
 		$UIGroup/SayBox.hide()
+	
+	$AudioWalkPlayer.play()
 
 
 func create_arrow():
@@ -139,3 +141,8 @@ func _update_navigation_path(start_position, end_position):
 	is_player_moving = true
 	player_moving_start()
 
+
+
+func _on_AudioWalkPlayer_finished():
+	if is_player_moving:
+		$AudioWalkPlayer.play()

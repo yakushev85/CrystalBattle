@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/StartScreen.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/objects/crystals/Crystal1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/crystals/Crystal2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/objects/crystals/Crystal3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sound/select.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -132,6 +133,10 @@ position = Vector2( 1008, 272 )
 
 [node name="Crystal15" parent="Crystals" instance=ExtResource( 6 )]
 position = Vector2( 848, 280 )
+
+[node name="AudioSelectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -1.0
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

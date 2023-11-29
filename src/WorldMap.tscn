@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/WorldMapRes.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/Player.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="DynamicFontData" id=32]
 [ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
 [ext_resource path="res://src/objects/MapPlayerArrow.tscn" type="PackedScene" id=34]
+[ext_resource path="res://assets/sound/step_grass.wav" type="AudioStream" id=35]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -540,4 +541,9 @@ tile_data = PoolIntArray( -65538, 12, 0, -65537, 12, 1, -131072, 12, 1, -131071,
 
 [node name="FinishedTimer" type="Timer" parent="."]
 
+[node name="AudioWalkPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+volume_db = -1.0
+
 [connection signal="timeout" from="FinishedTimer" to="." method="_on_FinishedTimer_timeout"]
+[connection signal="finished" from="AudioWalkPlayer" to="." method="_on_AudioWalkPlayer_finished"]

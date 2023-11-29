@@ -259,6 +259,7 @@ func check_lines():
 	
 	
 func remove_lines(scored_lines):
+	$AudioFirePlayer.play()
 	for scored_line in scored_lines:
 		for mxi in range(scored_line.mx0, scored_line.mx1+1):
 			for myi in range(scored_line.my0, scored_line.my1+1):
@@ -288,6 +289,7 @@ func remove_cell(mouse_x, mouse_y):
 
 
 func remove_cell_m(mx, my):
+	$AudioFirePlayer.play()
 	if play_matrix[mx][my] != null:
 		play_matrix[mx][my].remove_with_animation()
 		play_matrix[mx][my] = null
@@ -435,6 +437,7 @@ func check_point(mx0, my0):
 
 
 func _on_MainBattle_enemy_won():
+	$AudioLosePlayer.play()
 	is_finished = true
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
@@ -444,11 +447,12 @@ func _on_MainBattle_enemy_won():
 	Global.battle_info.status = "L"
 	Global.save_data()
 	
-	$FinishTimer.wait_time = 1
+	$FinishTimer.wait_time = 3
 	$FinishTimer.start()
 
 
 func _on_MainBattle_player_won():
+	$AudioWinPlayer.play()
 	is_finished = true
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
@@ -615,6 +619,8 @@ func is_items_moving():
 func _on_PlayerSpellBox_spell_selected():
 	if $PlayerSpellBox.selected_spell == null:
 		return
+		
+	$AudioSelectSpellPlayer.play()
 	
 	var selected_spell = Global.get_spell_by_name($PlayerSpellBox.selected_spell)
 	
