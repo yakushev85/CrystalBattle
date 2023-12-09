@@ -20,6 +20,7 @@ func _ready():
 
 func go_fight():
 	Global.battle_info.entity_name = self.name
+	Global.battle_info.entity_position = self.position
 	Global.battle_info.enemy_type = enemy_type
 	Global.battle_info.enemy_health = enemy_health + Global.player_info.new_game_health
 	Global.battle_info.enemy_damage = enemy_damage + Global.player_info.new_game_damage

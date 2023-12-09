@@ -460,6 +460,7 @@ func _on_MainBattle_player_won():
 	
 	Global.map_info.hiden_battle_entry.append(Global.battle_info.entity_name)
 	Global.battle_info.status = "W"
+	Global.player_info.position = Global.battle_info.entity_position
 	Global.collect_awards()
 	Global.save_data()
 	
