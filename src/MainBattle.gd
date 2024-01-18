@@ -439,6 +439,7 @@ func check_point(mx0, my0):
 func _on_MainBattle_enemy_won():
 	$AudioLosePlayer.play()
 	is_finished = true
+	$UIControlGroup/PauseControl.hide()
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
 	$MessageGroup/BigLabel.text = "You lose!"
@@ -454,6 +455,7 @@ func _on_MainBattle_enemy_won():
 func _on_MainBattle_player_won():
 	$AudioWinPlayer.play()
 	is_finished = true
+	$UIControlGroup/PauseControl.hide()
 	$MessageGroup/MessageLabel.hide()
 	$MessageGroup/BigLabel.show()
 	$MessageGroup/BigLabel.text = "You win!!"
