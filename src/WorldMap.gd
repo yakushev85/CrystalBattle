@@ -9,6 +9,7 @@ var current_arrow
 var path = []
 var map
 var is_player_moving = false
+var is_gfinished = false
 
 func _ready():
 	$FogTileMap.z_index = 120
@@ -23,7 +24,9 @@ func _ready():
 		clear_fog()
 		show_intro_say()
 	
-	if Global.is_game_finished():
+	is_gfinished = Global.is_game_finished()
+	
+	if is_gfinished:
 		Global.reset_newgame_data()
 		$UIGroup/FinishedLabel.show()
 	
@@ -32,8 +35,11 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
-		$Player.event_position = event.position
-		_update_navigation_path($Player.position, event.position)
+		if is_gfinished:
+			get_tree().change_scene("res://src/StartScreen.tscn")
+		else:
+			$Player.event_position = event.position
+			_update_navigation_path($Player.position, event.position)
 		
 
 func _process(delta):
