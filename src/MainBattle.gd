@@ -539,14 +539,14 @@ func do_player_damage(dv):
 
 func random_lines(mx, my):
 	for i in range(N):
-		play_matrix[mx][i].set_type((randi() % M) + 1)
-		play_matrix[i][my].set_type((randi() % M) + 1)
+		play_matrix[mx][i].change_type((randi() % M) + 1)
+		play_matrix[i][my].change_type((randi() % M) + 1)
 
 
 func regen_space():
 	for mx in range(N):
 		for my in range(N):
-			play_matrix[mx][my].set_type((randi() % M) + 1)
+			play_matrix[mx][my].change_type((randi() % M) + 1)
 
 
 func generate_current_enemy_spell():

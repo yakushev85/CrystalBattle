@@ -195,14 +195,14 @@ func load_debug_data():
 				"BattleEntry4",
 				"BattleEntry5",
 				],
-			"cfog_points": []
+			"cfog_points": [Vector2(992, 32),]
 		}
 	player_info = {
-			"health": 270,
-			"mana": 160,
-			"damage": 2.0,
-			"position": Vector2.ZERO,
-			"spells": ["HealSpell"],
+			"health": 1000,
+			"mana": 1000,
+			"damage": 5.0,
+			"position": Vector2(992, 32),
+			"spells": ["HealSpell", "IncreaseDamageSpell", "EnemySkipSpell", "RandomLineSpell", "ReflectDamageSpell", "RegenSpaceSpell"],
 			"new_game_health": 0,
 			"new_game_damage": 0
 		}

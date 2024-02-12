@@ -9,11 +9,22 @@ func set_type(new_type):
 	type = new_type
 	$ItemSprite.texture = load("res://assets/items/shiny/" + str(type) + ".png")
 
+func change_type(new_type):
+	$ItemSprite.hide()
+	set_type(new_type)
+	
+	$ChangeItemSprite.show()
+	$ChangeItemSprite.playing = true
+
 func get_type():
 	return type
 	
 func _ready():
 	$ItemSprite.show()
+	
+	$ChangeItemSprite.hide()
+	$ChangeItemSprite.playing = false
+	
 	$RemoveItemSprite.hide()
 	$RemoveItemSprite.playing = false
 	
@@ -35,9 +46,20 @@ func go_down(gdy):
 	go_down_y = gdy
 
 func remove_with_animation():
+	if $ChangeItemSprite.playing == true:
+		$ChangeItemSprite.playing = false
+		$ChangeItemSprite.hide()
+	
 	$ItemSprite.hide()
 	$RemoveItemSprite.show()
 	$RemoveItemSprite.playing = true
 
 func _on_RemoveItemSprite_animation_finished():
 	queue_free()
+
+
+func _on_ChangeItemSprite_animation_finished():
+	$ChangeItemSprite.playing = false
+	$ChangeItemSprite.hide()
+	
+	$ItemSprite.show()
