@@ -27,7 +27,6 @@ func _ready():
 	is_gfinished = Global.is_game_finished()
 	
 	if is_gfinished:
-		Global.reset_newgame_data()
 		$UIGroup/FinishedLabel.show()
 	
 	setup_navserver()
@@ -36,6 +35,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		if is_gfinished:
+			Global.reset_newgame_data()
 			get_tree().change_scene("res://src/StartScreen.tscn")
 		else:
 			$Player.event_position = event.position
@@ -72,10 +72,6 @@ func player_moving_done():
 	clear_fog()
 	Global.save_data()
 	Global.player_info.position = $Player.position
-
-
-func _on_FinishedTimer_timeout():
-	queue_free()
 
 
 func show_intro_say():
