@@ -124,16 +124,16 @@ enemy_s_usage = 30
 award_spell = "EnemySkipSpell"
 
 [node name="BattleEntry7" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 240, 72 )
+position = Vector2( 271, 32 )
 enemy_health = 380
-enemy_damage = 1.9
+enemy_damage = 2.0
 enemy_type = 14
 enemy_background = 2
 
 [node name="BattleEntry8" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 376, 120 )
 enemy_health = 480
-enemy_damage = 2.2
+enemy_damage = 2.5
 enemy_type = 12
 enemy_spells = [ "IncreaseDamage" ]
 enemy_s_usage = 30
@@ -141,7 +141,7 @@ enemy_s_usage = 30
 [node name="BattleEntry9" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 592, 16 )
 enemy_health = 450
-enemy_damage = 2.0
+enemy_damage = 2.4
 enemy_type = 6
 enemy_spells = [ "DoubleShot" ]
 enemy_s_usage = 30
@@ -150,7 +150,7 @@ award_spell = "ReflectDamageSpell"
 [node name="BattleEntry10" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 576, 176 )
 enemy_health = 465
-enemy_damage = 1.9
+enemy_damage = 2.1
 enemy_type = 5
 enemy_spells = [ "IncreaseDamage" ]
 enemy_s_usage = 30
@@ -167,7 +167,7 @@ enemy_s_usage = 35
 [node name="BattleEntry12" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 456, 232 )
 enemy_health = 470
-enemy_damage = 1.9
+enemy_damage = 2.1
 enemy_type = 9
 enemy_spells = [ "StealBlood" ]
 enemy_s_usage = 30
@@ -184,7 +184,7 @@ enemy_s_usage = 35
 [node name="BattleEntry14" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 648, 400 )
 enemy_health = 550
-enemy_damage = 2.0
+enemy_damage = 2.3
 enemy_type = 13
 enemy_spells = [ "StealBlood" ]
 enemy_s_usage = 35
@@ -192,7 +192,7 @@ enemy_s_usage = 35
 [node name="BattleEntry15" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 440, 576 )
 enemy_health = 590
-enemy_damage = 2.3
+enemy_damage = 2.6
 enemy_type = 24
 enemy_spells = [ "IncreaseDamage" ]
 enemy_s_usage = 35
@@ -201,7 +201,7 @@ award_spell = "IncreaseDamageSpell"
 [node name="BattleEntry16" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 880, 552 )
 enemy_health = 600
-enemy_damage = 2.5
+enemy_damage = 3.0
 enemy_type = 21
 enemy_spells = [ "IncreaseDamage", "DoubleShot" ]
 enemy_s_usage = 35
@@ -295,7 +295,7 @@ enemy_s_usage = 50
 [node name="BattleEntry27" parent="BattleGroup" instance=ExtResource( 31 )]
 position = Vector2( 504, 432 )
 enemy_health = 550
-enemy_damage = 2.0
+enemy_damage = 2.3
 enemy_type = 4
 enemy_spells = [ "DoubleShot" ]
 enemy_s_usage = 35
