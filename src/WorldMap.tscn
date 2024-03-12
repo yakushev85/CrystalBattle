@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/WorldMapRes.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/Player.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
 [ext_resource path="res://src/objects/MapPlayerArrow.tscn" type="PackedScene" id=34]
 [ext_resource path="res://assets/sound/step_grass.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/sound/bg_music1.mp3" type="AudioStream" id=36]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -542,5 +543,9 @@ tile_data = PoolIntArray( -65538, 12, 0, -65537, 12, 1, -131072, 12, 1, -131071,
 [node name="AudioWalkPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 35 )
 volume_db = -1.0
+
+[node name="AudioBgPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+bus = "Bg Bus"
 
 [connection signal="finished" from="AudioWalkPlayer" to="." method="_on_AudioWalkPlayer_finished"]

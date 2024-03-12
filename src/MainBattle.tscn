@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/objects/item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/MainBattle.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/sound/select_spell.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/sound/lose.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/sound/win.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/sound/bg_music3.mp3" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -128,6 +129,10 @@ volume_db = -1.0
 [node name="AudioWinPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 volume_db = -1.0
+
+[node name="AudioBgPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+bus = "Bg Bus"
 
 [connection signal="enemy_won" from="." to="." method="_on_MainBattle_enemy_won"]
 [connection signal="player_won" from="." to="." method="_on_MainBattle_player_won"]

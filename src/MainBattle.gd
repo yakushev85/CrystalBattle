@@ -83,6 +83,8 @@ func _ready():
 	
 	$MessageGroup/BigLabel.hide()
 	hide_enemy_spell()
+	
+	$AudioBgPlayer.play()
 
 
 func _on_StartTimer_timeout():
