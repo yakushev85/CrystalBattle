@@ -31,8 +31,6 @@ func _ready():
 	
 	setup_navserver()
 	
-	$AudioBgPlayer.play()
-	
 
 func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
