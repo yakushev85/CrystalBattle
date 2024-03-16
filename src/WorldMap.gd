@@ -31,14 +31,6 @@ func _ready():
 	
 	setup_navserver()
 	
-	#$BattleGroup.hide()
-	#$EnvironmentGroup.hide()
-	#$FogTileMap.hide()
-	#$Player.hide()
-	#$UIGroup/SayBox.hide()
-	$GroundTileMap.hide()
-	$EnvironmentTileMap.hide()
-	
 
 func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
