@@ -14,3 +14,16 @@ func refresh_avatar():
 		texture_path = "res://assets/icons/player/base.png"
 	
 	$TextureRect.texture = load(texture_path)
+
+
+func turn_on():
+	$AnimationPlayer.play("TurnOn")
+	
+	
+func damage():
+	$AnimationPlayer.play("Damage")
+
+
+func stop_anim():
+	$AnimationPlayer.stop()
+

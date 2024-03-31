@@ -171,6 +171,7 @@ func _on_PlayerTimer_timeout():
 			formatted_time = "0" + formatted_time
 			
 		$MessageGroup/MessageLabel.text = "Your pick 0:" + formatted_time
+		$MessageGroup/MessageAnimationPlayer.play("PlayerTimer")
 	else:
 		$PlayerTimer.stop()
 		$GameTimer.start()
@@ -187,6 +188,7 @@ func _input(event):
 		do_enemy_damage(int(player_dps))
 		$PlayerTimer.stop()
 		$GameTimer.start()
+		$PlayerAvatar.turn_on()
 
 
 func generate_matrix():
@@ -347,6 +349,8 @@ func score_matrix_play():
 
 
 func enemy_turn():
+	$PlayerAvatar.stop_anim()
+	$EnemyAvatar.turn_on()
 	generate_current_enemy_spell()
 	show_enemy_spell()
 	
@@ -487,6 +491,8 @@ func check_spells():
 func do_enemy_damage(dv):
 	if dv == 0:
 		return
+		
+	$EnemyAvatar.damage()
 	
 	if $PlayerSpellBox.selected_spell == "HealSpell":
 		print_debug("HealSpell ", dv)
@@ -521,6 +527,8 @@ func do_enemy_damage(dv):
 func do_player_damage(dv):
 	if dv == 0:
 		return
+		
+	$PlayerAvatar.damage()
 	
 	if $PlayerSpellBox.selected_spell == "ReflectDamageSpell":
 		print_debug("ReflectDamageSpell ", dv)
@@ -661,4 +669,10 @@ func save_data():
 	Global.battle_info.c_player_mana = $PlayerManaBar.current_mana_value
 	Global.battle_info.c_play_matrix = get_type_matrix()
 	Global.save_data()
+
+
+
+func _on_MessageAnimationPlayer_animation_finished(anim_name):
+	if anim_name == "PlayerTimer" and not $PlayerTimer.is_stopped():
+		$MessageGroup/MessageAnimationPlayer.play("PlayerTimer")
 
