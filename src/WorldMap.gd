@@ -30,6 +30,7 @@ func _ready():
 		$UIGroup/FinishedLabel.show()
 	
 	setup_navserver()
+	$Player.play_anim()
 	
 
 func _input(event):
@@ -72,6 +73,7 @@ func player_moving_done():
 	clear_fog()
 	Global.save_data()
 	Global.player_info.position = $Player.position
+	$Player.play_anim()
 
 
 func show_intro_say():
@@ -80,6 +82,7 @@ func show_intro_say():
 
 
 func player_moving_start():
+	$Player.stop_anim()
 	create_arrow()
 	
 	if $UIGroup/SayBox.is_visible_in_tree():

@@ -349,7 +349,6 @@ func score_matrix_play():
 
 
 func enemy_turn():
-	$PlayerAvatar.stop_anim()
 	$EnemyAvatar.turn_on()
 	generate_current_enemy_spell()
 	show_enemy_spell()
