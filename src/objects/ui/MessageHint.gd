@@ -1,7 +1,8 @@
 extends Node2D
 
-export var y_speed = 100
-export var y_max_anim = 300
+export var y_anim = 200
+export var moving_duration = 1
+var is_moving_down = true
 
 func _ready():
 	$DamageLabel.hide()
@@ -9,30 +10,50 @@ func _ready():
 	$RewardLabel.hide()
 
 
+func set_y_anim(v):
+	y_anim = v
+
+
+func set_orientation_drop(v):
+	is_moving_down = v
+
+
 func set_damage_message(value):
 	$DamageLabel.text = value
 	$DamageLabel.show()
+	do_movement()
 	
 
 func set_heal_message(value):
 	$HealLabel.text = value
 	$HealLabel.show()
+	do_movement()
 
 func set_reward_message(value):
 	$RewardLabel.text = value
 	$RewardLabel.show()
+	do_movement()
 
-func _process(delta):
+func do_movement():
 	if $DamageLabel.is_visible_in_tree():
-		animate_down($DamageLabel, y_speed*delta)
+		animate_move($DamageLabel, is_moving_down)
 	elif $HealLabel.is_visible_in_tree():
-		animate_down($HealLabel, y_speed*delta)
+		animate_move($HealLabel, is_moving_down)
 	elif $RewardLabel.is_visible_in_tree():
-		animate_down($RewardLabel, y_speed*delta)
+		animate_move($RewardLabel, is_moving_down)
 
 
-func animate_down(a_label:Label, delta_y):
-	a_label.rect_position.y += delta_y
+func animate_move(a_label:Label, is_down=true):
+	var new_position = a_label.rect_position
 	
-	if a_label.rect_position.y > y_max_anim:
-		queue_free()
+	if is_down:
+		new_position.y = new_position.y + y_anim
+	else:
+		new_position.y = new_position.y - y_anim
+	
+	$Tween.interpolate_property(a_label, "rect_position", 
+		a_label.rect_position, new_position, moving_duration, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_callback(self, moving_duration+0.1, "queue_free")
+	$Tween.start()
+
