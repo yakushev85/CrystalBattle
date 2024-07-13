@@ -105,6 +105,10 @@ one_shot = true
 
 [node name="RewardTimer" type="Timer" parent="."]
 
+[node name="FireSoundTimer" type="Timer" parent="."]
+wait_time = 1.4
+one_shot = true
+
 [node name="BackgroundGroup" type="Node2D" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundGroup"]
@@ -157,4 +161,5 @@ volume_db = -1.0
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 [connection signal="timeout" from="FinishTimer" to="." method="_on_FinishTimer_timeout"]
 [connection signal="timeout" from="RewardTimer" to="." method="_on_RewardTimer_timeout"]
+[connection signal="timeout" from="FireSoundTimer" to="." method="_on_FireSoundTimer_timeout"]
 [connection signal="spell_selected" from="PlayerSpellBox" to="." method="_on_PlayerSpellBox_spell_selected"]

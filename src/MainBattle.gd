@@ -261,7 +261,7 @@ func check_lines():
 	
 	
 func remove_lines(scored_lines):
-	$AudioFirePlayer.play()
+	fire_sound()
 	for scored_line in scored_lines:
 		for mxi in range(scored_line.mx0, scored_line.mx1+1):
 			for myi in range(scored_line.my0, scored_line.my1+1):
@@ -291,7 +291,7 @@ func remove_cell(mouse_x, mouse_y):
 
 
 func remove_cell_m(mx, my):
-	$AudioFirePlayer.play()
+	fire_sound()
 	if play_matrix[mx][my] != null:
 		play_matrix[mx][my].remove_with_animation()
 		play_matrix[mx][my] = null
@@ -675,3 +675,10 @@ func _on_MessageAnimationPlayer_animation_finished(anim_name):
 	if anim_name == "PlayerTimer" and not $PlayerTimer.is_stopped():
 		$MessageGroup/MessageAnimationPlayer.play("PlayerTimer")
 
+
+func fire_sound():
+	$AudioFirePlayer.play()
+	$FireSoundTimer.start()
+
+func _on_FireSoundTimer_timeout():
+	$AudioFirePlayer.stop()
