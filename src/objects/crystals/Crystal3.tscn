@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://b3knvp0s3ah5n"]
 
-[ext_resource path="res://assets/map/objects/Crystals/3.png" type="Texture" id=1]
+[ext_resource type="Texture2D" uid="uid://co73sxoqoi3if" path="res://assets/map/Objects/Crystals/3.png" id="1_3vdhq"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29, 29 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(58, 58)
 
 [node name="Crystal3" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 1 )
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_3vdhq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 35, 35 )
-shape = SubResource( 1 )
+position = Vector2(35, 35)
+shape = SubResource("1")

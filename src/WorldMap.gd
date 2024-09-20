@@ -2,7 +2,7 @@ extends Node2D
 
 const FOG_C_DIST = 4
 
-export (PackedScene) var arrow_scene
+@export var arrow_scene: PackedScene
 
 var current_arrow
 
@@ -37,7 +37,7 @@ func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		if is_gfinished:
 			Global.reset_newgame_data()
-			get_tree().change_scene("res://src/StartScreen.tscn")
+			get_tree().change_scene_to_file("res://src/StartScreen.tscn")
 		else:
 			$Player.event_position = event.position
 			_update_navigation_path($Player.position, event.position)
@@ -49,7 +49,7 @@ func _process(delta):
 		move_along_path(walk_distance)
 
 func clear_fog():
-	var cell_position = $FogTileMap.world_to_map($Player.position)
+	var cell_position = $FogTileMap.local_to_map($Player.position)
 	Global.map_info.cfog_points.append(cell_position)
 	clear_fog_p(cell_position)
 
@@ -93,7 +93,7 @@ func player_moving_start():
 
 func create_arrow():
 	if current_arrow == null:
-		current_arrow = arrow_scene.instance()
+		current_arrow = arrow_scene.instantiate()
 		add_child(current_arrow)
 		
 	current_arrow.set_arrow_position($Player.event_position)
@@ -108,18 +108,18 @@ func hide_arrow():
 
 
 func setup_navserver():
-	map = Navigation2DServer.map_create()
-	Navigation2DServer.map_set_active(map, true)
+	map = NavigationServer2D.map_create()
+	NavigationServer2D.map_set_active(map, true)
 
-	var region = Navigation2DServer.region_create()
-	Navigation2DServer.region_set_transform(region, Transform())
-	Navigation2DServer.region_set_map(region, map)
+	var region = NavigationServer2D.region_create()
+	NavigationServer2D.region_set_transform(region, Transform3D())
+	NavigationServer2D.region_set_map(region, map)
 
 	var navigation_poly = NavigationMesh.new()
-	navigation_poly = $NavGroup/NavigationPolygonInstance.navpoly
-	Navigation2DServer.region_set_navpoly(region, navigation_poly)
+	navigation_poly = $NavGroup/NavigationRegion2D.navigation_polygon
+	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
 
-	yield(get_tree(), "physics_frame")
+	await get_tree().physics_frame
 
 
 func move_along_path(distance):
@@ -128,7 +128,7 @@ func move_along_path(distance):
 		var distance_between_points = last_point.distance_to(path[0])
 		
 		if distance <= distance_between_points:
-			$Player.position = last_point.linear_interpolate(path[0], distance / distance_between_points)
+			$Player.position = last_point.lerp(path[0], distance / distance_between_points)
 			return
 		
 		clear_fog()
@@ -143,7 +143,7 @@ func move_along_path(distance):
 
 
 func _update_navigation_path(start_position, end_position):
-	path = Navigation2DServer.map_get_path(map,start_position, end_position, true)
+	path = NavigationServer2D.map_get_path(map,start_position, end_position, true)
 	path.remove(0)
 	is_player_moving = true
 	player_moving_start()

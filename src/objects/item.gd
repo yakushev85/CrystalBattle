@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var down_speed = 600
+@export var down_speed = 600
 
 var type
 var go_down_y = -1

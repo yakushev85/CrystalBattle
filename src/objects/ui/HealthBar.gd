@@ -1,7 +1,7 @@
 extends Node2D
 
-export (PackedScene) var message_scene
-export var max_health_value = 100
+@export var message_scene: PackedScene
+@export var max_health_value = 100
 var current_health_value
 
 
@@ -12,8 +12,8 @@ func _ready():
 func set_damage(damage_value):
 	set_health_value(current_health_value-damage_value)
 	if damage_value > 0:
-		var message_hint = message_scene.instance() as Node2D
-		message_hint.position.x = int($ProgressBar.rect_size.x / 2)
+		var message_hint = message_scene.instantiate() as Node2D
+		message_hint.position.x = int($ProgressBar.size.x / 2)
 		add_child(message_hint)
 		message_hint.set_damage_message("- " + str(damage_value) + " hp")
 	
@@ -25,7 +25,7 @@ func set_heal(heal_value):
 		set_health_value(current_health_value+heal_value)
 	
 		if heal_value > 0:
-			var message_hint = message_scene.instance()
+			var message_hint = message_scene.instantiate()
 			add_child(message_hint)
 			message_hint.set_heal_message("+ " + str(heal_value) + " hp")
 	

@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://assets/map/fog/Fog_tiles.png" type="Texture" id=2]
+[ext_resource path="res://assets/map/fog/Fog_tiles.png" type="Texture2D" id=2]
 
 [resource]
 12/name = "Fog_tiles.png 12"

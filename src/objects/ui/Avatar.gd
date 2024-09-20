@@ -1,7 +1,7 @@
 extends Node2D
 
-export var is_enemy = false
-export var avatar_type = 1
+@export var is_enemy = false
+@export var avatar_type = 1
 
 func _ready():
 	refresh_avatar()

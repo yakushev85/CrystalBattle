@@ -1,35 +1,34 @@
 [remap]
 
 importer="texture"
-type="StreamTexture"
-path="res://.import/Ship3.png-82a2e75922cceef38072128cc76e2e3e.stex"
+type="CompressedTexture2D"
+uid="uid://cn4cr0asfxykp"
+path="res://.godot/imported/Ship3.png-58ec5baec495e03e0762dd1390019bbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/objects/Other/Ship3.png"
-dest_files=[ "res://.import/Ship3.png-82a2e75922cceef38072128cc76e2e3e.stex" ]
+source_file="res://assets/map/Objects/Other/Ship3.png"
+dest_files=["res://.godot/imported/Ship3.png-58ec5baec495e03e0762dd1390019bbd.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
+compress/hdr_compression=1
 compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
 process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

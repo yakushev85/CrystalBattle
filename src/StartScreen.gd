@@ -17,9 +17,9 @@ func _on_PlayButton_pressed():
 
 func _on_StartTimer_timeout():
 	if Global.battle_info.status == "IN":
-		get_tree().change_scene("res://src/MainBattle.tscn")
+		get_tree().change_scene_to_file("res://src/MainBattle.tscn")
 	else:	
-		get_tree().change_scene("res://src/WorldMap.tscn")
+		get_tree().change_scene_to_file("res://src/WorldMap.tscn")
 
 
 func _on_NewGameButton_pressed():
@@ -48,4 +48,3 @@ func start_game(is_new = false):
 
 func _on_ConfirmationDialog_confirmed():
 	start_game(true)
-

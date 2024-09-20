@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var speed = 100
+@export var speed = 100
 var event_position = Vector2.ZERO
 var is_playing_def_anim = false
 

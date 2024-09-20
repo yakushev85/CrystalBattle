@@ -1,8 +1,8 @@
 extends Node2D
 
-export var forest_width = 0
-export var forest_height = 0
-export var randomizer_value = ""
+@export var forest_width = 0
+@export var forest_height = 0
+@export var randomizer_value = ""
 
 const X_STEP = 32
 const Y_STEP = 32
@@ -28,7 +28,7 @@ func create_forest():
 				tree_index = randomizer_value[(ri % len_r)]
 			
 			var tree_scene = load("res://src/objects/trees/Tree" + tree_index + ".tscn") as PackedScene
-			var tree_item = tree_scene.instance()
+			var tree_item = tree_scene.instantiate()
 			
 			tree_item.position.x = ix
 			tree_item.position.y = iy

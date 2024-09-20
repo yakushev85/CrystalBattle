@@ -137,17 +137,13 @@ const DATA_SAVE = "user://data.save"
 
 
 func is_new_game():
-	var data_file = File.new()
-	var is_new = !data_file.file_exists(DATA_SAVE)
-	data_file.close()
-	
-	return is_new
+	return !FileAccess.file_exists(DATA_SAVE)
 
 
 func load_data():
-	var data_file = File.new()
+	var data_file = FileAccess.open(DATA_SAVE, FileAccess.READ)
 	
-	if data_file.open(DATA_SAVE, File.READ) == 0:
+	if data_file.is_open():
 		map_info = data_file.get_var()
 		player_info = data_file.get_var()
 		battle_info = data_file.get_var()
@@ -158,9 +154,9 @@ func load_data():
 	
 	
 func save_data():
-	var data_file = File.new()
+	var data_file = FileAccess.open(DATA_SAVE, FileAccess.WRITE)
 	
-	if data_file.open(DATA_SAVE, File.WRITE) == 0:
+	if data_file.is_open():
 		data_file.store_var(map_info)
 		data_file.store_var(player_info)
 		data_file.store_var(battle_info)

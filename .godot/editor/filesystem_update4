@@ -1,0 +1,8 @@
+res://default_bus_layout.tres
+res://default_env.tres
+res://src/StartScreen.tscn
+res://src/StartScreen.gd
+res://src/Global.gd
+res://src/objects/crystals/Crystal1.tscn
+res://src/objects/crystals/Crystal2.tscn
+res://src/objects/crystals/Crystal3.tscn
