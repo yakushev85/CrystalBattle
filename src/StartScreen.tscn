@@ -75,9 +75,15 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
 
 [sub_resource type="Theme" id="6"]
 default_font = SubResource("7")
+default_font_size = 40
 /fonts/GameFont = SubResource("5")
 
 [sub_resource type="FontFile" id="8"]
@@ -140,8 +146,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = ""
+position = Vector2i(270, 300)
 theme = SubResource("6")
-dialog_text = "All saved data will be removed. Are you sure?"
+dialog_text = "All saved data will be removed. Are you sure?
+"
 
 [node name="Crystals" type="Node" parent="."]
 
