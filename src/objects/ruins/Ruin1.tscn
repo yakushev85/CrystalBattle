@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dxccbao6vr4c5"]
 
-[ext_resource path="res://assets/map/objects/Ruins/1.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://23vs70yenewa" path="res://assets/map/Objects/Ruins/1.png" id="1_7pj8y"]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id="1"]
 
 [node name="Ruin1" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource( 1 )
+texture = ExtResource("1_7pj8y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 16 )
-shape = SubResource( 1 )
+position = Vector2(16, 16)
+shape = SubResource("1")

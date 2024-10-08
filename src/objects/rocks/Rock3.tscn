@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://b2yflu8xsdnbs"]
 
-[ext_resource path="res://assets/map/objects/Rocks/3.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://dsin4wppqic2q" path="res://assets/map/Objects/Rocks/3.png" id="1_uswdx"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21, 13 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(42, 26)
 
 [node name="Rock3" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource( 1 )
+texture = ExtResource("1_uswdx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 27, 19 )
-shape = SubResource( 1 )
+position = Vector2(27, 19)
+shape = SubResource("1")

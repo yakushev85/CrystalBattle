@@ -12,7 +12,8 @@ var is_player_moving = false
 var is_gfinished = false
 
 func _ready():
-	$FogTileMap.z_index = 120
+	# TODO refactor to use fog
+	#$FogTileMap.z_index = 120
 	$UIGroup.z_index = 125
 	$UIGroup/FinishedLabel.hide()
 			
@@ -49,18 +50,21 @@ func _process(delta):
 		move_along_path(walk_distance)
 
 func clear_fog():
-	var cell_position = $FogTileMap.local_to_map($Player.position)
-	Global.map_info.cfog_points.append(cell_position)
-	clear_fog_p(cell_position)
+	pass
+	# TODO refactor to use fog
+	#var cell_position = $FogTileMap.local_to_map($Player.position)
+	#Global.map_info.cfog_points.append(cell_position)
+	#clear_fog_p(cell_position)
 
 
 func clear_fog_p(cell_position):
 	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
 		for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
 			var current_position = Vector2(ix, iy)
-			$FogTileMap.set_cellv(current_position, -1)
+			# TODO refactor to use fog
+			#$FogTileMap.set_cellv(current_position, -1)
 	
-	$FogTileMap.update_bitmask_region()
+	#$FogTileMap.update_bitmask_region()
 
 
 func prepeare_fog():
@@ -135,7 +139,7 @@ func move_along_path(distance):
 		
 		distance -= distance_between_points
 		last_point = path[0]
-		path.remove(0)
+		path.remove_at(0)
 	
 	$Player.position = last_point
 	is_player_moving = false
@@ -144,7 +148,7 @@ func move_along_path(distance):
 
 func _update_navigation_path(start_position, end_position):
 	path = NavigationServer2D.map_get_path(map,start_position, end_position, true)
-	path.remove(0)
+	path.remove_at(0)
 	is_player_moving = true
 	player_moving_start()
 

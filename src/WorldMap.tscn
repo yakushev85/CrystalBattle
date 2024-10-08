@@ -1,538 +1,541 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=3 uid="uid://cwy2rd2i3y15u"]
 
-[ext_resource path="res://src/WorldMapRes.tres" type="TileSet" id=1]
-[ext_resource path="res://src/objects/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/objects/ruins/Ruin1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/WorldMap.gd" type="Script" id=4]
-[ext_resource path="res://src/objects/Ship.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/objects/Cave.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/objects/trees/Tree3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/objects/trees/Tree1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/objects/crystals/Crystal1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/objects/crystals/Crystal2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/objects/crystals/Crystal3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/objects/rocks/Rock1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/objects/rocks/Rock2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/objects/trees/Tree5.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/objects/trees/Tree2.tscn" type="PackedScene" id=15]
-[ext_resource path="res://src/objects/trees/Tree6.tscn" type="PackedScene" id=16]
-[ext_resource path="res://src/objects/trees/Tree4.tscn" type="PackedScene" id=17]
-[ext_resource path="res://src/objects/rocks/Rock5.tscn" type="PackedScene" id=18]
-[ext_resource path="res://src/objects/rocks/Rock4.tscn" type="PackedScene" id=19]
-[ext_resource path="res://src/objects/Forest.tscn" type="PackedScene" id=20]
-[ext_resource path="res://src/objects/ruins/Ruin2.tscn" type="PackedScene" id=21]
-[ext_resource path="res://src/objects/ruins/Ruin3.tscn" type="PackedScene" id=22]
-[ext_resource path="res://src/objects/ruins/Ruin5.tscn" type="PackedScene" id=23]
-[ext_resource path="res://src/objects/ruins/Ruin4.tscn" type="PackedScene" id=24]
-[ext_resource path="res://src/objects/houses/House2.tscn" type="PackedScene" id=25]
-[ext_resource path="res://src/objects/houses/House4.tscn" type="PackedScene" id=26]
-[ext_resource path="res://src/objects/houses/House6.tscn" type="PackedScene" id=27]
-[ext_resource path="res://src/objects/houses/House1.tscn" type="PackedScene" id=28]
-[ext_resource path="res://src/objects/houses/House5.tscn" type="PackedScene" id=29]
-[ext_resource path="res://src/objects/houses/House3.tscn" type="PackedScene" id=30]
-[ext_resource path="res://src/objects/ui/BattleEntry.tscn" type="PackedScene" id=31]
-[ext_resource path="res://assets/fonts/CloisterBlackLight-axjg.ttf" type="FontFile" id=32]
-[ext_resource path="res://src/objects/ui/SayBox.tscn" type="PackedScene" id=33]
-[ext_resource path="res://src/objects/MapPlayerArrow.tscn" type="PackedScene" id=34]
-[ext_resource path="res://assets/sound/step_grass.wav" type="AudioStream" id=35]
-[ext_resource path="res://assets/map/bg1.png" type="Texture2D" id=36]
+[ext_resource type="PackedScene" path="res://src/objects/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dxccbao6vr4c5" path="res://src/objects/ruins/Ruin1.tscn" id="3"]
+[ext_resource type="Script" path="res://src/WorldMap.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dot6nyu1gpmw2" path="res://src/objects/Ship.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://c3h7wqct0vqjs" path="res://src/objects/Cave.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://jv62284q08bx" path="res://src/objects/trees/Tree3.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://p2lxctataim" path="res://src/objects/trees/Tree1.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://dv0vbiuqxg3x6" path="res://src/objects/crystals/Crystal1.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://d2ctk2q0qa83m" path="res://src/objects/crystals/Crystal2.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://b3knvp0s3ah5n" path="res://src/objects/crystals/Crystal3.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://dkwi8u6um0i1t" path="res://src/objects/rocks/Rock1.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://cmyg51wgniadm" path="res://src/objects/rocks/Rock2.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://c5bargtir5eav" path="res://src/objects/trees/Tree5.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://b70ip72uvkl5a" path="res://src/objects/trees/Tree2.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://hlbrv3f0u33e" path="res://src/objects/trees/Tree6.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://7k4ix7mm61tt" path="res://src/objects/trees/Tree4.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://dmhxu0knqkw4u" path="res://src/objects/rocks/Rock5.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://cueqpsm8ko42x" path="res://src/objects/rocks/Rock4.tscn" id="19"]
+[ext_resource type="PackedScene" path="res://src/objects/Forest.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://c8w220neg40go" path="res://src/objects/ruins/Ruin2.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://cpochpuivkfax" path="res://src/objects/ruins/Ruin3.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://7mqpxb332hqj" path="res://src/objects/ruins/Ruin5.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://crm6pc43kr1v1" path="res://src/objects/ruins/Ruin4.tscn" id="24"]
+[ext_resource type="PackedScene" uid="uid://butg1glllpatj" path="res://src/objects/houses/House2.tscn" id="25"]
+[ext_resource type="PackedScene" uid="uid://e2s5ackmiss6" path="res://src/objects/houses/House4.tscn" id="26"]
+[ext_resource type="PackedScene" uid="uid://cnq6drnyfybwk" path="res://src/objects/houses/House6.tscn" id="27"]
+[ext_resource type="PackedScene" uid="uid://bflsywxil4uqe" path="res://src/objects/houses/House1.tscn" id="28"]
+[ext_resource type="PackedScene" uid="uid://drpohwd05hjbq" path="res://src/objects/houses/House5.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://djgqg5dl4i0b4" path="res://src/objects/houses/House3.tscn" id="30"]
+[ext_resource type="PackedScene" path="res://src/objects/ui/BattleEntry.tscn" id="31"]
+[ext_resource type="FontFile" uid="uid://qn1l3wywy1ef" path="res://assets/fonts/CloisterBlackLight-axjg.ttf" id="32"]
+[ext_resource type="PackedScene" uid="uid://dr6ny3skioe3p" path="res://src/objects/ui/SayBox.tscn" id="33"]
+[ext_resource type="PackedScene" path="res://src/objects/MapPlayerArrow.tscn" id="34"]
+[ext_resource type="AudioStream" uid="uid://cdo5tvuf8oe2a" path="res://assets/sound/step_grass.wav" id="35"]
+[ext_resource type="Texture2D" uid="uid://co2v6fqky6xql" path="res://assets/map/bg1.png" id="36"]
 
-[sub_resource type="FontFile" id=1]
-size = 60
-font_data = ExtResource( 32 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("32")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
 
-[sub_resource type="NavigationPolygon" id=2]
-vertices = PackedVector2Array( 760, 360, 712, 320, 896, 320, 1216, 384, 288, 24, 320, 0, 320, 40, 576, 480, 448, 480, 464, 448, 128, 632, 232, 640, 320, 688, 64, 688, 64, 656, 96, 632, 32, 640, 32, 400, 56, 400, 96, 456, 104, 304, 56, 352, 32, 344, 32, 224, 56, 224, 104, 272, 56, 184, 32, 184, 32, 128, 88, 128, 96, 96, 128, 96, 128, 128, 248, 152, 224, 128, 224, 48, 240, 48, 296, 88, 296, 128, 320, 56, 240, 24, 352, 40, 352, 0, 640, 0, 392, 56, 640, 272, 536, 272, 536, 320, 648, 320, 704, 384, 704, 448, 608, 448, 512, 336, 760, 384, 704, 0, 1056, 0, 1056, 40, 768, 64, 1120, 40, 1120, 0, 1280, 0, 1280, 64, 1232, 64, 1232, 128, 1136, 128, 1136, 96, 1088, 96, 1088, 64, 704, 240, 768, 96, 896, 240, 992, 96, 920, 232, 992, 232, 920, 320, 1248, 320, 1248, 448, 1216, 416, 1024, 448, 960, 416, 960, 480, 1024, 496, 1192, 496, 1192, 560, 960, 624, 960, 512, 1224, 560, 1224, 624, 736, 480, 800, 512, 736, 576, 800, 536, 768, 624, 928, 536, 928, 624, 416, 624, 608, 576, 416, 568, 576, 568, 392, 424, 392, 496, 320, 496, 320, 360, 400, 360, 440, 424, 400, 320, 488, 320, 512, 272, 440, 272, 440, 192, 352, 160, 352, 80, 368, 80, 432, 128, 320, 88, 320, 128, 320, 184, 296, 184, 296, 224, 320, 224, 320, 304, 224, 304, 248, 240, 224, 240, 128, 152, 128, 272, 128, 304, 128, 456, 128, 480, 224, 480, 224, 544, 168, 544, 168, 608, 296, 576, 320, 576, 288, 608, 432, 80, 392, 72 )
-polygons = [ PackedInt32Array( 0, 1, 2, 3 ), PackedInt32Array( 4, 5, 6 ), PackedInt32Array( 7, 8, 9 ), PackedInt32Array( 10, 11, 12, 13, 14, 15 ), PackedInt32Array( 15, 14, 16, 17, 18, 19 ), PackedInt32Array( 20, 21, 22, 23, 24, 25 ), PackedInt32Array( 26, 27, 28, 29 ), PackedInt32Array( 30, 31, 32, 29 ), PackedInt32Array( 33, 34, 35, 36, 37, 38 ), PackedInt32Array( 39, 37, 36, 40, 4, 6 ), PackedInt32Array( 41, 42, 43, 44 ), PackedInt32Array( 43, 45, 46 ), PackedInt32Array( 47, 48, 49, 50, 51, 52 ), PackedInt32Array( 3, 53, 0 ), PackedInt32Array( 54, 55, 56, 57 ), PackedInt32Array( 58, 59, 60, 61, 62 ), PackedInt32Array( 62, 63, 64, 65 ), PackedInt32Array( 58, 62, 65, 66, 67 ), PackedInt32Array( 56, 58, 67, 57 ), PackedInt32Array( 68, 54, 57, 69 ), PackedInt32Array( 70, 68, 69, 71, 72 ), PackedInt32Array( 71, 73, 72 ), PackedInt32Array( 70, 72, 74, 2 ), PackedInt32Array( 3, 2, 74 ), PackedInt32Array( 3, 74, 75 ), PackedInt32Array( 3, 75, 76, 77 ), PackedInt32Array( 77, 76, 78, 79 ), PackedInt32Array( 80, 79, 78, 81 ), PackedInt32Array( 81, 82, 83, 84, 85 ), PackedInt32Array( 83, 86, 87, 84 ), PackedInt32Array( 88, 80, 81, 85, 89 ), PackedInt32Array( 90, 88, 89, 91, 92 ), PackedInt32Array( 91, 93, 94, 92 ), PackedInt32Array( 90, 92, 95, 96 ), PackedInt32Array( 96, 95, 97, 98 ), PackedInt32Array( 51, 96, 98, 7 ), PackedInt32Array( 99, 100, 101, 102 ), PackedInt32Array( 99, 102, 103, 104 ), PackedInt32Array( 7, 9, 104, 103, 105, 106, 52, 51 ), PackedInt32Array( 107, 108, 109, 43 ), PackedInt32Array( 110, 111, 112, 113, 109 ), PackedInt32Array( 39, 114, 37 ), PackedInt32Array( 38, 115, 116, 117, 33 ), PackedInt32Array( 118, 119, 120, 121, 122 ), PackedInt32Array( 121, 123, 122 ), PackedInt32Array( 118, 122, 33, 117 ), PackedInt32Array( 124, 125, 25, 24, 26 ), PackedInt32Array( 20, 126, 127, 19, 18, 21 ), PackedInt32Array( 128, 129, 130, 131 ), PackedInt32Array( 10, 128, 131, 132 ), PackedInt32Array( 133, 134, 12, 135 ), PackedInt32Array( 11, 135, 12 ), PackedInt32Array( 47, 52, 107, 46 ), PackedInt32Array( 136, 137, 44, 43 ), PackedInt32Array( 43, 46, 107 ), PackedInt32Array( 43, 109, 113, 136 ), PackedInt32Array( 26, 29, 32, 124 ), PackedInt32Array( 10, 132, 11 ), PackedInt32Array( 124, 32, 34, 33 ), PackedInt32Array( 39, 6, 41, 44 ) ]
-outlines = [ PackedVector2Array( 320, 576, 296, 576, 288, 608, 232, 640, 168, 608, 168, 544, 224, 544, 224, 480, 128, 480, 128, 632, 96, 632, 96, 456, 128, 456, 128, 304, 104, 304, 104, 272, 128, 272, 128, 152, 248, 152, 248, 240, 224, 240, 224, 304, 320, 304, 320, 224, 296, 224, 296, 184, 320, 184, 320, 128, 296, 128, 296, 88, 320, 88, 320, 56, 392, 56, 392, 72, 432, 80, 432, 128, 368, 80, 352, 80, 352, 160, 440, 192, 440, 272, 512, 272, 512, 336, 488, 320, 400, 320, 400, 360, 320, 360, 320, 496, 392, 496, 392, 424, 440, 424, 464, 448, 448, 480, 576, 480, 576, 568, 416, 568, 416, 624, 768, 624, 928, 624, 928, 536, 800, 536, 800, 512, 960, 512, 960, 624, 1224, 624, 1224, 560, 1192, 560, 1192, 496, 1024, 496, 1024, 448, 1248, 448, 1248, 320, 920, 320, 920, 232, 992, 232, 992, 96, 768, 96, 768, 64, 1088, 64, 1088, 96, 1136, 96, 1136, 128, 1232, 128, 1232, 64, 1280, 64, 1280, 0, 1120, 0, 1120, 40, 1056, 40, 1056, 0, 704, 0, 704, 240, 896, 240, 896, 320, 712, 320, 760, 360, 760, 384, 1216, 384, 1216, 416, 960, 416, 960, 480, 736, 480, 736, 576, 608, 576, 608, 448, 704, 448, 704, 384, 648, 320, 536, 320, 536, 272, 640, 272, 640, 0, 352, 0, 352, 40, 320, 40, 320, 0, 288, 24, 240, 24, 240, 48, 224, 48, 224, 128, 128, 128, 128, 96, 96, 96, 88, 128, 32, 128, 32, 184, 56, 184, 56, 224, 32, 224, 32, 344, 56, 352, 56, 400, 32, 400, 32, 640, 64, 656, 64, 688, 320, 688 ) ]
+[sub_resource type="NavigationPolygon" id="2"]
+vertices = PackedVector2Array(760, 360, 712, 320, 896, 320, 1216, 384, 288, 24, 320, 0, 320, 40, 576, 480, 448, 480, 464, 448, 128, 632, 232, 640, 320, 688, 64, 688, 64, 656, 96, 632, 32, 640, 32, 400, 56, 400, 96, 456, 104, 304, 56, 352, 32, 344, 32, 224, 56, 224, 104, 272, 56, 184, 32, 184, 32, 128, 88, 128, 96, 96, 128, 96, 128, 128, 248, 152, 224, 128, 224, 48, 240, 48, 296, 88, 296, 128, 320, 56, 240, 24, 352, 40, 352, 0, 640, 0, 392, 56, 640, 272, 536, 272, 536, 320, 648, 320, 704, 384, 704, 448, 608, 448, 512, 336, 760, 384, 704, 0, 1056, 0, 1056, 40, 768, 64, 1120, 40, 1120, 0, 1280, 0, 1280, 64, 1232, 64, 1232, 128, 1136, 128, 1136, 96, 1088, 96, 1088, 64, 704, 240, 768, 96, 896, 240, 992, 96, 920, 232, 992, 232, 920, 320, 1248, 320, 1248, 448, 1216, 416, 1024, 448, 960, 416, 960, 480, 1024, 496, 1192, 496, 1192, 560, 960, 624, 960, 512, 1224, 560, 1224, 624, 736, 480, 800, 512, 736, 576, 800, 536, 768, 624, 928, 536, 928, 624, 416, 624, 608, 576, 416, 568, 576, 568, 392, 424, 392, 496, 320, 496, 320, 360, 400, 360, 440, 424, 400, 320, 488, 320, 512, 272, 440, 272, 440, 192, 352, 160, 352, 80, 368, 80, 432, 128, 320, 88, 320, 128, 320, 184, 296, 184, 296, 224, 320, 224, 320, 304, 224, 304, 248, 240, 224, 240, 128, 152, 128, 272, 128, 304, 128, 456, 128, 480, 224, 480, 224, 544, 168, 544, 168, 608, 296, 576, 320, 576, 288, 608, 432, 80, 392, 72)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14, 15), PackedInt32Array(15, 14, 16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 29), PackedInt32Array(33, 34, 35, 36, 37, 38), PackedInt32Array(39, 37, 36, 40, 4, 6), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(43, 45, 46), PackedInt32Array(47, 48, 49, 50, 51, 52), PackedInt32Array(3, 53, 0), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61, 62), PackedInt32Array(62, 63, 64, 65), PackedInt32Array(58, 62, 65, 66, 67), PackedInt32Array(56, 58, 67, 57), PackedInt32Array(68, 54, 57, 69), PackedInt32Array(70, 68, 69, 71, 72), PackedInt32Array(71, 73, 72), PackedInt32Array(70, 72, 74, 2), PackedInt32Array(3, 2, 74), PackedInt32Array(3, 74, 75), PackedInt32Array(3, 75, 76, 77), PackedInt32Array(77, 76, 78, 79), PackedInt32Array(80, 79, 78, 81), PackedInt32Array(81, 82, 83, 84, 85), PackedInt32Array(83, 86, 87, 84), PackedInt32Array(88, 80, 81, 85, 89), PackedInt32Array(90, 88, 89, 91, 92), PackedInt32Array(91, 93, 94, 92), PackedInt32Array(90, 92, 95, 96), PackedInt32Array(96, 95, 97, 98), PackedInt32Array(51, 96, 98, 7), PackedInt32Array(99, 100, 101, 102), PackedInt32Array(99, 102, 103, 104), PackedInt32Array(7, 9, 104, 103, 105, 106, 52, 51), PackedInt32Array(107, 108, 109, 43), PackedInt32Array(110, 111, 112, 113, 109), PackedInt32Array(39, 114, 37), PackedInt32Array(38, 115, 116, 117, 33), PackedInt32Array(118, 119, 120, 121, 122), PackedInt32Array(121, 123, 122), PackedInt32Array(118, 122, 33, 117), PackedInt32Array(124, 125, 25, 24, 26), PackedInt32Array(20, 126, 127, 19, 18, 21), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(10, 128, 131, 132), PackedInt32Array(133, 134, 12, 135), PackedInt32Array(11, 135, 12), PackedInt32Array(47, 52, 107, 46), PackedInt32Array(136, 137, 44, 43), PackedInt32Array(43, 46, 107), PackedInt32Array(43, 109, 113, 136), PackedInt32Array(26, 29, 32, 124), PackedInt32Array(10, 132, 11), PackedInt32Array(124, 32, 34, 33), PackedInt32Array(39, 6, 41, 44)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(320, 576, 296, 576, 288, 608, 232, 640, 168, 608, 168, 544, 224, 544, 224, 480, 128, 480, 128, 632, 96, 632, 96, 456, 128, 456, 128, 304, 104, 304, 104, 272, 128, 272, 128, 152, 248, 152, 248, 240, 224, 240, 224, 304, 320, 304, 320, 224, 296, 224, 296, 184, 320, 184, 320, 128, 296, 128, 296, 88, 320, 88, 320, 56, 392, 56, 392, 72, 432, 80, 432, 128, 368, 80, 352, 80, 352, 160, 440, 192, 440, 272, 512, 272, 512, 336, 488, 320, 400, 320, 400, 360, 320, 360, 320, 496, 392, 496, 392, 424, 440, 424, 464, 448, 448, 480, 576, 480, 576, 568, 416, 568, 416, 624, 768, 624, 928, 624, 928, 536, 800, 536, 800, 512, 960, 512, 960, 624, 1224, 624, 1224, 560, 1192, 560, 1192, 496, 1024, 496, 1024, 448, 1248, 448, 1248, 320, 920, 320, 920, 232, 992, 232, 992, 96, 768, 96, 768, 64, 1088, 64, 1088, 96, 1136, 96, 1136, 128, 1232, 128, 1232, 64, 1280, 64, 1280, 0, 1120, 0, 1120, 40, 1056, 40, 1056, 0, 704, 0, 704, 240, 896, 240, 896, 320, 712, 320, 760, 360, 760, 384, 1216, 384, 1216, 416, 960, 416, 960, 480, 736, 480, 736, 576, 608, 576, 608, 448, 704, 448, 704, 384, 648, 320, 536, 320, 536, 272, 640, 272, 640, 0, 352, 0, 352, 40, 320, 40, 320, 0, 288, 24, 240, 24, 240, 48, 224, 48, 224, 128, 128, 128, 128, 96, 96, 96, 88, 128, 32, 128, 32, 184, 56, 184, 56, 224, 32, 224, 32, 344, 56, 352, 56, 400, 32, 400, 32, 640, 64, 656, 64, 688, 320, 688)])
 
 [node name="WorldMap" type="Node2D"]
-script = ExtResource( 4 )
-arrow_scene = ExtResource( 34 )
+script = ExtResource("4")
+arrow_scene = ExtResource("34")
 
 [node name="UIGroup" type="Node2D" parent="."]
 
 [node name="FinishedLabel" type="Label" parent="UIGroup"]
 offset_right = 1384.0
 offset_bottom = 776.0
-theme_override_fonts/font = SubResource( 1 )
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 60
 text = "You have rescued friends!
 To start a new game+ press continue 
 in the main menu."
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SayBox" parent="UIGroup" instance=ExtResource( 33 )]
+[node name="SayBox" parent="UIGroup" instance=ExtResource("33")]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 288, 650 )
+[node name="Player" parent="." instance=ExtResource("2")]
 z_index = 110
+position = Vector2(288, 650)
 
 [node name="NavGroup" type="Node" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavGroup"]
-navigation_polygon = SubResource( 2 )
+navigation_polygon = SubResource("2")
 
 [node name="BattleGroup" type="Node2D" parent="."]
 z_index = 102
 
-[node name="BattleEntry" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 192, 640 )
+[node name="BattleEntry" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(192, 640)
 enemy_health = 150
 enemy_type = 8
 enemy_background = 4
 
-[node name="BattleEntry2" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 176, 496 )
+[node name="BattleEntry2" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(176, 496)
 enemy_health = 180
 enemy_type = 7
 enemy_background = 4
 
-[node name="BattleEntry3" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 64, 640 )
+[node name="BattleEntry3" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(64, 640)
 enemy_health = 180
 enemy_damage = 1.6
 enemy_type = 27
 enemy_background = 4
-enemy_spells = [ "StealBlood" ]
+enemy_spells = ["StealBlood"]
 enemy_s_usage = 25
 award_mana = 20
 
-[node name="BattleEntry4" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 72, 376 )
+[node name="BattleEntry4" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(72, 376)
 enemy_health = 260
 enemy_damage = 1.8
 enemy_type = 25
 enemy_background = 4
 
-[node name="BattleEntry5" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 72, 128 )
+[node name="BattleEntry5" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(72, 128)
 enemy_health = 270
 enemy_damage = 1.7
 enemy_type = 18
 enemy_background = 4
-enemy_spells = [ "StealBlood" ]
+enemy_spells = ["StealBlood"]
 enemy_s_usage = 25
 
-[node name="BattleEntry6" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 256, 256 )
+[node name="BattleEntry6" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(256, 256)
 enemy_health = 360
 enemy_damage = 2.0
 enemy_type = 26
 enemy_background = 2
-enemy_spells = [ "DoubleShot" ]
+enemy_spells = ["DoubleShot"]
 enemy_s_usage = 30
 award_spell = "EnemySkipSpell"
 
-[node name="BattleEntry7" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 271, 32 )
+[node name="BattleEntry7" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(271, 32)
 enemy_health = 380
 enemy_damage = 2.0
 enemy_type = 14
 enemy_background = 2
 
-[node name="BattleEntry8" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 376, 120 )
+[node name="BattleEntry8" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(376, 120)
 enemy_health = 480
 enemy_damage = 2.5
 enemy_type = 12
-enemy_spells = [ "IncreaseDamage" ]
+enemy_spells = ["IncreaseDamage"]
 enemy_s_usage = 30
 
-[node name="BattleEntry9" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 592, 16 )
+[node name="BattleEntry9" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(592, 16)
 enemy_health = 450
 enemy_damage = 2.4
 enemy_type = 6
-enemy_spells = [ "DoubleShot" ]
+enemy_spells = ["DoubleShot"]
 enemy_s_usage = 30
 award_spell = "ReflectDamageSpell"
 
-[node name="BattleEntry10" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 576, 176 )
+[node name="BattleEntry10" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(576, 176)
 enemy_health = 465
 enemy_damage = 2.1
 enemy_type = 5
-enemy_spells = [ "IncreaseDamage" ]
+enemy_spells = ["IncreaseDamage"]
 enemy_s_usage = 30
 
-[node name="BattleEntry11" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 336, 456 )
+[node name="BattleEntry11" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(336, 456)
 enemy_health = 600
 enemy_damage = 3.0
 enemy_type = 28
 enemy_background = 3
-enemy_spells = [ "StealBlood", "IncreaseDamage" ]
+enemy_spells = ["StealBlood", "IncreaseDamage"]
 enemy_s_usage = 35
 
-[node name="BattleEntry12" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 456, 232 )
+[node name="BattleEntry12" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(456, 232)
 enemy_health = 470
 enemy_damage = 2.1
 enemy_type = 9
-enemy_spells = [ "StealBlood" ]
+enemy_spells = ["StealBlood"]
 enemy_s_usage = 30
 
-[node name="BattleEntry13" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 336, 376 )
+[node name="BattleEntry13" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(336, 376)
 enemy_health = 580
 enemy_damage = 2.9
 enemy_type = 17
 enemy_background = 3
-enemy_spells = [ "StealBlood" ]
+enemy_spells = ["StealBlood"]
 enemy_s_usage = 35
 
-[node name="BattleEntry14" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 648, 400 )
+[node name="BattleEntry14" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(648, 400)
 enemy_health = 550
 enemy_damage = 2.3
 enemy_type = 13
-enemy_spells = [ "StealBlood" ]
+enemy_spells = ["StealBlood"]
 enemy_s_usage = 35
 
-[node name="BattleEntry15" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 440, 576 )
+[node name="BattleEntry15" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(440, 576)
 enemy_health = 590
 enemy_damage = 2.6
 enemy_type = 24
-enemy_spells = [ "IncreaseDamage" ]
+enemy_spells = ["IncreaseDamage"]
 enemy_s_usage = 35
 award_spell = "IncreaseDamageSpell"
 
-[node name="BattleEntry16" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 880, 552 )
+[node name="BattleEntry16" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(880, 552)
 enemy_health = 600
 enemy_damage = 3.0
 enemy_type = 21
-enemy_spells = [ "IncreaseDamage", "DoubleShot" ]
+enemy_spells = ["IncreaseDamage", "DoubleShot"]
 enemy_s_usage = 35
 
-[node name="BattleEntry17" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 816, 576 )
+[node name="BattleEntry17" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(816, 576)
 enemy_health = 600
 enemy_damage = 2.5
 enemy_type = 22
-enemy_spells = [ "IncreaseDamage" ]
+enemy_spells = ["IncreaseDamage"]
 enemy_s_usage = 35
 
-[node name="BattleEntry18" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1024, 496 )
+[node name="BattleEntry18" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(1024, 496)
 enemy_health = 590
 enemy_damage = 2.8
 enemy_type = 3
-enemy_spells = [ "RandomLine" ]
+enemy_spells = ["RandomLine"]
 enemy_s_usage = 35
 
-[node name="BattleEntry19" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1136, 496 )
+[node name="BattleEntry19" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(1136, 496)
 enemy_health = 600
 enemy_damage = 3.0
 enemy_type = 15
-enemy_spells = [ "RandomLine", "StealBlood" ]
+enemy_spells = ["RandomLine", "StealBlood"]
 enemy_s_usage = 40
 award_spell = "RandomLineSpell"
 
-[node name="BattleEntry20" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1136, 568 )
+[node name="BattleEntry20" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(1136, 568)
 enemy_health = 590
 enemy_damage = 2.8
 enemy_type = 32
-enemy_spells = [ "RandomLine" ]
+enemy_spells = ["RandomLine"]
 enemy_s_usage = 35
 
-[node name="BattleEntry21" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1048, 336 )
+[node name="BattleEntry21" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(1048, 336)
 enemy_health = 700
 enemy_damage = 3.0
 enemy_type = 29
-enemy_spells = [ "RandomLine", "IncreaseDamage" ]
+enemy_spells = ["RandomLine", "IncreaseDamage"]
 enemy_s_usage = 40
 
-[node name="BattleEntry22" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 728, 176 )
+[node name="BattleEntry22" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(728, 176)
 enemy_health = 750
 enemy_damage = 3.2
 enemy_type = 10
 enemy_background = 2
-enemy_spells = [ "RegenSpace" ]
+enemy_spells = ["RegenSpace"]
 enemy_s_usage = 40
 award_spell = "RegenSpaceSpell"
 
-[node name="BattleEntry23" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 952, 104 )
+[node name="BattleEntry23" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(952, 104)
 enemy_health = 750
 enemy_damage = 3.2
 enemy_type = 11
 enemy_background = 2
-enemy_spells = [ "DoubleShot", "RandomLine" ]
+enemy_spells = ["DoubleShot", "RandomLine"]
 enemy_s_usage = 40
 
-[node name="BattleEntry24" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 728, 16 )
+[node name="BattleEntry24" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(728, 16)
 enemy_health = 800
 enemy_damage = 3.5
 enemy_type = 33
 enemy_background = 2
-enemy_spells = [ "DoubleShot", "RandomLine" ]
+enemy_spells = ["DoubleShot", "RandomLine"]
 enemy_s_usage = 40
 
-[node name="BattleEntry25" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 896, 16 )
+[node name="BattleEntry25" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(896, 16)
 enemy_health = 900
 enemy_damage = 4.0
 enemy_type = 20
 enemy_background = 3
-enemy_spells = [ "StealBlood", "DoubleShot", "RandomLine" ]
+enemy_spells = ["StealBlood", "DoubleShot", "RandomLine"]
 enemy_s_usage = 40
 
-[node name="BattleEntry26" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 1184, 72 )
+[node name="BattleEntry26" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(1184, 72)
 enemy_health = 1000
 enemy_damage = 5.0
 enemy_background = 3
-enemy_spells = [ "StealBlood", "IncreaseDamage", "DoubleShot", "RandomLine", "RegenSpace" ]
+enemy_spells = ["StealBlood", "IncreaseDamage", "DoubleShot", "RandomLine", "RegenSpace"]
 enemy_s_usage = 50
 
-[node name="BattleEntry27" parent="BattleGroup" instance=ExtResource( 31 )]
-position = Vector2( 504, 432 )
+[node name="BattleEntry27" parent="BattleGroup" instance=ExtResource("31")]
+position = Vector2(504, 432)
 enemy_health = 550
 enemy_damage = 2.3
 enemy_type = 4
-enemy_spells = [ "DoubleShot" ]
+enemy_spells = ["DoubleShot"]
 enemy_s_usage = 35
 
 [node name="EnvironmentGroup" type="Node2D" parent="."]
 z_index = 101
 
-[node name="Ship" parent="EnvironmentGroup" instance=ExtResource( 5 )]
-position = Vector2( 328, 632 )
+[node name="Ship" parent="EnvironmentGroup" instance=ExtResource("5")]
+position = Vector2(328, 632)
 
-[node name="Cave" parent="EnvironmentGroup" instance=ExtResource( 6 )]
-position = Vector2( 1216, 8 )
+[node name="Cave" parent="EnvironmentGroup" instance=ExtResource("6")]
+position = Vector2(1216, 8)
 
-[node name="Tree3" parent="EnvironmentGroup" instance=ExtResource( 7 )]
-position = Vector2( 240, 592 )
+[node name="Tree3" parent="EnvironmentGroup" instance=ExtResource("7")]
+position = Vector2(240, 592)
 
-[node name="Tree1" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 200, 584 )
+[node name="Tree1" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(200, 584)
 
-[node name="Crystal1" parent="EnvironmentGroup" instance=ExtResource( 9 )]
-position = Vector2( 1040, 192 )
+[node name="Crystal1" parent="EnvironmentGroup" instance=ExtResource("9")]
+position = Vector2(1040, 192)
 
-[node name="Crystal2" parent="EnvironmentGroup" instance=ExtResource( 10 )]
-position = Vector2( 1096, 176 )
+[node name="Crystal2" parent="EnvironmentGroup" instance=ExtResource("10")]
+position = Vector2(1096, 176)
 
-[node name="Crystal3" parent="EnvironmentGroup" instance=ExtResource( 11 )]
-position = Vector2( 1168, 176 )
+[node name="Crystal3" parent="EnvironmentGroup" instance=ExtResource("11")]
+position = Vector2(1168, 176)
 
-[node name="Crystal4" parent="EnvironmentGroup" instance=ExtResource( 10 )]
-position = Vector2( 1272, 176 )
+[node name="Crystal4" parent="EnvironmentGroup" instance=ExtResource("10")]
+position = Vector2(1272, 176)
 
-[node name="Rock1" parent="EnvironmentGroup" instance=ExtResource( 12 )]
-position = Vector2( 360, 312 )
+[node name="Rock1" parent="EnvironmentGroup" instance=ExtResource("12")]
+position = Vector2(360, 312)
 
-[node name="Rock2" parent="EnvironmentGroup" instance=ExtResource( 13 )]
-position = Vector2( 1232, 64 )
+[node name="Rock2" parent="EnvironmentGroup" instance=ExtResource("13")]
+position = Vector2(1232, 64)
 
-[node name="Tree5" parent="EnvironmentGroup" instance=ExtResource( 14 )]
-position = Vector2( 224, 200 )
+[node name="Tree5" parent="EnvironmentGroup" instance=ExtResource("14")]
+position = Vector2(224, 200)
 
-[node name="Tree2" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 224, 600 )
+[node name="Tree2" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(224, 600)
 
-[node name="Tree4" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 264, 568 )
+[node name="Tree4" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(264, 568)
 
-[node name="Tree6" parent="EnvironmentGroup" instance=ExtResource( 7 )]
-position = Vector2( 168, 544 )
+[node name="Tree6" parent="EnvironmentGroup" instance=ExtResource("7")]
+position = Vector2(168, 544)
 
-[node name="Tree7" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 168, 576 )
+[node name="Tree7" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(168, 576)
 
-[node name="Tree8" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 232, 568 )
+[node name="Tree8" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(232, 568)
 
-[node name="Tree9" parent="EnvironmentGroup" instance=ExtResource( 7 )]
-position = Vector2( 96, 600 )
+[node name="Tree9" parent="EnvironmentGroup" instance=ExtResource("7")]
+position = Vector2(96, 600)
 
-[node name="Tree10" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 96, 568 )
+[node name="Tree10" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(96, 568)
 
-[node name="Tree12" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 96, 488 )
+[node name="Tree12" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(96, 488)
 
-[node name="Tree11" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 96, 528 )
+[node name="Tree11" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(96, 528)
 
-[node name="Tree13" parent="EnvironmentGroup" instance=ExtResource( 16 )]
-position = Vector2( 224, 24 )
+[node name="Tree13" parent="EnvironmentGroup" instance=ExtResource("16")]
+position = Vector2(224, 24)
 
-[node name="Tree14" parent="EnvironmentGroup" instance=ExtResource( 14 )]
-position = Vector2( 296, 88 )
+[node name="Tree14" parent="EnvironmentGroup" instance=ExtResource("14")]
+position = Vector2(296, 88)
 
-[node name="Crystal5" parent="EnvironmentGroup" instance=ExtResource( 9 )]
-position = Vector2( 32, 72 )
+[node name="Crystal5" parent="EnvironmentGroup" instance=ExtResource("9")]
+position = Vector2(32, 72)
 
-[node name="Crystal6" parent="EnvironmentGroup" instance=ExtResource( 10 )]
-position = Vector2( 240, -32 )
+[node name="Crystal6" parent="EnvironmentGroup" instance=ExtResource("10")]
+position = Vector2(240, -32)
 
-[node name="Tree15" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 32, 352 )
+[node name="Tree15" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(32, 352)
 
-[node name="Tree16" parent="EnvironmentGroup" instance=ExtResource( 15 )]
-position = Vector2( 104, 272 )
+[node name="Tree16" parent="EnvironmentGroup" instance=ExtResource("15")]
+position = Vector2(104, 272)
 
-[node name="Tree17" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 32, 184 )
+[node name="Tree17" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(32, 184)
 
-[node name="Tree18" parent="EnvironmentGroup" instance=ExtResource( 7 )]
-position = Vector2( 32, 648 )
+[node name="Tree18" parent="EnvironmentGroup" instance=ExtResource("7")]
+position = Vector2(32, 648)
 
-[node name="Tree19" parent="EnvironmentGroup" instance=ExtResource( 14 )]
-position = Vector2( 224, 160 )
+[node name="Tree19" parent="EnvironmentGroup" instance=ExtResource("14")]
+position = Vector2(224, 160)
 
-[node name="Tree20" parent="EnvironmentGroup" instance=ExtResource( 17 )]
-position = Vector2( 296, 184 )
+[node name="Tree20" parent="EnvironmentGroup" instance=ExtResource("17")]
+position = Vector2(296, 184)
 
-[node name="Rock3" parent="EnvironmentGroup" instance=ExtResource( 13 )]
-position = Vector2( 392, 424 )
+[node name="Rock3" parent="EnvironmentGroup" instance=ExtResource("13")]
+position = Vector2(392, 424)
 
-[node name="Rock5" parent="EnvironmentGroup" instance=ExtResource( 18 )]
-position = Vector2( 424, 432 )
+[node name="Rock5" parent="EnvironmentGroup" instance=ExtResource("18")]
+position = Vector2(424, 432)
 
-[node name="Rock4" parent="EnvironmentGroup" instance=ExtResource( 19 )]
-position = Vector2( 392, 456 )
+[node name="Rock4" parent="EnvironmentGroup" instance=ExtResource("19")]
+position = Vector2(392, 456)
 
-[node name="Forest2" parent="EnvironmentGroup" instance=ExtResource( 20 )]
-position = Vector2( 704, 384 )
+[node name="Forest2" parent="EnvironmentGroup" instance=ExtResource("20")]
+position = Vector2(704, 384)
 forest_width = 250
 forest_height = 60
 randomizer_value = "3133211221323"
 
-[node name="Forest3" parent="EnvironmentGroup" instance=ExtResource( 20 )]
-position = Vector2( 610, 448 )
+[node name="Forest3" parent="EnvironmentGroup" instance=ExtResource("20")]
+position = Vector2(610, 448)
 forest_width = 110
 forest_height = 70
 randomizer_value = "3345451232"
 
-[node name="Forest4" parent="EnvironmentGroup" instance=ExtResource( 20 )]
-position = Vector2( 960, 384 )
+[node name="Forest4" parent="EnvironmentGroup" instance=ExtResource("20")]
+position = Vector2(960, 384)
 forest_width = 200
 forest_height = 30
 randomizer_value = "3333366"
 
-[node name="Forest6" parent="EnvironmentGroup" instance=ExtResource( 20 )]
-position = Vector2( 448, 480 )
+[node name="Forest6" parent="EnvironmentGroup" instance=ExtResource("20")]
+position = Vector2(448, 480)
 forest_width = 100
 forest_height = 50
 randomizer_value = "235452345342"
 
-[node name="Crystal7" parent="EnvironmentGroup" instance=ExtResource( 9 )]
-position = Vector2( 696, 344 )
+[node name="Crystal7" parent="EnvironmentGroup" instance=ExtResource("9")]
+position = Vector2(696, 344)
 
-[node name="Crystal8" parent="EnvironmentGroup" instance=ExtResource( 10 )]
-position = Vector2( 664, 312 )
+[node name="Crystal8" parent="EnvironmentGroup" instance=ExtResource("10")]
+position = Vector2(664, 312)
 
-[node name="Tree21" parent="EnvironmentGroup" instance=ExtResource( 8 )]
-position = Vector2( 480, 176 )
+[node name="Tree21" parent="EnvironmentGroup" instance=ExtResource("8")]
+position = Vector2(480, 176)
 
-[node name="Crystal9" parent="EnvironmentGroup" instance=ExtResource( 10 )]
-position = Vector2( 1000, 144 )
+[node name="Crystal9" parent="EnvironmentGroup" instance=ExtResource("10")]
+position = Vector2(1000, 144)
 
-[node name="Crystal10" parent="EnvironmentGroup" instance=ExtResource( 11 )]
-position = Vector2( 992, 88 )
+[node name="Crystal10" parent="EnvironmentGroup" instance=ExtResource("11")]
+position = Vector2(992, 88)
 
-[node name="Tree22" parent="EnvironmentGroup" instance=ExtResource( 7 )]
-position = Vector2( 104, 456 )
+[node name="Tree22" parent="EnvironmentGroup" instance=ExtResource("7")]
+position = Vector2(104, 456)
 
-[node name="Ruin5" parent="EnvironmentGroup" instance=ExtResource( 23 )]
-position = Vector2( 368, 80 )
+[node name="Ruin5" parent="EnvironmentGroup" instance=ExtResource("23")]
+position = Vector2(368, 80)
 
-[node name="Ruin1" parent="EnvironmentGroup" instance=ExtResource( 3 )]
-position = Vector2( 360, 232 )
+[node name="Ruin1" parent="EnvironmentGroup" instance=ExtResource("3")]
+position = Vector2(360, 232)
 
-[node name="Ruin2" parent="EnvironmentGroup" instance=ExtResource( 21 )]
-position = Vector2( 408, 248 )
+[node name="Ruin2" parent="EnvironmentGroup" instance=ExtResource("21")]
+position = Vector2(408, 248)
 
-[node name="Ruin3" parent="EnvironmentGroup" instance=ExtResource( 22 )]
-position = Vector2( 408, 200 )
+[node name="Ruin3" parent="EnvironmentGroup" instance=ExtResource("22")]
+position = Vector2(408, 200)
 
-[node name="Rock6" parent="EnvironmentGroup" instance=ExtResource( 18 )]
-position = Vector2( 352, 168 )
+[node name="Rock6" parent="EnvironmentGroup" instance=ExtResource("18")]
+position = Vector2(352, 168)
 
-[node name="Crystal11" parent="EnvironmentGroup" instance=ExtResource( 11 )]
-position = Vector2( 360, 184 )
+[node name="Crystal11" parent="EnvironmentGroup" instance=ExtResource("11")]
+position = Vector2(360, 184)
 
-[node name="Ruin6" parent="EnvironmentGroup" instance=ExtResource( 21 )]
-position = Vector2( 848, 520 )
+[node name="Ruin6" parent="EnvironmentGroup" instance=ExtResource("21")]
+position = Vector2(848, 520)
 
-[node name="Ruin4" parent="EnvironmentGroup" instance=ExtResource( 3 )]
-position = Vector2( 776, 592 )
+[node name="Ruin4" parent="EnvironmentGroup" instance=ExtResource("3")]
+position = Vector2(776, 592)
 
-[node name="Ruin7" parent="EnvironmentGroup" instance=ExtResource( 22 )]
-position = Vector2( 800, 520 )
+[node name="Ruin7" parent="EnvironmentGroup" instance=ExtResource("22")]
+position = Vector2(800, 520)
 
-[node name="Ruin8" parent="EnvironmentGroup" instance=ExtResource( 24 )]
-position = Vector2( 928, 568 )
+[node name="Ruin8" parent="EnvironmentGroup" instance=ExtResource("24")]
+position = Vector2(928, 568)
 
-[node name="Ruin9" parent="EnvironmentGroup" instance=ExtResource( 23 )]
-position = Vector2( 888, 520 )
+[node name="Ruin9" parent="EnvironmentGroup" instance=ExtResource("23")]
+position = Vector2(888, 520)
 
-[node name="Ruin10" parent="EnvironmentGroup" instance=ExtResource( 22 )]
-position = Vector2( 544, 424 )
+[node name="Ruin10" parent="EnvironmentGroup" instance=ExtResource("22")]
+position = Vector2(544, 424)
 
-[node name="Crystal12" parent="EnvironmentGroup" instance=ExtResource( 11 )]
-position = Vector2( 1264, 360 )
+[node name="Crystal12" parent="EnvironmentGroup" instance=ExtResource("11")]
+position = Vector2(1264, 360)
 
-[node name="House1" parent="EnvironmentGroup" instance=ExtResource( 28 )]
-position = Vector2( 1024, 448 )
+[node name="House1" parent="EnvironmentGroup" instance=ExtResource("28")]
+position = Vector2(1024, 448)
 
-[node name="House2" parent="EnvironmentGroup" instance=ExtResource( 25 )]
-position = Vector2( 1192, 520 )
+[node name="House2" parent="EnvironmentGroup" instance=ExtResource("25")]
+position = Vector2(1192, 520)
 
-[node name="House3" parent="EnvironmentGroup" instance=ExtResource( 30 )]
-position = Vector2( 1072, 448 )
+[node name="House3" parent="EnvironmentGroup" instance=ExtResource("30")]
+position = Vector2(1072, 448)
 
-[node name="House5" parent="EnvironmentGroup" instance=ExtResource( 29 )]
-position = Vector2( 1128, 448 )
+[node name="House5" parent="EnvironmentGroup" instance=ExtResource("29")]
+position = Vector2(1128, 448)
 
-[node name="House4" parent="EnvironmentGroup" instance=ExtResource( 26 )]
-position = Vector2( 1192, 448 )
+[node name="House4" parent="EnvironmentGroup" instance=ExtResource("26")]
+position = Vector2(1192, 448)
 
-[node name="House6" parent="EnvironmentGroup" instance=ExtResource( 27 )]
-position = Vector2( 1088, 528 )
+[node name="House6" parent="EnvironmentGroup" instance=ExtResource("27")]
+position = Vector2(1088, 528)
 
-[node name="Forest7" parent="EnvironmentGroup" instance=ExtResource( 20 )]
-position = Vector2( 1240, 448 )
+[node name="Forest7" parent="EnvironmentGroup" instance=ExtResource("20")]
+position = Vector2(1240, 448)
 forest_width = 80
 forest_height = 140
 randomizer_value = "324543243253"
 
-[node name="House7" parent="EnvironmentGroup" instance=ExtResource( 28 )]
-position = Vector2( 432, 528 )
+[node name="House7" parent="EnvironmentGroup" instance=ExtResource("28")]
+position = Vector2(432, 528)
 
-[node name="Rock7" parent="EnvironmentGroup" instance=ExtResource( 12 )]
-position = Vector2( 1096, 96 )
+[node name="Rock7" parent="EnvironmentGroup" instance=ExtResource("12")]
+position = Vector2(1096, 96)
 
-[node name="Crystal13" parent="EnvironmentGroup" instance=ExtResource( 9 )]
-position = Vector2( 500, 70 )
+[node name="Crystal13" parent="EnvironmentGroup" instance=ExtResource("9")]
+position = Vector2(500, 70)
 
-[node name="Crystal14" parent="EnvironmentGroup" instance=ExtResource( 11 )]
-position = Vector2( 800, 140 )
+[node name="Crystal14" parent="EnvironmentGroup" instance=ExtResource("11")]
+position = Vector2(800, 140)
 
 [node name="BgSprite" type="Sprite2D" parent="."]
-position = Vector2( 640, 360 )
-scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 36 )
-
-[node name="FogTileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PackedInt32Array( -65538, 12, 0, -65537, 12, 1, -131072, 12, 1, -131071, 12, 1, -131070, 12, 1, -131069, 12, 1, -131068, 12, 1, -131067, 12, 1, -131066, 12, 1, -131065, 12, 1, -131064, 12, 1, -131063, 12, 1, -131062, 12, 1, -131061, 12, 1, -131060, 12, 1, -131059, 12, 1, -131058, 12, 1, -131057, 12, 1, -131056, 12, 1, -131055, 12, 1, -131054, 12, 1, -131053, 12, 1, -131052, 12, 1, -131051, 12, 1, -131050, 12, 1, -131049, 12, 1, -131048, 12, 1, -131047, 12, 1, -131046, 12, 1, -131045, 12, 1, -131044, 12, 1, -131043, 12, 1, -131042, 12, 1, -131041, 12, 1, -131040, 12, 1, -131039, 12, 1, -131038, 12, 1, -131037, 12, 1, -131036, 12, 1, -131035, 12, 1, -131034, 12, 1, -131033, 12, 1, -131032, 12, 1, -131031, 12, 1, -131030, 12, 1, -131029, 12, 1, -131028, 12, 2, -2, 12, 65536, -1, 12, 65537, -65536, 12, 65537, -65535, 12, 65537, -65534, 12, 65537, -65533, 12, 65537, -65532, 12, 65537, -65531, 12, 65537, -65530, 12, 65537, -65529, 12, 65537, -65528, 12, 65537, -65527, 12, 65537, -65526, 12, 65537, -65525, 12, 65537, -65524, 12, 65537, -65523, 12, 65537, -65522, 12, 65537, -65521, 12, 65537, -65520, 12, 65537, -65519, 12, 65537, -65518, 12, 65537, -65517, 12, 65537, -65516, 12, 65537, -65515, 12, 65537, -65514, 12, 65537, -65513, 12, 65537, -65512, 12, 65537, -65511, 12, 65537, -65510, 12, 65537, -65509, 12, 65537, -65508, 12, 65537, -65507, 12, 65537, -65506, 12, 65537, -65505, 12, 65537, -65504, 12, 65537, -65503, 12, 65537, -65502, 12, 65537, -65501, 12, 65537, -65500, 12, 65537, -65499, 12, 65537, -65498, 12, 65537, -65497, 12, 65537, -65496, 12, 65537, -65495, 12, 65537, -65494, 12, 65537, -65493, 12, 65537, -65492, 12, 65538, 65534, 12, 65536, 65535, 12, 65537, 0, 12, 65537, 1, 12, 65537, 2, 12, 65537, 3, 12, 65537, 4, 12, 65537, 5, 12, 65537, 6, 12, 65537, 7, 12, 65537, 8, 12, 65537, 9, 12, 65537, 10, 12, 65537, 11, 12, 65537, 12, 12, 65537, 13, 12, 65537, 14, 12, 65537, 15, 12, 65537, 16, 12, 65537, 17, 12, 65537, 18, 12, 65537, 19, 12, 65537, 20, 12, 65537, 21, 12, 65537, 22, 12, 65537, 23, 12, 65537, 24, 12, 65537, 25, 12, 65537, 26, 12, 65537, 27, 12, 65537, 28, 12, 65537, 29, 12, 65537, 30, 12, 65537, 31, 12, 65537, 32, 12, 65537, 33, 12, 65537, 34, 12, 65537, 35, 12, 65537, 36, 12, 65537, 37, 12, 65537, 38, 12, 65537, 39, 12, 65537, 40, 12, 65537, 41, 12, 65537, 42, 12, 65537, 43, 12, 65537, 44, 12, 65538, 131070, 12, 65536, 131071, 12, 65537, 65536, 12, 65537, 65537, 12, 65537, 65538, 12, 65537, 65539, 12, 65537, 65540, 12, 65537, 65541, 12, 65537, 65542, 12, 65537, 65543, 12, 65537, 65544, 12, 65537, 65545, 12, 65537, 65546, 12, 65537, 65547, 12, 65537, 65548, 12, 65537, 65549, 12, 65537, 65550, 12, 65537, 65551, 12, 65537, 65552, 12, 65537, 65553, 12, 65537, 65554, 12, 65537, 65555, 12, 65537, 65556, 12, 65537, 65557, 12, 65537, 65558, 12, 65537, 65559, 12, 65537, 65560, 12, 65537, 65561, 12, 65537, 65562, 12, 65537, 65563, 12, 65537, 65564, 12, 65537, 65565, 12, 65537, 65566, 12, 65537, 65567, 12, 65537, 65568, 12, 65537, 65569, 12, 65537, 65570, 12, 65537, 65571, 12, 65537, 65572, 12, 65537, 65573, 12, 65537, 65574, 12, 65537, 65575, 12, 65537, 65576, 12, 65537, 65577, 12, 65537, 65578, 12, 65537, 65579, 12, 65537, 65580, 12, 65538, 196606, 12, 65536, 196607, 12, 65537, 131072, 12, 65537, 131073, 12, 65537, 131074, 12, 65537, 131075, 12, 65537, 131076, 12, 65537, 131077, 12, 65537, 131078, 12, 65537, 131079, 12, 65537, 131080, 12, 65537, 131081, 12, 65537, 131082, 12, 65537, 131083, 12, 65537, 131084, 12, 65537, 131085, 12, 65537, 131086, 12, 65537, 131087, 12, 65537, 131088, 12, 65537, 131089, 12, 65537, 131090, 12, 65537, 131091, 12, 65537, 131092, 12, 65537, 131093, 12, 65537, 131094, 12, 65537, 131095, 12, 65537, 131096, 12, 65537, 131097, 12, 65537, 131098, 12, 65537, 131099, 12, 65537, 131100, 12, 65537, 131101, 12, 65537, 131102, 12, 65537, 131103, 12, 65537, 131104, 12, 65537, 131105, 12, 65537, 131106, 12, 65537, 131107, 12, 65537, 131108, 12, 65537, 131109, 12, 65537, 131110, 12, 65537, 131111, 12, 65537, 131112, 12, 65537, 131113, 12, 65537, 131114, 12, 65537, 131115, 12, 65537, 131116, 12, 65538, 262142, 12, 65536, 262143, 12, 65537, 196608, 12, 65537, 196609, 12, 65537, 196610, 12, 65537, 196611, 12, 65537, 196612, 12, 65537, 196613, 12, 65537, 196614, 12, 65537, 196615, 12, 65537, 196616, 12, 65537, 196617, 12, 65537, 196618, 12, 65537, 196619, 12, 65537, 196620, 12, 65537, 196621, 12, 65537, 196622, 12, 65537, 196623, 12, 65537, 196624, 12, 65537, 196625, 12, 65537, 196626, 12, 65537, 196627, 12, 65537, 196628, 12, 65537, 196629, 12, 65537, 196630, 12, 65537, 196631, 12, 65537, 196632, 12, 65537, 196633, 12, 65537, 196634, 12, 65537, 196635, 12, 65537, 196636, 12, 65537, 196637, 12, 65537, 196638, 12, 65537, 196639, 12, 65537, 196640, 12, 65537, 196641, 12, 65537, 196642, 12, 65537, 196643, 12, 65537, 196644, 12, 65537, 196645, 12, 65537, 196646, 12, 65537, 196647, 12, 65537, 196648, 12, 65537, 196649, 12, 65537, 196650, 12, 65537, 196651, 12, 65537, 196652, 12, 65538, 327678, 12, 65536, 327679, 12, 65537, 262144, 12, 65537, 262145, 12, 65537, 262146, 12, 65537, 262147, 12, 65537, 262148, 12, 65537, 262149, 12, 65537, 262150, 12, 65537, 262151, 12, 65537, 262152, 12, 65537, 262153, 12, 65537, 262154, 12, 65537, 262155, 12, 65537, 262156, 12, 65537, 262157, 12, 65537, 262158, 12, 65537, 262159, 12, 65537, 262160, 12, 65537, 262161, 12, 65537, 262162, 12, 65537, 262163, 12, 65537, 262164, 12, 65537, 262165, 12, 65537, 262166, 12, 65537, 262167, 12, 65537, 262168, 12, 65537, 262169, 12, 65537, 262170, 12, 65537, 262171, 12, 65537, 262172, 12, 65537, 262173, 12, 65537, 262174, 12, 65537, 262175, 12, 65537, 262176, 12, 65537, 262177, 12, 65537, 262178, 12, 65537, 262179, 12, 65537, 262180, 12, 65537, 262181, 12, 65537, 262182, 12, 65537, 262183, 12, 65537, 262184, 12, 65537, 262185, 12, 65537, 262186, 12, 65537, 262187, 12, 65537, 262188, 12, 65538, 393214, 12, 65536, 393215, 12, 65537, 327680, 12, 65537, 327681, 12, 65537, 327682, 12, 65537, 327683, 12, 65537, 327684, 12, 65537, 327685, 12, 65537, 327686, 12, 65537, 327687, 12, 65537, 327688, 12, 65537, 327689, 12, 65537, 327690, 12, 65537, 327691, 12, 65537, 327692, 12, 65537, 327693, 12, 65537, 327694, 12, 65537, 327695, 12, 65537, 327696, 12, 65537, 327697, 12, 65537, 327698, 12, 65537, 327699, 12, 65537, 327700, 12, 65537, 327701, 12, 65537, 327702, 12, 65537, 327703, 12, 65537, 327704, 12, 65537, 327705, 12, 65537, 327706, 12, 65537, 327707, 12, 65537, 327708, 12, 65537, 327709, 12, 65537, 327710, 12, 65537, 327711, 12, 65537, 327712, 12, 65537, 327713, 12, 65537, 327714, 12, 65537, 327715, 12, 65537, 327716, 12, 65537, 327717, 12, 65537, 327718, 12, 65537, 327719, 12, 65537, 327720, 12, 65537, 327721, 12, 65537, 327722, 12, 65537, 327723, 12, 65537, 327724, 12, 65538, 458750, 12, 65536, 458751, 12, 65537, 393216, 12, 65537, 393217, 12, 65537, 393218, 12, 65537, 393219, 12, 65537, 393220, 12, 65537, 393221, 12, 65537, 393222, 12, 65537, 393223, 12, 65537, 393224, 12, 65537, 393225, 12, 65537, 393226, 12, 65537, 393227, 12, 65537, 393228, 12, 65537, 393229, 12, 65537, 393230, 12, 65537, 393231, 12, 65537, 393232, 12, 65537, 393233, 12, 65537, 393234, 12, 65537, 393235, 12, 65537, 393236, 12, 65537, 393237, 12, 65537, 393238, 12, 65537, 393239, 12, 65537, 393240, 12, 65537, 393241, 12, 65537, 393242, 12, 65537, 393243, 12, 65537, 393244, 12, 65537, 393245, 12, 65537, 393246, 12, 65537, 393247, 12, 65537, 393248, 12, 65537, 393249, 12, 65537, 393250, 12, 65537, 393251, 12, 65537, 393252, 12, 65537, 393253, 12, 65537, 393254, 12, 65537, 393255, 12, 65537, 393256, 12, 65537, 393257, 12, 65537, 393258, 12, 65537, 393259, 12, 65537, 393260, 12, 65538, 524286, 12, 65536, 524287, 12, 65537, 458752, 12, 65537, 458753, 12, 65537, 458754, 12, 65537, 458755, 12, 65537, 458756, 12, 65537, 458757, 12, 65537, 458758, 12, 65537, 458759, 12, 65537, 458760, 12, 65537, 458761, 12, 65537, 458762, 12, 65537, 458763, 12, 65537, 458764, 12, 65537, 458765, 12, 65537, 458766, 12, 65537, 458767, 12, 65537, 458768, 12, 65537, 458769, 12, 65537, 458770, 12, 65537, 458771, 12, 65537, 458772, 12, 65537, 458773, 12, 65537, 458774, 12, 65537, 458775, 12, 65537, 458776, 12, 65537, 458777, 12, 65537, 458778, 12, 65537, 458779, 12, 65537, 458780, 12, 65537, 458781, 12, 65537, 458782, 12, 65537, 458783, 12, 65537, 458784, 12, 65537, 458785, 12, 65537, 458786, 12, 65537, 458787, 12, 65537, 458788, 12, 65537, 458789, 12, 65537, 458790, 12, 65537, 458791, 12, 65537, 458792, 12, 65537, 458793, 12, 65537, 458794, 12, 65537, 458795, 12, 65537, 458796, 12, 65538, 589822, 12, 65536, 589823, 12, 65537, 524288, 12, 65537, 524289, 12, 65537, 524290, 12, 65537, 524291, 12, 65537, 524292, 12, 65537, 524293, 12, 65537, 524294, 12, 65537, 524295, 12, 65537, 524296, 12, 65537, 524297, 12, 65537, 524298, 12, 65537, 524299, 12, 65537, 524300, 12, 65537, 524301, 12, 65537, 524302, 12, 65537, 524303, 12, 65537, 524304, 12, 65537, 524305, 12, 65537, 524306, 12, 65537, 524307, 12, 65537, 524308, 12, 65537, 524309, 12, 65537, 524310, 12, 65537, 524311, 12, 65537, 524312, 12, 65537, 524313, 12, 65537, 524314, 12, 65537, 524315, 12, 65537, 524316, 12, 65537, 524317, 12, 65537, 524318, 12, 65537, 524319, 12, 65537, 524320, 12, 65537, 524321, 12, 65537, 524322, 12, 65537, 524323, 12, 65537, 524324, 12, 65537, 524325, 12, 65537, 524326, 12, 65537, 524327, 12, 65537, 524328, 12, 65537, 524329, 12, 65537, 524330, 12, 65537, 524331, 12, 65537, 524332, 12, 65538, 655358, 12, 65536, 655359, 12, 65537, 589824, 12, 65537, 589825, 12, 65537, 589826, 12, 65537, 589827, 12, 65537, 589828, 12, 65537, 589829, 12, 65537, 589830, 12, 65537, 589831, 12, 65537, 589832, 12, 65537, 589833, 12, 65537, 589834, 12, 65537, 589835, 12, 65537, 589836, 12, 65537, 589837, 12, 65537, 589838, 12, 65537, 589839, 12, 65537, 589840, 12, 65537, 589841, 12, 65537, 589842, 12, 65537, 589843, 12, 65537, 589844, 12, 65537, 589845, 12, 65537, 589846, 12, 65537, 589847, 12, 65537, 589848, 12, 65537, 589849, 12, 65537, 589850, 12, 65537, 589851, 12, 65537, 589852, 12, 65537, 589853, 12, 65537, 589854, 12, 65537, 589855, 12, 65537, 589856, 12, 65537, 589857, 12, 65537, 589858, 12, 65537, 589859, 12, 65537, 589860, 12, 65537, 589861, 12, 65537, 589862, 12, 65537, 589863, 12, 65537, 589864, 12, 65537, 589865, 12, 65537, 589866, 12, 65537, 589867, 12, 65537, 589868, 12, 65538, 720894, 12, 65536, 720895, 12, 65537, 655360, 12, 65537, 655361, 12, 65537, 655362, 12, 65537, 655363, 12, 65537, 655364, 12, 65537, 655365, 12, 65537, 655366, 12, 65537, 655367, 12, 65537, 655368, 12, 65537, 655369, 12, 65537, 655370, 12, 65537, 655371, 12, 65537, 655372, 12, 65537, 655373, 12, 65537, 655374, 12, 65537, 655375, 12, 65537, 655376, 12, 65537, 655377, 12, 65537, 655378, 12, 65537, 655379, 12, 65537, 655380, 12, 65537, 655381, 12, 65537, 655382, 12, 65537, 655383, 12, 65537, 655384, 12, 65537, 655385, 12, 65537, 655386, 12, 65537, 655387, 12, 65537, 655388, 12, 65537, 655389, 12, 65537, 655390, 12, 65537, 655391, 12, 65537, 655392, 12, 65537, 655393, 12, 65537, 655394, 12, 65537, 655395, 12, 65537, 655396, 12, 65537, 655397, 12, 65537, 655398, 12, 65537, 655399, 12, 65537, 655400, 12, 65537, 655401, 12, 65537, 655402, 12, 65537, 655403, 12, 65537, 655404, 12, 65538, 786430, 12, 65536, 786431, 12, 65537, 720896, 12, 65537, 720897, 12, 65537, 720898, 12, 65537, 720899, 12, 65537, 720900, 12, 65537, 720901, 12, 65537, 720902, 12, 65537, 720903, 12, 65537, 720904, 12, 65537, 720905, 12, 65537, 720906, 12, 65537, 720907, 12, 65537, 720908, 12, 65537, 720909, 12, 65537, 720910, 12, 65537, 720911, 12, 65537, 720912, 12, 65537, 720913, 12, 65537, 720914, 12, 65537, 720915, 12, 65537, 720916, 12, 65537, 720917, 12, 65537, 720918, 12, 65537, 720919, 12, 65537, 720920, 12, 65537, 720921, 12, 65537, 720922, 12, 65537, 720923, 12, 65537, 720924, 12, 65537, 720925, 12, 65537, 720926, 12, 65537, 720927, 12, 65537, 720928, 12, 65537, 720929, 12, 65537, 720930, 12, 65537, 720931, 12, 65537, 720932, 12, 65537, 720933, 12, 65537, 720934, 12, 65537, 720935, 12, 65537, 720936, 12, 65537, 720937, 12, 65537, 720938, 12, 65537, 720939, 12, 65537, 720940, 12, 65538, 851966, 12, 65536, 851967, 12, 65537, 786432, 12, 65537, 786433, 12, 65537, 786434, 12, 65537, 786435, 12, 65537, 786436, 12, 65537, 786437, 12, 65537, 786438, 12, 65537, 786439, 12, 65537, 786440, 12, 65537, 786441, 12, 65537, 786442, 12, 65537, 786443, 12, 65537, 786444, 12, 65537, 786445, 12, 65537, 786446, 12, 65537, 786447, 12, 65537, 786448, 12, 65537, 786449, 12, 65537, 786450, 12, 65537, 786451, 12, 65537, 786452, 12, 65537, 786453, 12, 65537, 786454, 12, 65537, 786455, 12, 65537, 786456, 12, 65537, 786457, 12, 65537, 786458, 12, 65537, 786459, 12, 65537, 786460, 12, 65537, 786461, 12, 65537, 786462, 12, 65537, 786463, 12, 65537, 786464, 12, 65537, 786465, 12, 65537, 786466, 12, 65537, 786467, 12, 65537, 786468, 12, 65537, 786469, 12, 65537, 786470, 12, 65537, 786471, 12, 65537, 786472, 12, 65537, 786473, 12, 65537, 786474, 12, 65537, 786475, 12, 65537, 786476, 12, 65538, 917502, 12, 65536, 917503, 12, 65537, 851968, 12, 65537, 851969, 12, 65537, 851970, 12, 65537, 851971, 12, 65537, 851972, 12, 65537, 851973, 12, 65537, 851974, 12, 65537, 851975, 12, 65537, 851976, 12, 65537, 851977, 12, 65537, 851978, 12, 65537, 851979, 12, 65537, 851980, 12, 65537, 851981, 12, 65537, 851982, 12, 65537, 851983, 12, 65537, 851984, 12, 65537, 851985, 12, 65537, 851986, 12, 65537, 851987, 12, 65537, 851988, 12, 65537, 851989, 12, 65537, 851990, 12, 65537, 851991, 12, 65537, 851992, 12, 65537, 851993, 12, 65537, 851994, 12, 65537, 851995, 12, 65537, 851996, 12, 65537, 851997, 12, 65537, 851998, 12, 65537, 851999, 12, 65537, 852000, 12, 65537, 852001, 12, 65537, 852002, 12, 65537, 852003, 12, 65537, 852004, 12, 65537, 852005, 12, 65537, 852006, 12, 65537, 852007, 12, 65537, 852008, 12, 65537, 852009, 12, 65537, 852010, 12, 65537, 852011, 12, 65537, 852012, 12, 65538, 983038, 12, 65536, 983039, 12, 65537, 917504, 12, 65537, 917505, 12, 65537, 917506, 12, 65537, 917507, 12, 65537, 917508, 12, 65537, 917509, 12, 65537, 917510, 12, 65537, 917511, 12, 65537, 917512, 12, 65537, 917513, 12, 65537, 917514, 12, 65537, 917515, 12, 65537, 917516, 12, 65537, 917517, 12, 65537, 917518, 12, 65537, 917519, 12, 65537, 917520, 12, 65537, 917521, 12, 65537, 917522, 12, 65537, 917523, 12, 65537, 917524, 12, 65537, 917525, 12, 65537, 917526, 12, 65537, 917527, 12, 65537, 917528, 12, 65537, 917529, 12, 65537, 917530, 12, 65537, 917531, 12, 65537, 917532, 12, 65537, 917533, 12, 65537, 917534, 12, 65537, 917535, 12, 65537, 917536, 12, 65537, 917537, 12, 65537, 917538, 12, 65537, 917539, 12, 65537, 917540, 12, 65537, 917541, 12, 65537, 917542, 12, 65537, 917543, 12, 65537, 917544, 12, 65537, 917545, 12, 65537, 917546, 12, 65537, 917547, 12, 65537, 917548, 12, 65538, 1048574, 12, 65536, 1048575, 12, 65537, 983040, 12, 65537, 983041, 12, 65537, 983042, 12, 65537, 983043, 12, 65537, 983044, 12, 65537, 983045, 12, 65537, 983046, 12, 65537, 983047, 12, 65537, 983048, 12, 65537, 983049, 12, 65537, 983050, 12, 65537, 983051, 12, 65537, 983052, 12, 65537, 983053, 12, 65537, 983054, 12, 65537, 983055, 12, 65537, 983056, 12, 65537, 983057, 12, 65537, 983058, 12, 65537, 983059, 12, 65537, 983060, 12, 65537, 983061, 12, 65537, 983062, 12, 65537, 983063, 12, 65537, 983064, 12, 65537, 983065, 12, 65537, 983066, 12, 65537, 983067, 12, 65537, 983068, 12, 65537, 983069, 12, 65537, 983070, 12, 65537, 983071, 12, 65537, 983072, 12, 65537, 983073, 12, 65537, 983074, 12, 65537, 983075, 12, 65537, 983076, 12, 65537, 983077, 12, 65537, 983078, 12, 65537, 983079, 12, 65537, 983080, 12, 65537, 983081, 12, 65537, 983082, 12, 65537, 983083, 12, 65537, 983084, 12, 65538, 1114110, 12, 65536, 1114111, 12, 65537, 1048576, 12, 65537, 1048577, 12, 65537, 1048578, 12, 65537, 1048579, 12, 65537, 1048580, 12, 65537, 1048581, 12, 65537, 1048582, 12, 65537, 1048583, 12, 65537, 1048584, 12, 65537, 1048585, 12, 65537, 1048586, 12, 65537, 1048587, 12, 65537, 1048588, 12, 65537, 1048589, 12, 65537, 1048590, 12, 65537, 1048591, 12, 65537, 1048592, 12, 65537, 1048593, 12, 65537, 1048594, 12, 65537, 1048595, 12, 65537, 1048596, 12, 65537, 1048597, 12, 65537, 1048598, 12, 65537, 1048599, 12, 65537, 1048600, 12, 65537, 1048601, 12, 65537, 1048602, 12, 65537, 1048603, 12, 65537, 1048604, 12, 65537, 1048605, 12, 65537, 1048606, 12, 65537, 1048607, 12, 65537, 1048608, 12, 65537, 1048609, 12, 65537, 1048610, 12, 65537, 1048611, 12, 65537, 1048612, 12, 65537, 1048613, 12, 65537, 1048614, 12, 65537, 1048615, 12, 65537, 1048616, 12, 65537, 1048617, 12, 65537, 1048618, 12, 65537, 1048619, 12, 65537, 1048620, 12, 65538, 1179646, 12, 65536, 1179647, 12, 65537, 1114112, 12, 65537, 1114113, 12, 65537, 1114114, 12, 65537, 1114115, 12, 65537, 1114116, 12, 65537, 1114117, 12, 65537, 1114118, 12, 65537, 1114119, 12, 65537, 1114120, 12, 65537, 1114121, 12, 65537, 1114122, 12, 65537, 1114123, 12, 65537, 1114124, 12, 65537, 1114125, 12, 65537, 1114126, 12, 65537, 1114127, 12, 65537, 1114128, 12, 65537, 1114129, 12, 65537, 1114130, 12, 65537, 1114131, 12, 65537, 1114132, 12, 65537, 1114133, 12, 65537, 1114134, 12, 65537, 1114135, 12, 65537, 1114136, 12, 65537, 1114137, 12, 65537, 1114138, 12, 65537, 1114139, 12, 65537, 1114140, 12, 65537, 1114141, 12, 65537, 1114142, 12, 65537, 1114143, 12, 65537, 1114144, 12, 65537, 1114145, 12, 65537, 1114146, 12, 65537, 1114147, 12, 65537, 1114148, 12, 65537, 1114149, 12, 65537, 1114150, 12, 65537, 1114151, 12, 65537, 1114152, 12, 65537, 1114153, 12, 65537, 1114154, 12, 65537, 1114155, 12, 65537, 1114156, 12, 65538, 1245182, 12, 65536, 1245183, 12, 65537, 1179648, 12, 65537, 1179649, 12, 65537, 1179650, 12, 65537, 1179651, 12, 65537, 1179652, 12, 65537, 1179653, 12, 65537, 1179654, 12, 65537, 1179655, 12, 65537, 1179656, 12, 65537, 1179657, 12, 65537, 1179658, 12, 65537, 1179659, 12, 65537, 1179660, 12, 65537, 1179661, 12, 65537, 1179662, 12, 65537, 1179663, 12, 65537, 1179664, 12, 65537, 1179665, 12, 65537, 1179666, 12, 65537, 1179667, 12, 65537, 1179668, 12, 65537, 1179669, 12, 65537, 1179670, 12, 65537, 1179671, 12, 65537, 1179672, 12, 65537, 1179673, 12, 65537, 1179674, 12, 65537, 1179675, 12, 65537, 1179676, 12, 65537, 1179677, 12, 65537, 1179678, 12, 65537, 1179679, 12, 65537, 1179680, 12, 65537, 1179681, 12, 65537, 1179682, 12, 65537, 1179683, 12, 65537, 1179684, 12, 65537, 1179685, 12, 65537, 1179686, 12, 65537, 1179687, 12, 65537, 1179688, 12, 65537, 1179689, 12, 65537, 1179690, 12, 65537, 1179691, 12, 65537, 1179692, 12, 65538, 1310718, 12, 65536, 1310719, 12, 65537, 1245184, 12, 65537, 1245185, 12, 65537, 1245186, 12, 65537, 1245187, 12, 65537, 1245188, 12, 65537, 1245189, 12, 65537, 1245190, 12, 65537, 1245191, 12, 65537, 1245192, 12, 65537, 1245193, 12, 65537, 1245194, 12, 65537, 1245195, 12, 65537, 1245196, 12, 65537, 1245197, 12, 65537, 1245198, 12, 65537, 1245199, 12, 65537, 1245200, 12, 65537, 1245201, 12, 65537, 1245202, 12, 65537, 1245203, 12, 65537, 1245204, 12, 65537, 1245205, 12, 65537, 1245206, 12, 65537, 1245207, 12, 65537, 1245208, 12, 65537, 1245209, 12, 65537, 1245210, 12, 65537, 1245211, 12, 65537, 1245212, 12, 65537, 1245213, 12, 65537, 1245214, 12, 65537, 1245215, 12, 65537, 1245216, 12, 65537, 1245217, 12, 65537, 1245218, 12, 65537, 1245219, 12, 65537, 1245220, 12, 65537, 1245221, 12, 65537, 1245222, 12, 65537, 1245223, 12, 65537, 1245224, 12, 65537, 1245225, 12, 65537, 1245226, 12, 65537, 1245227, 12, 65537, 1245228, 12, 65538, 1376254, 12, 65536, 1376255, 12, 65537, 1310720, 12, 65537, 1310721, 12, 65537, 1310722, 12, 65537, 1310723, 12, 65537, 1310724, 12, 65537, 1310725, 12, 65537, 1310726, 12, 65537, 1310727, 12, 65537, 1310728, 12, 65537, 1310729, 12, 65537, 1310730, 12, 65537, 1310731, 12, 65537, 1310732, 12, 65537, 1310733, 12, 65537, 1310734, 12, 65537, 1310735, 12, 65537, 1310736, 12, 65537, 1310737, 12, 65537, 1310738, 12, 65537, 1310739, 12, 65537, 1310740, 12, 65537, 1310741, 12, 65537, 1310742, 12, 65537, 1310743, 12, 65537, 1310744, 12, 65537, 1310745, 12, 65537, 1310746, 12, 65537, 1310747, 12, 65537, 1310748, 12, 65537, 1310749, 12, 65537, 1310750, 12, 65537, 1310751, 12, 65537, 1310752, 12, 65537, 1310753, 12, 65537, 1310754, 12, 65537, 1310755, 12, 65537, 1310756, 12, 65537, 1310757, 12, 65537, 1310758, 12, 65537, 1310759, 12, 65537, 1310760, 12, 65537, 1310761, 12, 65537, 1310762, 12, 65537, 1310763, 12, 65537, 1310764, 12, 65538, 1441790, 12, 65536, 1441791, 12, 65537, 1376256, 12, 65537, 1376257, 12, 65537, 1376258, 12, 65537, 1376259, 12, 65537, 1376260, 12, 65537, 1376261, 12, 65537, 1376262, 12, 65537, 1376263, 12, 65537, 1376264, 12, 65537, 1376265, 12, 65537, 1376266, 12, 65537, 1376267, 12, 65537, 1376268, 12, 65537, 1376269, 12, 65537, 1376270, 12, 65537, 1376271, 12, 65537, 1376272, 12, 65537, 1376273, 12, 65537, 1376274, 12, 65537, 1376275, 12, 65537, 1376276, 12, 65537, 1376277, 12, 65537, 1376278, 12, 65537, 1376279, 12, 65537, 1376280, 12, 65537, 1376281, 12, 65537, 1376282, 12, 65537, 1376283, 12, 65537, 1376284, 12, 65537, 1376285, 12, 65537, 1376286, 12, 65537, 1376287, 12, 65537, 1376288, 12, 65537, 1376289, 12, 65537, 1376290, 12, 65537, 1376291, 12, 65537, 1376292, 12, 65537, 1376293, 12, 65537, 1376294, 12, 65537, 1376295, 12, 65537, 1376296, 12, 65537, 1376297, 12, 65537, 1376298, 12, 65537, 1376299, 12, 65537, 1376300, 12, 65538, 1507326, 12, 65536, 1507327, 12, 65537, 1441792, 12, 65537, 1441793, 12, 65537, 1441794, 12, 65537, 1441795, 12, 65537, 1441796, 12, 65537, 1441797, 12, 65537, 1441798, 12, 65537, 1441799, 12, 65537, 1441800, 12, 65537, 1441801, 12, 65537, 1441802, 12, 65537, 1441803, 12, 65537, 1441804, 12, 65537, 1441805, 12, 65537, 1441806, 12, 65537, 1441807, 12, 65537, 1441808, 12, 65537, 1441809, 12, 65537, 1441810, 12, 65537, 1441811, 12, 65537, 1441812, 12, 65537, 1441813, 12, 65537, 1441814, 12, 65537, 1441815, 12, 65537, 1441816, 12, 65537, 1441817, 12, 65537, 1441818, 12, 65537, 1441819, 12, 65537, 1441820, 12, 65537, 1441821, 12, 65537, 1441822, 12, 65537, 1441823, 12, 65537, 1441824, 12, 65537, 1441825, 12, 65537, 1441826, 12, 65537, 1441827, 12, 65537, 1441828, 12, 65537, 1441829, 12, 65537, 1441830, 12, 65537, 1441831, 12, 65537, 1441832, 12, 65537, 1441833, 12, 65537, 1441834, 12, 65537, 1441835, 12, 65537, 1441836, 12, 65538, 1572862, 12, 65536, 1572863, 12, 65537, 1507328, 12, 65537, 1507329, 12, 65537, 1507330, 12, 65537, 1507331, 12, 65537, 1507332, 12, 65537, 1507333, 12, 65537, 1507334, 12, 65537, 1507335, 12, 65537, 1507336, 12, 65537, 1507337, 12, 65537, 1507338, 12, 65537, 1507339, 12, 65537, 1507340, 12, 65537, 1507341, 12, 65537, 1507342, 12, 65537, 1507343, 12, 65537, 1507344, 12, 65537, 1507345, 12, 65537, 1507346, 12, 65537, 1507347, 12, 65537, 1507348, 12, 65537, 1507349, 12, 65537, 1507350, 12, 65537, 1507351, 12, 65537, 1507352, 12, 65537, 1507353, 12, 65537, 1507354, 12, 65537, 1507355, 12, 65537, 1507356, 12, 65537, 1507357, 12, 65537, 1507358, 12, 65537, 1507359, 12, 65537, 1507360, 12, 65537, 1507361, 12, 65537, 1507362, 12, 65537, 1507363, 12, 65537, 1507364, 12, 65537, 1507365, 12, 65537, 1507366, 12, 65537, 1507367, 12, 65537, 1507368, 12, 65537, 1507369, 12, 65537, 1507370, 12, 65537, 1507371, 12, 65537, 1507372, 12, 65538, 1638398, 12, 65536, 1638399, 12, 65537, 1572864, 12, 65537, 1572865, 12, 65537, 1572866, 12, 65537, 1572867, 12, 65537, 1572868, 12, 65537, 1572869, 12, 65537, 1572870, 12, 65537, 1572871, 12, 65537, 1572872, 12, 65537, 1572873, 12, 65537, 1572874, 12, 65537, 1572875, 12, 65537, 1572876, 12, 65537, 1572877, 12, 65537, 1572878, 12, 65537, 1572879, 12, 65537, 1572880, 12, 65537, 1572881, 12, 65537, 1572882, 12, 65537, 1572883, 12, 65537, 1572884, 12, 65537, 1572885, 12, 65537, 1572886, 12, 65537, 1572887, 12, 65537, 1572888, 12, 65537, 1572889, 12, 65537, 1572890, 12, 65537, 1572891, 12, 65537, 1572892, 12, 65537, 1572893, 12, 65537, 1572894, 12, 65537, 1572895, 12, 65537, 1572896, 12, 65537, 1572897, 12, 65537, 1572898, 12, 65537, 1572899, 12, 65537, 1572900, 12, 65537, 1572901, 12, 65537, 1572902, 12, 65537, 1572903, 12, 65537, 1572904, 12, 65537, 1572905, 12, 65537, 1572906, 12, 65537, 1572907, 12, 65537, 1572908, 12, 65538, 1703934, 12, 131072, 1703935, 12, 131073, 1638400, 12, 131073, 1638401, 12, 131073, 1638402, 12, 131073, 1638403, 12, 131073, 1638404, 12, 131073, 1638405, 12, 131073, 1638406, 12, 131073, 1638407, 12, 131073, 1638408, 12, 131073, 1638409, 12, 131073, 1638410, 12, 131073, 1638411, 12, 131073, 1638412, 12, 131073, 1638413, 12, 131073, 1638414, 12, 131073, 1638415, 12, 131073, 1638416, 12, 131073, 1638417, 12, 131073, 1638418, 12, 131073, 1638419, 12, 131073, 1638420, 12, 131073, 1638421, 12, 131073, 1638422, 12, 131073, 1638423, 12, 131073, 1638424, 12, 131073, 1638425, 12, 131073, 1638426, 12, 131073, 1638427, 12, 131073, 1638428, 12, 131073, 1638429, 12, 131073, 1638430, 12, 131073, 1638431, 12, 131073, 1638432, 12, 131073, 1638433, 12, 131073, 1638434, 12, 131073, 1638435, 12, 131073, 1638436, 12, 131073, 1638437, 12, 131073, 1638438, 12, 131073, 1638439, 12, 131073, 1638440, 12, 131073, 1638441, 12, 131073, 1638442, 12, 131073, 1638443, 12, 131073, 1638444, 12, 131074 )
+position = Vector2(640, 360)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("36")
 
 [node name="AudioWalkPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 35 )
+stream = ExtResource("35")
 volume_db = -1.0
 
 [connection signal="finished" from="AudioWalkPlayer" to="." method="_on_AudioWalkPlayer_finished"]

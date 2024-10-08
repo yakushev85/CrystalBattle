@@ -51,9 +51,8 @@ func animate_move(a_label:Label, is_down=true):
 	else:
 		new_position.y = new_position.y - y_anim
 	
-	$Tween.interpolate_property(a_label, "position", 
-		a_label.position, new_position, moving_duration, 
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_callback(self, moving_duration+0.1, "queue_free")
-	$Tween.start()
-
+	var tween = create_tween()
+	tween.tween_property(a_label, "position", new_position, moving_duration)
+	tween.tween_callback(queue_free)
+	tween.play()
+	

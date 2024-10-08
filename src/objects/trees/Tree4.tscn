@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://7k4ix7mm61tt"]
 
-[ext_resource path="res://assets/map/objects/Trees/4.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://bhqy1ir6iu1vx" path="res://assets/map/Objects/Trees/4.png" id="1_u2crb"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.03081, 16.9996 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(18.0616, 33.9992)
 
 [node name="Tree4" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource( 1 )
+texture = ExtResource("1_u2crb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 14.9767, 22.9919 )
+position = Vector2(14.9767, 22.9919)
 rotation = 0.00773166
-shape = SubResource( 1 )
+shape = SubResource("1")

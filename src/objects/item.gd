@@ -14,7 +14,8 @@ func change_type(new_type):
 	set_type(new_type)
 	
 	$ChangeItemSprite.show()
-	$ChangeItemSprite.playing = true
+	$ChangeItemSprite.play()
+	
 
 func get_type():
 	return type
@@ -23,10 +24,10 @@ func _ready():
 	$ItemSprite.show()
 	
 	$ChangeItemSprite.hide()
-	$ChangeItemSprite.playing = false
+	$ChangeItemSprite.stop()
 	
 	$RemoveItemSprite.hide()
-	$RemoveItemSprite.playing = false
+	$RemoveItemSprite.stop()
 	
 func _process(delta):
 	if go_down_y <= 0 or position.y == go_down_y:
@@ -46,20 +47,20 @@ func go_down(gdy):
 	go_down_y = gdy
 
 func remove_with_animation():
-	if $ChangeItemSprite.playing == true:
-		$ChangeItemSprite.playing = false
+	if $ChangeItemSprite.is_playing():
+		$ChangeItemSprite.stop()
 		$ChangeItemSprite.hide()
 	
 	$ItemSprite.hide()
 	$RemoveItemSprite.show()
-	$RemoveItemSprite.playing = true
+	$RemoveItemSprite.play()
 
 func _on_RemoveItemSprite_animation_finished():
 	queue_free()
 
 
 func _on_ChangeItemSprite_animation_finished():
-	$ChangeItemSprite.playing = false
+	$ChangeItemSprite.stop()
 	$ChangeItemSprite.hide()
 	
 	$ItemSprite.show()
