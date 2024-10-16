@@ -56,6 +56,8 @@ func remove_with_animation():
 	$RemoveItemSprite.play()
 
 func _on_RemoveItemSprite_animation_finished():
+	$RemoveItemSprite.stop()
+	$RemoveItemSprite.hide()
 	queue_free()
 
 

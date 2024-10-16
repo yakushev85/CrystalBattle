@@ -5,27 +5,51 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
 
 [node name="MessageHint" type="Node2D"]
 script = ExtResource("2")
@@ -36,6 +60,7 @@ offset_right = 40.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(1, 0, 0, 0.776471)
 theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 32
 text = "- 999 hp"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -45,6 +70,7 @@ offset_right = 40.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(0.160784, 0.431373, 0.854902, 1)
 theme_override_fonts/font = SubResource("2")
+theme_override_font_sizes/font_size = 32
 text = "+ 999 hp"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,4 +80,5 @@ offset_right = 40.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(0.901961, 0.886275, 0.109804, 1)
 theme_override_fonts/font = SubResource("3")
+theme_override_font_sizes/font_size = 32
 text = "+ 999 hp"
