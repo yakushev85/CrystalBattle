@@ -1,12 +1,9 @@
 res://default_bus_layout.tres
 res://default_env.tres
-res://src/MainBattle.tscn
-res://src/objects/ui/PauseControl.tscn
-res://src/objects/ui/SpellBox.tscn
-res://src/objects/ui/MessageHint.tscn
+res://src/objects/ui/HealthBar.tscn
 res://src/StartScreen.tscn
 res://src/WorldMap.tscn
-res://src/objects/item.tscn
-res://src/objects/item.gd
-res://src/objects/ui/HealthBar.tscn
+res://src/MainBattle.tscn
 res://src/objects/ui/ManaBar.tscn
+res://src/objects/ui/Avatar.tscn
+res://src/objects/ui/Avatar.gd

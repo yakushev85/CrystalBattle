@@ -26,4 +26,3 @@ func damage():
 
 func stop_anim():
 	$AnimationPlayer.stop()
-

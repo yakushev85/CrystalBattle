@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj2w5ne2g1l85"]
+[gd_scene load_steps=8 format=3 uid="uid://dj2w5ne2g1l85"]
 
 [ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="1"]
 [ext_resource type="Script" path="res://src/objects/ui/HealthBar.gd" id="2"]
@@ -14,6 +14,18 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei4l4"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1duo"]
+bg_color = Color(1, 0, 0, 0.7)
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])
@@ -34,8 +46,11 @@ message_scene = ExtResource("3")
 offset_right = 300.0
 offset_bottom = 20.0
 theme_override_fonts/font = SubResource("1")
+theme_override_styles/background = SubResource("StyleBoxFlat_ei4l4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r1duo")
 step = 1.0
 value = 50.0
+show_percentage = false
 
 [node name="Label" type="Label" parent="."]
 offset_top = 2.0
