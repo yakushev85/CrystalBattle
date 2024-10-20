@@ -8,7 +8,8 @@ size = Vector2(10, 34)
 [node name="Tree2" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
+offset_left = -7.0
+offset_right = 33.0
 offset_bottom = 40.0
 texture = ExtResource("1_3gcqo")
 
