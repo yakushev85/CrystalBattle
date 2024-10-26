@@ -12,10 +12,11 @@ var is_player_moving = false
 var is_gfinished = false
 
 func _ready():
-	# TODO refactor to use fog
-	#$FogTileMap.z_index = 120
+	init_fog()
+	$FogTileMapLayer.z_index = 120
 	$UIGroup.z_index = 125
 	$UIGroup/FinishedLabel.hide()
+	
 			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
@@ -50,26 +51,58 @@ func _process(delta):
 		move_along_path(walk_distance)
 
 func clear_fog():
-	pass
-	# TODO refactor to use fog
-	#var cell_position = $FogTileMap.local_to_map($Player.position)
-	#Global.map_info.cfog_points.append(cell_position)
-	#clear_fog_p(cell_position)
+	var cell_position = $FogTileMapLayer.local_to_map($Player.position)
+	Global.map_info.cfog_points.append(cell_position)
+	clear_fog_p(cell_position)
 
 
 func clear_fog_p(cell_position):
 	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
 		for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
 			var current_position = Vector2(ix, iy)
-			# TODO refactor to use fog
-			#$FogTileMap.set_cellv(current_position, -1)
+			$FogTileMapLayer.set_cell(current_position, -1)
 	
-	#$FogTileMap.update_bitmask_region()
+	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
+		var ftop_position = Vector2(ix, cell_position.y-FOG_C_DIST-1)
+		var fbottom_position = Vector2(ix, cell_position.y+FOG_C_DIST)
+		
+		if $FogTileMapLayer.get_cell_atlas_coords(ftop_position) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(ftop_position, 0, Vector2i(1, 2), 0)
+			
+		if $FogTileMapLayer.get_cell_atlas_coords(fbottom_position) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(fbottom_position, 0, Vector2i(1, 0), 0)
+		
+	for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
+		var fleft_position = Vector2i(cell_position.x-FOG_C_DIST-1, iy)
+		var fright_position = Vector2i(cell_position.x+FOG_C_DIST, iy)
+		
+		if $FogTileMapLayer.get_cell_atlas_coords(fleft_position) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(fleft_position, 0, Vector2i(2, 1), 0)
+		
+		if $FogTileMapLayer.get_cell_atlas_coords(fright_position) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(fright_position, 0, Vector2i(0, 1), 0)
+	
+	var fcorners = [
+		Vector2i(cell_position.x-FOG_C_DIST-1, cell_position.y-FOG_C_DIST-1), 
+		Vector2i(cell_position.x+FOG_C_DIST, cell_position.y-FOG_C_DIST-1),
+		Vector2i(cell_position.x-FOG_C_DIST-1, cell_position.y+FOG_C_DIST),
+		Vector2i(cell_position.x+FOG_C_DIST, cell_position.y+FOG_C_DIST)
+		] 
+		
+	for i_corner in range(0, 4):
+		if $FogTileMapLayer.get_cell_atlas_coords(fcorners[i_corner]) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(fcorners[i_corner], 0, Vector2i(i_corner, 3), 0)
 
 
 func prepeare_fog():
 	for fog_item in Global.map_info.cfog_points:
 		clear_fog_p(fog_item)
+		
+		
+func init_fog():
+	for fog_x in range(0, (1280 / 32) + 1):
+		for fog_y in range(0, (720 / 32) + 1):
+			$FogTileMapLayer.set_cell(Vector2i(fog_x, fog_y), 0, Vector2i(1, 1), 0)
 
 
 func player_moving_done():

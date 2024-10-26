@@ -1,16 +1,4 @@
 res://default_bus_layout.tres
 res://default_env.tres
-res://src/objects/trees/Tree1.tscn
-res://src/objects/trees/Tree2.tscn
-res://src/objects/trees/Tree3.tscn
-res://src/objects/trees/Tree4.tscn
-res://src/objects/trees/Tree5.tscn
-res://src/objects/trees/Tree6.tscn
-res://src/objects/ruins/Ruin2.tscn
-res://src/objects/ruins/Ruin4.tscn
-res://src/StartScreen.tscn
 res://src/WorldMap.tscn
-res://src/MainBattle.tscn
-res://src/objects/ruins/Ruin1.tscn
-res://src/objects/ruins/Ruin3.tscn
-res://src/objects/ruins/Ruin5.tscn
+res://src/WorldMap.gd
