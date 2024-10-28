@@ -4,7 +4,7 @@ Puzzle game with rpg style and map.
 
 # Requirements
 
-Godot Engine v3.5.3, OpenJDK 11, Python 3
+Godot Engine v4.3.
 
 # Export to HTML
 
