@@ -17,6 +17,9 @@ func _ready():
 	$UIGroup.z_index = 125
 	$UIGroup/FinishedLabel.hide()
 	
+	#debug movement on map
+	#$BattleGroup.queue_free()
+	
 			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
@@ -59,28 +62,66 @@ func clear_fog():
 func clear_fog_p(cell_position):
 	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
 		for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
-			var current_position = Vector2(ix, iy)
+			var current_position = Vector2i(ix, iy)
 			$FogTileMapLayer.set_cell(current_position, -1)
 	
 	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
-		var ftop_position = Vector2(ix, cell_position.y-FOG_C_DIST-1)
-		var fbottom_position = Vector2(ix, cell_position.y+FOG_C_DIST)
+		var ftop_position = Vector2i(ix, cell_position.y-FOG_C_DIST-1)
 		
-		if $FogTileMapLayer.get_cell_atlas_coords(ftop_position) == Vector2i(1, 1):
-			$FogTileMapLayer.set_cell(ftop_position, 0, Vector2i(1, 2), 0)
+		if $FogTileMapLayer.get_cell_source_id(ftop_position) > -1:
+			var is_ftop_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(ftop_position.x-1, ftop_position.y)) == -1
+			var is_ftop_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(ftop_position.x+1, ftop_position.y)) == -1
+		
+			var atlas_item = Vector2i(1, 2)
+			if is_ftop_prev_blank and not is_ftop_next_blank:
+				atlas_item = Vector2i(0, 2)
+			elif not is_ftop_prev_blank and is_ftop_next_blank:
+				atlas_item = Vector2i(2, 2)
+				
+			$FogTileMapLayer.set_cell(ftop_position, 0, atlas_item, 0)
 			
-		if $FogTileMapLayer.get_cell_atlas_coords(fbottom_position) == Vector2i(1, 1):
-			$FogTileMapLayer.set_cell(fbottom_position, 0, Vector2i(1, 0), 0)
+		var fbottom_position = Vector2i(ix, cell_position.y+FOG_C_DIST)
+		
+		if $FogTileMapLayer.get_cell_source_id(fbottom_position) > -1:
+			var is_fbottom_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fbottom_position.x-1, fbottom_position.y)) == -1
+			var is_fbottom_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fbottom_position.x+1, fbottom_position.y)) == -1
+		
+			var atlas_item = Vector2i(1, 0)
+			if is_fbottom_prev_blank and not is_fbottom_next_blank:
+				atlas_item = Vector2i(0, 0)
+			elif not is_fbottom_prev_blank and is_fbottom_next_blank:
+				atlas_item = Vector2i(2, 0)
+			
+			$FogTileMapLayer.set_cell(fbottom_position, 0, atlas_item, 0)
 		
 	for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
 		var fleft_position = Vector2i(cell_position.x-FOG_C_DIST-1, iy)
+		
+		if $FogTileMapLayer.get_cell_source_id(fleft_position) > -1:
+			var is_fleft_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fleft_position.x, fleft_position.y-1)) == -1
+			var is_fleft_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fleft_position.x, fleft_position.y+1)) == -1
+		
+			var atlas_item = Vector2i(2, 1)
+			if is_fleft_prev_blank and not is_fleft_next_blank:
+				atlas_item = Vector2i(2, 0)
+			elif not is_fleft_prev_blank and is_fleft_next_blank:
+				atlas_item = Vector2i(2, 2)
+			
+			$FogTileMapLayer.set_cell(fleft_position, 0, atlas_item, 0)
+		
 		var fright_position = Vector2i(cell_position.x+FOG_C_DIST, iy)
 		
-		if $FogTileMapLayer.get_cell_atlas_coords(fleft_position) == Vector2i(1, 1):
-			$FogTileMapLayer.set_cell(fleft_position, 0, Vector2i(2, 1), 0)
+		if $FogTileMapLayer.get_cell_source_id(fright_position) > -1:
+			var is_fright_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fright_position.x, fright_position.y-1)) == -1
+			var is_fright_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fright_position.x, fright_position.y+1)) == -1
 		
-		if $FogTileMapLayer.get_cell_atlas_coords(fright_position) == Vector2i(1, 1):
-			$FogTileMapLayer.set_cell(fright_position, 0, Vector2i(0, 1), 0)
+			var atlas_item = Vector2i(0, 1)
+			if is_fright_prev_blank and not is_fright_next_blank:
+				atlas_item = Vector2i(0, 0)
+			elif not is_fright_prev_blank and is_fright_next_blank:
+				atlas_item = Vector2i(0, 2)
+			
+			$FogTileMapLayer.set_cell(fright_position, 0, atlas_item, 0)
 	
 	var fcorners = [
 		Vector2i(cell_position.x-FOG_C_DIST-1, cell_position.y-FOG_C_DIST-1), 
