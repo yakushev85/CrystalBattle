@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 
 [node name="Arrow2D" type="Polygon2D" parent="."]
 color = Color( 1, 1, 1, 0.431373 )
-polygon = PoolVector2Array( 0, 0, -32, -32, -16, -32, -16, -80, 16, -80, 16, -32, 32, -32 )
+polygon = PackedVector2Array( 0, 0, -32, -32, -16, -32, -16, -80, 16, -80, 16, -32, 32, -32 )

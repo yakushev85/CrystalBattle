@@ -43,7 +43,7 @@ func select_spell(v):
 	var selectedSpellNode = get_node(v) as TextureRect
 	selected_spell = v
 	
-	$SelectLabel.rect_position = selectedSpellNode.rect_position
+	$SelectLabel.position = selectedSpellNode.position
 	$SelectLabel.show()
 	
 	emit_signal("spell_selected")

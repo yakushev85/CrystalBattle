@@ -1,16 +1,16 @@
 extends Node2D
 
-export var enemy_health = 100
-export var enemy_damage = 1.5
-export var enemy_type = 1
-export var enemy_background = 1
-export var enemy_spells = []
-export var enemy_s_usage = 0
+@export var enemy_health = 100
+@export var enemy_damage = 1.5
+@export var enemy_type = 1
+@export var enemy_background = 1
+@export var enemy_spells = []
+@export var enemy_s_usage = 0
 
-export var award_health = 30
-export var award_mana = 10
-export var award_damage = 0.1
-export var award_spell = ""
+@export var award_health = 30
+@export var award_mana = 10
+@export var award_damage = 0.1
+@export var award_spell = ""
 
 func _ready():
 	if is_hidden():
@@ -36,11 +36,11 @@ func go_fight():
 	else:
 		Global.battle_info.award.spell = award_spell
 	
-	get_tree().change_scene("res://src/MainBattle.tscn")
+	get_tree().change_scene_to_file("res://src/MainBattle.tscn")
 
 
 func _on_BattleEntry_body_entered(body):
-	if body is KinematicBody2D and not is_hidden():
+	if body is CharacterBody2D and not is_hidden():
 		go_fight()
 
 func refresh_icon():

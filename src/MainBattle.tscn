@@ -1,91 +1,118 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=3 uid="uid://dl14jxmhwgs8t"]
 
-[ext_resource path="res://src/objects/item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/MainBattle.gd" type="Script" id=2]
-[ext_resource path="res://src/objects/ui/Avatar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/objects/ui/HealthBar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://src/objects/ui/SpellBox.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/objects/ui/ManaBar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/objects/ui/MessageHint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/icons/spells/enemy/8.png" type="Texture" id=9]
-[ext_resource path="res://src/objects/ui/PauseControl.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/sound/fire_explosion.wav" type="AudioStream" id=11]
-[ext_resource path="res://assets/sound/select_spell.wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/sound/lose.wav" type="AudioStream" id=13]
-[ext_resource path="res://assets/sound/win.wav" type="AudioStream" id=14]
+[ext_resource type="PackedScene" uid="uid://lg2wrwk18qfu" path="res://src/objects/item.tscn" id="1"]
+[ext_resource type="Script" path="res://src/MainBattle.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dth8sfhxwrcko" path="res://src/objects/ui/Avatar.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dj2w5ne2g1l85" path="res://src/objects/ui/HealthBar.tscn" id="4"]
+[ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="5"]
+[ext_resource type="PackedScene" uid="uid://2sl4px8rsn2y" path="res://src/objects/ui/SpellBox.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dm7h7ekv3dwi3" path="res://src/objects/ui/ManaBar.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://utepmund3668" path="res://src/objects/ui/MessageHint.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://do4aqkob0wmxx" path="res://assets/icons/spells/enemy/8.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://bly4iwxixhlv7" path="res://src/objects/ui/PauseControl.tscn" id="10"]
+[ext_resource type="AudioStream" uid="uid://baraq22fijg01" path="res://assets/sound/fire_explosion.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://ctp8k2whppy62" path="res://assets/sound/select_spell.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://d2sg51w7kc8w2" path="res://assets/sound/lose.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://dmkjlwi2birow" path="res://assets/sound/win.wav" id="14"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 20
-font_data = ExtResource( 5 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("5")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
 
-[sub_resource type="DynamicFont" id=2]
-size = 96
-font_data = ExtResource( 5 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("5")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/96/0/ascent = 0.0
+cache/0/96/0/descent = 0.0
+cache/0/96/0/underline_position = 0.0
+cache/0/96/0/underline_thickness = 0.0
+cache/0/96/0/scale = 1.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "PlayerTimer"
 tracks/0/type = "value"
-tracks/0/path = NodePath("MessageLabel:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fy8au"]
+_data = {
+"PlayerTimer": SubResource("3")
 }
 
 [node name="MainBattle" type="Node2D"]
-script = ExtResource( 2 )
-item_scene = ExtResource( 1 )
-message_hint = ExtResource( 8 )
+script = ExtResource("2")
+item_scene = ExtResource("1")
+message_hint = ExtResource("8")
 
 [node name="MessageGroup" type="Node2D" parent="."]
-position = Vector2( 500, 20 )
 z_index = 101
+position = Vector2(500, 20)
 
 [node name="MessageLabel" type="Label" parent="MessageGroup"]
-margin_right = 300.0
-margin_bottom = 18.0
-rect_pivot_offset = Vector2( 150, 9 )
-custom_fonts/font = SubResource( 1 )
+offset_right = 300.0
+offset_bottom = 18.0
+pivot_offset = Vector2(150, 9)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 20
 text = "Prepearing..."
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BigLabel" type="Label" parent="MessageGroup"]
-margin_top = 300.0
-margin_right = 40.0
-margin_bottom = 314.0
-custom_fonts/font = SubResource( 2 )
+offset_top = 300.0
+offset_right = 40.0
+offset_bottom = 314.0
+theme_override_fonts/font = SubResource("2")
+theme_override_font_sizes/font_size = 96
 text = "You win!"
-align = 1
+horizontal_alignment = 1
 
 [node name="MessageAnimationPlayer" type="AnimationPlayer" parent="MessageGroup"]
-anims/PlayerTimer = SubResource( 3 )
+libraries = {
+"": SubResource("AnimationLibrary_fy8au")
+}
 
-[node name="EnemyHealthBar" parent="." instance=ExtResource( 4 )]
-position = Vector2( 960, 20 )
+[node name="EnemyHealthBar" parent="." instance=ExtResource("4")]
 z_index = 100
+position = Vector2(960, 20)
 
-[node name="PlayerAvatar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 17, 80 )
+[node name="PlayerAvatar" parent="." instance=ExtResource("3")]
 z_index = 101
+position = Vector2(17, 80)
 
-[node name="PlayerHealthBar" parent="." instance=ExtResource( 4 )]
-position = Vector2( 20, 20 )
+[node name="PlayerHealthBar" parent="." instance=ExtResource("4")]
 z_index = 100
+position = Vector2(20, 20)
 
-[node name="PlayerManaBar" parent="." instance=ExtResource( 7 )]
-position = Vector2( 20, 50 )
+[node name="PlayerManaBar" parent="." instance=ExtResource("7")]
 z_index = 101
+position = Vector2(20, 50)
 
-[node name="EnemyAvatar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1200, 50 )
+[node name="EnemyAvatar" parent="." instance=ExtResource("3")]
 z_index = 101
+position = Vector2(1200, 50)
 is_enemy = true
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -112,44 +139,44 @@ one_shot = true
 [node name="BackgroundGroup" type="Node2D" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundGroup"]
-margin_top = -300.0
-margin_right = 3840.0
-margin_bottom = 1860.0
-rect_scale = Vector2( 0.5, 0.5 )
+offset_top = -300.0
+offset_right = 3840.0
+offset_bottom = 1860.0
+scale = Vector2(0.5, 0.5)
 
-[node name="PlayerSpellBox" parent="." instance=ExtResource( 6 )]
-position = Vector2( 17, 180 )
+[node name="PlayerSpellBox" parent="." instance=ExtResource("6")]
+position = Vector2(17, 180)
 
 [node name="EnemySpell" type="Node2D" parent="."]
 
 [node name="EnemySpellRect" type="TextureRect" parent="EnemySpell"]
-margin_left = 1128.0
-margin_top = 64.0
-margin_right = 1640.0
-margin_bottom = 576.0
-rect_scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 9 )
+offset_left = 1128.0
+offset_top = 64.0
+offset_right = 1640.0
+offset_bottom = 576.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9")
 
 [node name="UIControlGroup" type="Node2D" parent="."]
 z_index = 120
 
-[node name="PauseControl" parent="UIControlGroup" instance=ExtResource( 10 )]
-position = Vector2( 24, 672 )
+[node name="PauseControl" parent="UIControlGroup" instance=ExtResource("10")]
+position = Vector2(24, 672)
 
 [node name="AudioFirePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource("11")
 volume_db = -1.0
 
 [node name="AudioSelectSpellPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource("12")
 volume_db = -1.0
 
 [node name="AudioLosePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource("13")
 volume_db = -1.0
 
 [node name="AudioWinPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource("14")
 volume_db = -1.0
 
 [connection signal="enemy_won" from="." to="." method="_on_MainBattle_enemy_won"]

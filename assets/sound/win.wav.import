@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/win.wav-71b5844097be534f75738a4836ce0076.sample"
+type="AudioStreamWAV"
+uid="uid://dmkjlwi2birow"
+path="res://.godot/imported/win.wav-71b5844097be534f75738a4836ce0076.sample"
 
 [deps]
 
 source_file="res://assets/sound/win.wav"
-dest_files=[ "res://.import/win.wav-71b5844097be534f75738a4836ce0076.sample" ]
+dest_files=["res://.godot/imported/win.wav-71b5844097be534f75738a4836ce0076.sample"]
 
 [params]
 

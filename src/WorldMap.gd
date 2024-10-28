@@ -2,7 +2,7 @@ extends Node2D
 
 const FOG_C_DIST = 4
 
-export (PackedScene) var arrow_scene
+@export var arrow_scene: PackedScene
 
 var current_arrow
 
@@ -12,9 +12,14 @@ var is_player_moving = false
 var is_gfinished = false
 
 func _ready():
-	$FogTileMap.z_index = 120
+	init_fog()
+	$FogTileMapLayer.z_index = 120
 	$UIGroup.z_index = 125
 	$UIGroup/FinishedLabel.hide()
+	
+	#debug movement on map
+	#$BattleGroup.queue_free()
+	
 			
 	if Global.player_info.position != Vector2.ZERO:
 		$Player.position = Global.player_info.position
@@ -37,7 +42,7 @@ func _input(event):
 	if event is InputEventMouseButton and not (event as InputEventMouseButton).is_pressed():
 		if is_gfinished:
 			Global.reset_newgame_data()
-			get_tree().change_scene("res://src/StartScreen.tscn")
+			get_tree().change_scene_to_file("res://src/StartScreen.tscn")
 		else:
 			$Player.event_position = event.position
 			_update_navigation_path($Player.position, event.position)
@@ -49,7 +54,7 @@ func _process(delta):
 		move_along_path(walk_distance)
 
 func clear_fog():
-	var cell_position = $FogTileMap.world_to_map($Player.position)
+	var cell_position = $FogTileMapLayer.local_to_map($Player.position)
 	Global.map_info.cfog_points.append(cell_position)
 	clear_fog_p(cell_position)
 
@@ -57,15 +62,88 @@ func clear_fog():
 func clear_fog_p(cell_position):
 	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
 		for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
-			var current_position = Vector2(ix, iy)
-			$FogTileMap.set_cellv(current_position, -1)
+			var current_position = Vector2i(ix, iy)
+			$FogTileMapLayer.set_cell(current_position, -1)
 	
-	$FogTileMap.update_bitmask_region()
+	for ix in range(cell_position.x-FOG_C_DIST, cell_position.x+FOG_C_DIST):
+		var ftop_position = Vector2i(ix, cell_position.y-FOG_C_DIST-1)
+		
+		if $FogTileMapLayer.get_cell_source_id(ftop_position) > -1:
+			var is_ftop_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(ftop_position.x-1, ftop_position.y)) == -1
+			var is_ftop_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(ftop_position.x+1, ftop_position.y)) == -1
+		
+			var atlas_item = Vector2i(1, 2)
+			if is_ftop_prev_blank and not is_ftop_next_blank:
+				atlas_item = Vector2i(0, 2)
+			elif not is_ftop_prev_blank and is_ftop_next_blank:
+				atlas_item = Vector2i(2, 2)
+				
+			$FogTileMapLayer.set_cell(ftop_position, 0, atlas_item, 0)
+			
+		var fbottom_position = Vector2i(ix, cell_position.y+FOG_C_DIST)
+		
+		if $FogTileMapLayer.get_cell_source_id(fbottom_position) > -1:
+			var is_fbottom_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fbottom_position.x-1, fbottom_position.y)) == -1
+			var is_fbottom_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fbottom_position.x+1, fbottom_position.y)) == -1
+		
+			var atlas_item = Vector2i(1, 0)
+			if is_fbottom_prev_blank and not is_fbottom_next_blank:
+				atlas_item = Vector2i(0, 0)
+			elif not is_fbottom_prev_blank and is_fbottom_next_blank:
+				atlas_item = Vector2i(2, 0)
+			
+			$FogTileMapLayer.set_cell(fbottom_position, 0, atlas_item, 0)
+		
+	for iy in range(cell_position.y-FOG_C_DIST, cell_position.y+FOG_C_DIST):
+		var fleft_position = Vector2i(cell_position.x-FOG_C_DIST-1, iy)
+		
+		if $FogTileMapLayer.get_cell_source_id(fleft_position) > -1:
+			var is_fleft_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fleft_position.x, fleft_position.y-1)) == -1
+			var is_fleft_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fleft_position.x, fleft_position.y+1)) == -1
+		
+			var atlas_item = Vector2i(2, 1)
+			if is_fleft_prev_blank and not is_fleft_next_blank:
+				atlas_item = Vector2i(2, 0)
+			elif not is_fleft_prev_blank and is_fleft_next_blank:
+				atlas_item = Vector2i(2, 2)
+			
+			$FogTileMapLayer.set_cell(fleft_position, 0, atlas_item, 0)
+		
+		var fright_position = Vector2i(cell_position.x+FOG_C_DIST, iy)
+		
+		if $FogTileMapLayer.get_cell_source_id(fright_position) > -1:
+			var is_fright_prev_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fright_position.x, fright_position.y-1)) == -1
+			var is_fright_next_blank = $FogTileMapLayer.get_cell_source_id(Vector2i(fright_position.x, fright_position.y+1)) == -1
+		
+			var atlas_item = Vector2i(0, 1)
+			if is_fright_prev_blank and not is_fright_next_blank:
+				atlas_item = Vector2i(0, 0)
+			elif not is_fright_prev_blank and is_fright_next_blank:
+				atlas_item = Vector2i(0, 2)
+			
+			$FogTileMapLayer.set_cell(fright_position, 0, atlas_item, 0)
+	
+	var fcorners = [
+		Vector2i(cell_position.x-FOG_C_DIST-1, cell_position.y-FOG_C_DIST-1), 
+		Vector2i(cell_position.x+FOG_C_DIST, cell_position.y-FOG_C_DIST-1),
+		Vector2i(cell_position.x-FOG_C_DIST-1, cell_position.y+FOG_C_DIST),
+		Vector2i(cell_position.x+FOG_C_DIST, cell_position.y+FOG_C_DIST)
+		] 
+		
+	for i_corner in range(0, 4):
+		if $FogTileMapLayer.get_cell_atlas_coords(fcorners[i_corner]) == Vector2i(1, 1):
+			$FogTileMapLayer.set_cell(fcorners[i_corner], 0, Vector2i(i_corner, 3), 0)
 
 
 func prepeare_fog():
 	for fog_item in Global.map_info.cfog_points:
 		clear_fog_p(fog_item)
+		
+		
+func init_fog():
+	for fog_x in range(0, (1280 / 32) + 1):
+		for fog_y in range(0, (720 / 32) + 1):
+			$FogTileMapLayer.set_cell(Vector2i(fog_x, fog_y), 0, Vector2i(1, 1), 0)
 
 
 func player_moving_done():
@@ -93,7 +171,7 @@ func player_moving_start():
 
 func create_arrow():
 	if current_arrow == null:
-		current_arrow = arrow_scene.instance()
+		current_arrow = arrow_scene.instantiate()
 		add_child(current_arrow)
 		
 	current_arrow.set_arrow_position($Player.event_position)
@@ -108,18 +186,18 @@ func hide_arrow():
 
 
 func setup_navserver():
-	map = Navigation2DServer.map_create()
-	Navigation2DServer.map_set_active(map, true)
+	map = NavigationServer2D.map_create()
+	NavigationServer2D.map_set_active(map, true)
 
-	var region = Navigation2DServer.region_create()
-	Navigation2DServer.region_set_transform(region, Transform())
-	Navigation2DServer.region_set_map(region, map)
+	var region = NavigationServer2D.region_create()
+	NavigationServer2D.region_set_transform(region, Transform3D())
+	NavigationServer2D.region_set_map(region, map)
 
 	var navigation_poly = NavigationMesh.new()
-	navigation_poly = $NavGroup/NavigationPolygonInstance.navpoly
-	Navigation2DServer.region_set_navpoly(region, navigation_poly)
+	navigation_poly = $NavGroup/NavigationRegion2D.navigation_polygon
+	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
 
-	yield(get_tree(), "physics_frame")
+	await get_tree().physics_frame
 
 
 func move_along_path(distance):
@@ -128,14 +206,14 @@ func move_along_path(distance):
 		var distance_between_points = last_point.distance_to(path[0])
 		
 		if distance <= distance_between_points:
-			$Player.position = last_point.linear_interpolate(path[0], distance / distance_between_points)
+			$Player.position = last_point.lerp(path[0], distance / distance_between_points)
 			return
 		
 		clear_fog()
 		
 		distance -= distance_between_points
 		last_point = path[0]
-		path.remove(0)
+		path.remove_at(0)
 	
 	$Player.position = last_point
 	is_player_moving = false
@@ -143,8 +221,8 @@ func move_along_path(distance):
 
 
 func _update_navigation_path(start_position, end_position):
-	path = Navigation2DServer.map_get_path(map,start_position, end_position, true)
-	path.remove(0)
+	path = NavigationServer2D.map_get_path(map,start_position, end_position, true)
+	path.remove_at(0)
 	is_player_moving = true
 	player_moving_start()
 

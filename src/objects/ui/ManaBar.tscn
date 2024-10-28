@@ -1,43 +1,59 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://dm7h7ekv3dwi3"]
 
-[ext_resource path="res://assets/fonts/WigglyCurvesRegular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://src/objects/ui/ManaBar.gd" type="Script" id=2]
-[ext_resource path="res://src/objects/ui/MessageHint.tscn" type="PackedScene" id=3]
+[ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="1"]
+[ext_resource type="Script" path="res://src/objects/ui/ManaBar.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://utepmund3668" path="res://src/objects/ui/MessageHint.tscn" id="3"]
 
-[sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.0313726, 0, 1, 0.776471 )
-border_color = Color( 0, 0, 0, 0.705882 )
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0uwq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.6, 0.6, 0.6, 0.462745 )
-border_color = Color( 0, 0, 0, 0.705882 )
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib7dp"]
+bg_color = Color(0.3, 0, 1, 0.7)
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="ManaBar" type="Node2D"]
-script = ExtResource( 2 )
-message_scene = ExtResource( 3 )
+script = ExtResource("2")
+message_scene = ExtResource("3")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_right = 300.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 5 )
-custom_styles/fg = SubResource( 6 )
-custom_styles/bg = SubResource( 7 )
+offset_right = 300.0
+offset_bottom = 20.0
+theme_override_fonts/font = SubResource("5")
+theme_override_styles/background = SubResource("StyleBoxFlat_w0uwq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ib7dp")
 step = 1.0
 value = 50.0
-percent_visible = false
+show_percentage = false
 
 [node name="Label" type="Label" parent="."]
-margin_top = 2.0
-margin_right = 296.0
-margin_bottom = 26.0
-custom_fonts/font = SubResource( 4 )
+offset_top = 2.0
+offset_right = 296.0
+offset_bottom = 26.0
+theme_override_fonts/font = SubResource("4")
 text = "0"
-align = 1
+horizontal_alignment = 1

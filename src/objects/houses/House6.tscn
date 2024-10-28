@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cnq6drnyfybwk"]
 
-[ext_resource path="res://assets/map/objects/Houses/6.png" type="Texture" id=1]
+[ext_resource type="Texture2D" uid="uid://7f8g1bh2l3kv" path="res://assets/map/Objects/Houses/6.png" id="1_7q5kg"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 8 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(24, 16)
 
 [node name="House6" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 1 )
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7q5kg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 12, 8 )
-shape = SubResource( 1 )
+position = Vector2(12, 8)
+shape = SubResource("1")

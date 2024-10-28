@@ -1,7 +1,7 @@
 extends Node2D
 
-export var y_anim = 200
-export var moving_duration = 1
+@export var y_anim = 200
+@export var moving_duration = 1
 var is_moving_down = true
 
 func _ready():
@@ -44,16 +44,15 @@ func do_movement():
 
 
 func animate_move(a_label:Label, is_down=true):
-	var new_position = a_label.rect_position
+	var new_position = a_label.position
 	
 	if is_down:
 		new_position.y = new_position.y + y_anim
 	else:
 		new_position.y = new_position.y - y_anim
 	
-	$Tween.interpolate_property(a_label, "rect_position", 
-		a_label.rect_position, new_position, moving_duration, 
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_callback(self, moving_duration+0.1, "queue_free")
-	$Tween.start()
-
+	var tween = create_tween()
+	tween.tween_property(a_label, "position", new_position, moving_duration)
+	tween.tween_callback(queue_free)
+	tween.play()
+	

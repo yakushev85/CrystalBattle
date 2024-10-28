@@ -3,12 +3,12 @@ extends Node2D
 signal enemy_won
 signal player_won
 
-export (PackedScene) var item_scene
-export (PackedScene) var message_hint
-export var item_size = 80
+@export var item_scene: PackedScene
+@export var message_hint: PackedScene
+@export var item_size = 80
 
-export var game_area_x = 320
-export var game_area_y = 64
+@export var game_area_x = 320
+@export var game_area_y = 64
 
 var player_health = 100
 var player_mana = 100
@@ -196,7 +196,7 @@ func generate_matrix():
 		play_matrix.append([])
 		
 		for my in range(N):
-			var item = item_scene.instance()
+			var item = item_scene.instantiate()
 			
 			if Global.battle_info.status == "IN":
 				item.set_type(Global.battle_info.c_play_matrix[mx][my])
@@ -328,7 +328,7 @@ func move_upper_lines():
 		
 		if priz:
 			# create new item
-			var item = item_scene.instance()
+			var item = item_scene.instantiate()
 			item.set_type((randi() % M) + 1)
 			item.position.x = game_area_x + item_size*empty_mx + item_size/2
 			item.position.y = game_area_y - item_size*(N-empty_my+3) + item_size/2
@@ -473,7 +473,7 @@ func _on_MainBattle_player_won():
 
 
 func _on_FinishTimer_timeout():
-	get_tree().change_scene("res://src/WorldMap.tscn")
+	get_tree().change_scene_to_file("res://src/WorldMap.tscn")
 
 
 func check_spells():
@@ -604,7 +604,7 @@ func show_win_rewards():
 func _on_RewardTimer_timeout():
 	if rewards_messages.size() > rewards_index:
 		var new_message = rewards_messages[rewards_index]
-		var reward_message_hint = message_hint.instance()
+		var reward_message_hint = message_hint.instantiate()
 		reward_message_hint.z_index = 130
 		reward_message_hint.position.x = 576
 		reward_message_hint.position.y = 10
@@ -637,7 +637,7 @@ func _on_PlayerSpellBox_spell_selected():
 	if selected_spell.description == null:
 		return
 	
-	var spell_hint = message_hint.instance()
+	var spell_hint = message_hint.instantiate()
 	spell_hint.z_index = 130
 	spell_hint.position.x = 330
 	spell_hint.position.y = 10

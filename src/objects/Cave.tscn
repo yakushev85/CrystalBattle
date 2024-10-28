@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c3h7wqct0vqjs"]
 
-[ext_resource path="res://assets/map/objects/Other/Cave_enter.png" type="Texture" id=1]
+[ext_resource type="Texture2D" uid="uid://ce81i10wywabk" path="res://assets/map/Objects/Other/Cave_enter.png" id="1_742q2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29, 25 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(58, 50)
 
 [node name="Cave" type="StaticBody2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 1 )
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_742q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 35, 31 )
-shape = SubResource( 1 )
+position = Vector2(35, 31)
+shape = SubResource("1")
