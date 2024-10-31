@@ -1,6 +1,6 @@
 # CrystalBattle
 
-Puzzle game with rpg style and map. lay online here: https://yakushev85.github.io/CrystalBattle.html
+Puzzle game with rpg style and map. Play online here: https://yakushev85.github.io/CrystalBattle.html
 
 # Requirements
 
