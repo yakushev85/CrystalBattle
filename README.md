@@ -1,8 +1,8 @@
 ![Alt text](logo1.png)
 
-# CrystalBattle
+# Description
 
-Puzzle game with rpg style and map. Play online here: https://yakushev85.github.io/CrystalBattle.html
+Simple puzzle game with adventuring on map style. The game contains over 27 opponents and 6 different spells. Map can be explored to achieve new spells and increasing stats. Play online here: https://yakushev85.github.io/CrystalBattle.html
 
 # Requirements
 
