@@ -1,3 +1,5 @@
+![Alt text](logo1.png)
+
 # CrystalBattle
 
 Puzzle game with rpg style and map. Play online here: https://yakushev85.github.io/CrystalBattle.html
