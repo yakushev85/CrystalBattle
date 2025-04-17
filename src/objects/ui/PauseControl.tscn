@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bly4iwxixhlv7"]
 
 [ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="1"]
-[ext_resource type="Script" path="res://src/objects/ui/PauseControl.gd" id="2"]
+[ext_resource type="Script" uid="uid://b1iitn8gyecym" path="res://src/objects/ui/PauseControl.gd" id="2"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])

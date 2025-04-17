@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c62kos13c6c3e" path="res://assets/icons/spells/player/48.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bxv75ngrpmrq3" path="res://assets/icons/spells/player/40.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://ymq1t13dpxqs" path="res://assets/icons/spells/player/32.png" id="6"]
-[ext_resource type="Script" path="res://src/objects/ui/SpellBox.gd" id="7"]
+[ext_resource type="Script" uid="uid://tfxeyjbf1u5s" path="res://src/objects/ui/SpellBox.gd" id="7"]
 [ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="8"]
 
 [sub_resource type="FontFile" id="1"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dm7h7ekv3dwi3"]
 
 [ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="1"]
-[ext_resource type="Script" path="res://src/objects/ui/ManaBar.gd" id="2"]
+[ext_resource type="Script" uid="uid://btoalolphl5oi" path="res://src/objects/ui/ManaBar.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://utepmund3668" path="res://src/objects/ui/MessageHint.tscn" id="3"]
 
 [sub_resource type="FontFile" id="5"]

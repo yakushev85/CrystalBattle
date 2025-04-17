@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b6k4bf8m3aj8x"]
 
 [ext_resource type="FontFile" uid="uid://8k3yck5k4s37" path="res://assets/fonts/WigglyCurvesRegular.ttf" id="1"]
-[ext_resource type="Script" path="res://src/StartScreen.gd" id="2"]
+[ext_resource type="Script" uid="uid://8o0xj7f2o6g5" path="res://src/StartScreen.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://qn1l3wywy1ef" path="res://assets/fonts/CloisterBlackLight-axjg.ttf" id="3"]
 [ext_resource type="PackedScene" uid="uid://dv0vbiuqxg3x6" path="res://src/objects/crystals/Crystal1.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://d2ctk2q0qa83m" path="res://src/objects/crystals/Crystal2.tscn" id="5"]
