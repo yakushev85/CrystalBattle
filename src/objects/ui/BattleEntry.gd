@@ -41,7 +41,7 @@ func go_fight():
 
 func _on_BattleEntry_body_entered(body):
 	if body is CharacterBody2D and not is_hidden():
-		go_fight()
+		call_deferred("go_fight")
 
 func refresh_icon():
 	var texture_path = "res://assets/icons/enemy/con" + str(enemy_type+9) + ".png"
