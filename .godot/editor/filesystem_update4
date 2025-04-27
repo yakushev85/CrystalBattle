@@ -1,7 +1,7 @@
 res://default_bus_layout.tres
 res://default_env.tres
 res://src/WorldMap.tscn
+res://src/WorldMap.gd
 res://src/MainBattle.tscn
 res://src/StartScreen.tscn
-res://src/objects/ui/BattleEntry.gd
 res://src/objects/ui/BattleEntry.tscn
